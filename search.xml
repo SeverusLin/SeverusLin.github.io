@@ -4,6 +4,39 @@
   
     
     <entry>
+      <title>Notes for Functional Analysis by Walter Rudin (Introduction of Chap.1)</title>
+      <link href="/2021/08/17/Rudin%E6%B3%9B%E5%87%BD%E7%AC%94%E8%AE%B0/"/>
+      <url>/2021/08/17/Rudin%E6%B3%9B%E5%87%BD%E7%AC%94%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Chapter-1-Topological-Vector-Spaces"><a href="#Chapter-1-Topological-Vector-Spaces" class="headerlink" title="Chapter 1 Topological Vector Spaces"></a>Chapter 1 Topological Vector Spaces</h2><span id="more"></span><h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><h4 id="1-1"><a href="#1-1" class="headerlink" title="1.1"></a>1.1</h4><p>We consider those vector spaces supplied with metrics, or at least with topologies, that bear some natural relation to the objects of which the spaces are made up. </p><p>Protagonist, <strong>norm</strong> $\longrightarrow$​​ <strong>normed (vector/linear) space​</strong></p><p>The vector spaces considered are over number field $\mathbb{R}$​ or $\mathbb{C}$​​​. (For the sake of completeness)</p><h4 id="1-2-Normed-spaces"><a href="#1-2-Normed-spaces" class="headerlink" title="1.2 Normed spaces"></a>1.2 Normed spaces</h4><blockquote><p>A vector space $X$ is said to be a <strong>normed space</strong> if to every $x \in X$ there is associated a nonnegative real number $|x|$, called the <strong>norm​</strong> of $x$, in such way that</p><p><em>(a)</em> $|x+y|\leq |x|+|y|$​ for all $x$​ and $y$​ in $X$​,</p><p><em>(b)</em> $|\alpha x|=|\alpha||x|$​ if  $x\in X$ and $\alpha$ is a scalar,</p><p><em>(c)</em> $|x|&gt;0$ if $x\neq0$.</p></blockquote><p>A norm can also be regarded as a map $|\cdot|:X\to\mathbb{R}$.</p><p>Then, if we consider distance $d(x,y)$ between $x$ and $y$ is $|x-y|$​, we could regard every normed space as a metric space with these properties of map $d: X\times X\to \mathbb{R}$.</p><blockquote><p><em>(i)</em> $0\leq d(x,y)&lt;\infty$ for all $x$ and $y$​,</p><p><em>(ii)</em> $d(x,y)=0$ iff $x=y$​, </p><p><em>(iii)</em> $d(x,y)=d(y,x)$ for for all $x$ and $y$,</p><p><em>(iv)</em> $d(x,z)\leq d(x,y)+d(y,z)$ for all $x,y,z$.</p></blockquote><p><strong>Open ball</strong> is the set</p><blockquote><p>$B_r(x)=\left\{y:d(x,y)&lt;r\right\}$.</p></blockquote><p>If $r=1$​​​ , it is said to be unit and if ‘$&lt;$​​​​ ‘ is replaced by ‘$\leq$’, it is said to be closed.</p><blockquote><p>A <strong>Banach space</strong> is a normed space which is <strong>complete</strong> in metric defined by its normed.</p></blockquote><h4 id="1-3-Examples"><a href="#1-3-Examples" class="headerlink" title="1.3 Examples"></a>1.3 Examples</h4><p>Some best-known function spaces (Banach spaces)</p><blockquote><ul><li>Spaces of continuous functions on compact spaces;</li><li>$L^p$-space;</li><li>Hilbert space;</li><li>Certain spaces of differentiable functions;</li><li>Spaces of continuous linear mappings from one Banach space into another;</li><li>Banach Algebra.</li></ul></blockquote><p>Some spaces do not fit the framework above</p><blockquote><p><em>(a)</em> $C(\varOmega)$​ , continuous complex functions. $\varOmega$ is an open set of $\mathbb{R}^n$;</p><p><em>(b)</em> $H(\varOmega)$, holomorphic functions. $\varOmega$ is an open set in complex plane;</p><p><em>(c)</em> $C_K^\infty$, infinitely differentiable complex functions on $\mathbb{R}^n$ that vanish outside some fixed compact set $K$ with nonempty interior.</p><p><em>(d)</em> The test function spaces used in theory of distributions, and the distributions themselves.</p></blockquote><p>These spaces carry natural topologies that cannot be induced by norms. (That is why <strong>topological vector spaces</strong> are introduced.)</p><h4 id="1-4-Vector-spaces"><a href="#1-4-Vector-spaces" class="headerlink" title="1.4 Vector spaces"></a>1.4 Vector spaces</h4><p>Let $\mathbb{F}$ be $\mathbb{R}$ or $\mathbb{C}$​. A <strong>scalar</strong> is a member of <strong>scalar field</strong> $\mathbb{F}$​.</p><p>The definition of vector spaces is introduced in <em>Algebra</em>. $(X,+,\cdot)$</p><p>Some notations</p><blockquote><p>If $X$​ is a vector space, $A\subset X, B\subset X, x\in X$​, and $\lambda\in\mathbb{F}$, </p><p>$x\pm A=\{x\pm a:a\in A\}$​</p><p>$A+B=\{a+b:a\in A, b\in B\}$</p><p>$\lambda A=\{\lambda a: a\in A\}$</p></blockquote><p>Convexity</p><blockquote><p>A set $C\subset X$ is said to be <strong>convex</strong> if </p><script type="math/tex; mode=display">tC+(1-t)C\subset C,\quad (0\leq t\leq 1).</script></blockquote><p>Balance</p><blockquote><p>A set $B\subset X$​​ is said to be <strong>balanced</strong> if $\alpha B\subset B$ for all $|\alpha|\leq 1$.​</p></blockquote><h4 id="1-5-Topological-spaces"><a href="#1-5-Topological-spaces" class="headerlink" title="1.5 Topological spaces"></a>1.5 Topological spaces</h4><p>Find more in <em>Topology</em>.</p><blockquote><p>If a topology $\tau$ is induced by a metric $d$ we say that $d$ and $\tau$ are <strong>compatible</strong> with each other.</p></blockquote><h4 id="1-6-Topological-vector-spaces"><a href="#1-6-Topological-vector-spaces" class="headerlink" title="1.6 Topological vector spaces"></a>1.6 Topological vector spaces</h4><blockquote><p>Suppose $\tau$ is a topology on a vector space $X$ such that</p><p><em>(a)</em> every point if $X$ is a closed set, and</p><p><em>(b)</em> the vector space operations are continuous with respect to $\tau$.</p></blockquote><p>Then, $\tau$ is said to be a <strong>vector topology</strong> on $X$, and $X$ is a <strong>topological vector space</strong>.</p><blockquote><p><em>(a)</em> and <em>(b)</em> together imply that $\tau$ is a Hausdorff topology. </p></blockquote><p>A more precise way of stating <em>(b)</em></p><blockquote><p>If $x_i\in X$ for $i=1,2$, and if $V$ is a neighborhood of $x_1+x_2$, there should exist neighborhood $V_i$ of $x_i$ such that $V_1+V_2\subset V$​.</p><p>Which means map </p><script type="math/tex; mode=display">X\times X\to X,\quad(x,y)\mapsto x+y</script><p> is continuous.​​</p><p>If $x\in X$, $\alpha$ is a scalar, and $V$ is a neighborhood of $\alpha x$, then for some $r&gt;0$ and some neighborhood $W$ of $x$ we have $\beta W\subset V$ whenever $|\beta-\alpha|&lt;r$​.</p><p>Which means map </p><script type="math/tex; mode=display">\mathbb{F}\times X\to X,\quad (\alpha,y)\mapsto \alpha x</script><p>is continuous.</p></blockquote><h4 id="1-7-Invariance"><a href="#1-7-Invariance" class="headerlink" title="1.7 Invariance"></a>1.7 Invariance</h4><p>Let $X$ be a topological vector space.</p><p><strong>Translation operator</strong> $T_a:x\mapsto x+a$​ with $a\in X$​​ </p><p><strong>Multiplication operator</strong> $M_\lambda:x\mapsto \lambda x$ with scalar $\lambda\neq 0$</p><blockquote><p><strong>Proposition.</strong> $T_a$ and $M_\lambda$ are homeomorphisms of $X$ onto $X$.</p></blockquote><p>Every vector topology $\tau$​​​ is <strong>translation-invariant</strong>: A set $E\subset X$​ is open iff each of its translates $a+E$ is open. Thus $\tau$​ is completely determined by any <strong>local base</strong> (a local base at $0$).</p><p>Moreover, a metric $d$ on $X$​​ will be called <strong>invariant</strong> if </p><script type="math/tex; mode=display">d(x+z,y+z)=d(x,y)</script><p>for all $x,y,z\in X$.</p><h4 id="1-8-Types-of-topological-vector-spaces"><a href="#1-8-Types-of-topological-vector-spaces" class="headerlink" title="1.8 Types of topological vector spaces"></a>1.8 Types of topological vector spaces</h4><p>Topological space $(X,\tau)$.</p><blockquote><p><em>(a)</em> $X$​​ is <strong>locally convex</strong> if there is a local base $\mathscr{B}$ whose members are convex.</p><p><em>(b)</em> $X$ is <strong>locally bounded</strong> if $0$ has a bounded neighborhood.</p><p><em>(c)</em> $X$​​ is <strong>locally compact</strong> if $0$​ has a neighborhood whose closure is compact.</p><p><em>(d)</em> $X$ is <strong>metrizable</strong> if $\tau$ is compatible with some metric $d$. </p><p><em>(e)</em> $X$ is an $F$-space if its topology $\tau$ is induced by a complete invariant metric $d$.</p><p><em>(f)</em> $X$​​ is a <strong>Fréchet space</strong> if $X$ is a locally convex $F$-space.</p><p><em>(g)</em> $X$ is <strong>normable</strong> if  a norm exists on $X$ such that the metric induced by the norm is compatible with $\tau$.</p><p><em>(h)</em> <strong>Normed spaces</strong> and <strong>Banach spaces</strong>.</p><p><em>(i)</em> $X$​ has the <strong>Heine-Borel property</strong> if every closed and bounded subset of $X$ is compact.</p></blockquote><h4 id="1-9"><a href="#1-9" class="headerlink" title="1.9"></a>1.9</h4><p>Relations of these properties above. </p><blockquote><p><em>(a)</em> If $X$ is locally bounded, then $X$​ has a countable local base.</p><p><em>(b)</em> $X$ is metrizable iff $X$ has a countable local base.</p><p><em>(c)</em> $X$ is normable iff $X$ is locally convex and locally bounded.</p><p><em>(d)</em> $X$ has finite dimension iff $X$ is locally compact.</p><p><em>(e)</em> If a locally bounded space $X$ has the Heine-Borel Property, then $X$ has finite dimension.</p></blockquote><p>The spaces $H(\varOmega)$ and $C_K^\infty$​ mentioned in <strong>Sec. 1.3</strong> are infinite-dimensional Fréchet spaces with the Heine-Borel property. They are not locally bounded, hence not normable; they also show that the converse of <em>(a)</em> is false.</p><p>There exist locally bounded F-spaces that are not  locally convex.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 泛函分析 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 泛函分析 </tag>
+            
+            <tag> Functional Analysis </tag>
+            
+            <tag> 读书笔记 </tag>
+            
+            <tag> Notes </tag>
+            
+            <tag> Walter Rudin </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>哈尔的移动城堡</title>
       <link href="/2021/08/09/%E5%93%88%E5%B0%94%E7%9A%84%E7%A7%BB%E5%8A%A8%E5%9F%8E%E5%A0%A1/"/>
       <url>/2021/08/09/%E5%93%88%E5%B0%94%E7%9A%84%E7%A7%BB%E5%8A%A8%E5%9F%8E%E5%A0%A1/</url>
@@ -49,11 +82,15 @@
       
         <tags>
             
-            <tag> 数学分析 </tag>
-            
             <tag> 读书笔记 </tag>
             
+            <tag> Notes </tag>
+            
             <tag> Walter Rudin </tag>
+            
+            <tag> 数学分析 </tag>
+            
+            <tag> Mathematical Analysis </tag>
             
         </tags>
       
