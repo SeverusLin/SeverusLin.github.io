@@ -14,9 +14,14 @@
     font-family: 'STHeiti-Light-3';
     src: url("font/STHeiti-Light-3.ttc");
 }
+@font-face {
+  font-family: '冬青黑GB_W3';
+  src: url("font/冬青黑GB_W3.ttf");
+  font-weight: 900;
+}
 body {
     background-color: LavenderBlush ;
-    font-family:'Comic sans MS','Comic-Sans-MS-Regular-2','STHeiti-Light-3',Arial, Helvetica,sans-serif,"STFangsong";
+    font-family:'Comic sans MS','Comic-Sans-MS-Regular-2','冬青黑GB_W3',Arial, Helvetica,sans-serif,"STFangsong";
     font-size:17px;
 }
 
