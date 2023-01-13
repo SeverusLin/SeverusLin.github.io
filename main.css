@@ -1,11 +1,11 @@
 body {
     background-color: LavenderBlush ;
-    font-family:"Times New Roman","STFangsong";
+    font-family:"Comic Sans MS","Hiragino Sans GB W3",sans-serif,"STFangsong";
     font-size:17px;
   }
-h2{
+/* h2{
   font-family:sans-serif;
 }
 h3{
   font-family:sans-serif;
-}
+} */
