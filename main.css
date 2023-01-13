@@ -1,16 +1,29 @@
 @font-face {
-  font-family: Comic-Sans-MS-Regular-2;
-  src: url("font/Comic-Sans-MS-Regular-2.ttf");
+    font-family: 'Comic-Sans-MS-Regular-2';
+    src: url("font/Comic-Sans-MS-Regular-2.ttf");
+  }
+@font-face {
+    font-family: 'komorebi-gothic-2';
+    src: url("font/komorebi-gothic-2.ttf");
 }
 @font-face {
-  font-family: Hiragino Sans GB W3;
-  src: url("font/冬青黑GB_W3.ttf");
+    font-family: 'komorebi-gothic-P-3';
+    src: url("font/komorebi-gothic-P-3.ttf");
+}
+@font-face {
+    font-family: 'STHeiti-Light-3';
+    src: url("font/STHeiti-Light-3.ttc");
 }
 body {
     background-color: LavenderBlush ;
-    font-family:"Comic Sans MS","Comic-Sans-MS-Regular-2","Hiragino Sans GB W3",sans-serif,"STFangsong";
+    font-family:'Comic sans MS','Comic-Sans-MS-Regular-2','STHeiti-Light-3',Arial, Helvetica,sans-serif,"STFangsong";
     font-size:17px;
-  }
+}
+
+a {
+    text-decoration: none
+}
+
 /* h2{
   font-family:sans-serif;
 }
