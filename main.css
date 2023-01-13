@@ -2,6 +2,10 @@
   font-family: Comic-Sans-MS-Regular-2;
   src: url("font/Comic-Sans-MS-Regular-2.ttf");
 }
+@font-face {
+  font-family: Hiragino Sans GB W3;
+  src: url("font/冬青黑GB_W3.ttf");
+}
 body {
     background-color: LavenderBlush ;
     font-family:"Comic Sans MS","Comic-Sans-MS-Regular-2","Hiragino Sans GB W3",sans-serif,"STFangsong";
