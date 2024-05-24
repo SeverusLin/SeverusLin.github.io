@@ -30,3 +30,8 @@ a {
 h3{
   font-family:sans-serif;
 } */
+.sticker {
+  position: fixed;
+  top: 10px;   /* 距离页面顶部的距离 */
+  right: 10px; /* 距离页面右侧的距离 */
+}
