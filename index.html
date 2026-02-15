@@ -37,15 +37,33 @@
 <div id="time" class="sticker"></div>
 <script src="js/date.js" type="text/javascript"></script>
 
-This is my favorite anime character, Frieren from "Sousou no Frieren". Most of my social media avatars are this photo.
-<img src="media/frieren.jpg" align='center' width="320" height="320">
+<div id="frieren-container" style="position: fixed; top: 80px; right: 20px; text-align: center; z-index: 9999; max-width: 320px; transition: opacity 0.5s ease;">
+    <p style="margin: 0 0 10px 0; font-size: 14px; color: #333;">This is my favorite anime character, Frieren from "Sousou no Frieren". Most of my social media avatars are this photo.</p>
+    <img src="media/frieren.jpg" width="200" height="200" style="border-radius: 8px; object-fit: cover;">
+</div>
+
+<!-- 滚动消失的JS逻辑（放在片段末尾即可） -->
+<script>
+// 监听页面滚动事件
+window.addEventListener('scroll', function() {
+    const container = document.getElementById('frieren-container');
+    // 当滚动距离超过100px时隐藏，否则显示
+    if (window.scrollY > 100) {
+        container.style.opacity = '0';
+        container.style.pointerEvents = 'none'; // 隐藏后不遮挡点击
+    } else {
+        container.style.opacity = '1';
+        container.style.pointerEvents = 'auto'; // 显示时恢复交互
+    }
+});
+</script>
   
-<!-- 樱花雨特效 -->
-<script src="js/sakuraPlus.js"></script>
+<!-- 樱花雨特效
+<script src="js/sakuraPlus.js"></script> -->
 
 <details>
   <summary>A Photo of me</summary>
-  <img src="media/selfie.jpg" align="center" width="400" height="300">
+  <img src="media/selfie2.jpg" align="center" width="150" height="200">
 </details>
 
 <h2>Profile</h2>
@@ -54,7 +72,7 @@ This is my favorite anime character, Frieren from "Sousou no Frieren". Most of m
   <li>Lin, Wangyang（林汪炀）</li>
   <li>PhD candidate in Pure Mathematics
   <li>Institute: Fudan University, Shanghai, China</li>
-  <li>Research Direction: Topology on Manifolds, Characteristic Classes, Complex Geometry</li>
+  <li>Research Keywords: Characteristic Classes, Complex Geometry, Matroid Theory, Tropical Geometry</li>
   <li>Email: wylin23ATm.fudan.edu.cn, wylin_mathAToutlook.com</li>
   <li>Office: East Guang Hua Tower 1618, Fudan University(Handan Campus)</li>
   <li>My <a href="media/wylin_math_CV.pdf" target="_blank">CV</a></li>
@@ -84,7 +102,7 @@ I was born in Fuzhou(Foochow, Hockchow) city, Fujian(Fukien, Hokkien) Province, 
 <h2>Publications & Preprints</h2>
 <h3 style="color: cadetblue;">Publications</h3>
 <ul>
-  <li>Explicit formulas for the Hattori-Stong theorem and applications (to appear in <a href="https://msp.org/soon/coming.php?jpath=agt">Algebraic & Geometry Topology</a>), <a href="https://arxiv.org/abs/2409.05107" target="_blank">ArXiv:2409.05107</a>, with my advisor, Prof. Ping Li</li>
+  <li>Explicit formulas for the Hattori-Stong theorem and applications, Algebraic & Geometric Topology 26 (2026) 735–750, <a href="https://arxiv.org/pdf/2409.05107" target="_blank">Link</a>, with my advisor, Prof. Ping Li</li>
 </ul>
 
 <h2>Visit</h2>
