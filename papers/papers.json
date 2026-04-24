@@ -10,7 +10,7 @@
     "cross_categories": [
       "math.CO"
     ],
-    "ai_summary": "AI returned an empty theorem statement. Please try again later."
+    "ai_summary": "This paper establishes a version of Hodge theory—specifically the Hard Lefschetz theorem and the Hodge–Riemann bilinear relations—for a family of combinatorially defined rings. These rings are designed to mimic the cohomology rings of projective bundles associated to globally generated vector bundles over toric varieties. By proving these fundamental positivity statements in a purely algebraic and combinatorial setting, the work expands the reach of classical complex geometry results into areas where no actual variety exists, and in doing so, resolves special cases of a major conjecture in algebraic geometry and yields new inequalities for matroid invariants.\n\nThe central objects of study are graded rings that arise from “combinatorial projective bundles.” Building on earlier constructions of rings that model the cohomology of toric varieties and their ample cones, the authors consider what happens when one takes a sufficiently positive vector bundle on a combinatorial toric variety, forms its projectivization, and then writes down the expected cohomology ring and a distinguished “ample” class purely in terms of the underlying combinatorial data (fans, polytopes, piecewise linear functions, etc.). The resulting ring has a natural degree map (analogue of integration) and an analogue of the hard Lefschetz operator given by multiplication by a combinatorial ample class.\n\nThe main theorem asserts that for these rings, the Hard Lefschetz theorem holds: multiplication by the appropriate power of the ample class induces an isomorphism between graded pieces in complementary degrees. Moreover, the Hodge–Riemann relations hold in the primitive parts: the bilinear form defined by cup product followed by the degree map is definite (positive or negative depending on the degree) on the kernel of the hard Lefschetz operator. This is a complete analogue of the classical Kähler package in algebraic geometry.\n\nA key idea is that while the ring may not arise from an actual complex projective manifold, it carries enough combinatorial structure—intersection numbers computed via mixed volumes or tropical analogs—to support intersection-theoretic arguments. The proofs likely develop a combinatorial version of the “Lefsche"
   },
   {
     "id": "2604.20778v1",
@@ -21,6 +21,6 @@
     "published": "2026-04-22T17:06:22+00:00",
     "category": "math.CO",
     "cross_categories": [],
-    "ai_summary": "AI returned an empty theorem statement. Please try again later."
+    "ai_summary": "AI summary not available."
   }
 ]

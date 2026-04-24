@@ -23,10 +23,6 @@
     .cross-category { color: #555; font-size: 0.9em; margin-left: 0.5em; }
     .abstract { color: #333; margin: 0.5em 0; }
     .proposition { background: #f4f4f4; padding: 0.8em; border-left: 4px solid #005a9c; margin: 0.5em 0; }
-    .single-analyzer { margin: 1em 0 2em 0; padding: 1em; background: #f0f7ff; border-radius: 8px; border: 1px solid #b3d4ff; }
-    input[type="text"] { padding: 0.5em; width: 220px; border: 1px solid #aaa; border-radius: 4px; }
-    button { padding: 0.5em 1em; margin-left: 0.5em; background: #005a9c; color: white; border: none; border-radius: 4px; cursor: pointer; }
-    button:hover { background: #004080; }
     a { color: #005a9c; text-decoration: none; }
     a:hover { text-decoration: underline; }
   </style>
@@ -34,19 +30,6 @@
 <body>
   <h1>arXiv Daily Papers — 2026-04-24</h1>
 
-  <!-- 🔼 分析框移到顶部 -->
-  <div class="single-analyzer">
-    <h2 style="margin-top: 0; font-size: 1.2em;">🔍 Deep‑dive a specific arXiv paper</h2>
-    <p>Enter an arXiv ID (e.g. <code>2401.12345</code>) to generate a detailed AI analysis.</p>
-    <p><strong>Note:</strong> This will open the GitHub Actions page. After the workflow finishes, the result will be at <a href="analysis.html" target="_blank">analysis.html</a> (previous analysis will be replaced).</p>
-    <div style="margin-top: 1em;">
-      <input type="text" id="arxiv-id-input" placeholder="e.g., 2401.12345">
-      <button onclick="openActions()">Run Analysis</button>
-    </div>
-    <p style="font-size: 0.9em; color: #666; margin-bottom: 0;">After clicking, paste the ID into the opened workflow and trigger "Run workflow".</p>
-  </div>
-
-  <!-- 论文列表 -->
   
     
     <div class="paper">
@@ -62,7 +45,13 @@
       <div class="meta"><strong>Authors:</strong> Matt Larson, Ethan Partida</div>
       <div class="abstract"><strong>Abstract:</strong> We prove the Hard Lefschetz theorem and Hodge-Riemann relations for certain rings which resemble the cohomology rings of projectivizations of globally generated vector bundles over toric varieties. This proves new cases of the standard conjecture of Hodge type and gives Bloch-Gieseker-type results for tautological classes of matroids.</div>
       <div class="proposition">
-        <strong>Main Theorem (AI summarized):</strong> AI returned an empty theorem statement. Please try again later.
+        <strong>Main Results (summarized by DeepSeek-V4-pro):</strong> This paper establishes a version of Hodge theory—specifically the Hard Lefschetz theorem and the Hodge–Riemann bilinear relations—for a family of combinatorially defined rings. These rings are designed to mimic the cohomology rings of projective bundles associated to globally generated vector bundles over toric varieties. By proving these fundamental positivity statements in a purely algebraic and combinatorial setting, the work expands the reach of classical complex geometry results into areas where no actual variety exists, and in doing so, resolves special cases of a major conjecture in algebraic geometry and yields new inequalities for matroid invariants.
+
+The central objects of study are graded rings that arise from “combinatorial projective bundles.” Building on earlier constructions of rings that model the cohomology of toric varieties and their ample cones, the authors consider what happens when one takes a sufficiently positive vector bundle on a combinatorial toric variety, forms its projectivization, and then writes down the expected cohomology ring and a distinguished “ample” class purely in terms of the underlying combinatorial data (fans, polytopes, piecewise linear functions, etc.). The resulting ring has a natural degree map (analogue of integration) and an analogue of the hard Lefschetz operator given by multiplication by a combinatorial ample class.
+
+The main theorem asserts that for these rings, the Hard Lefschetz theorem holds: multiplication by the appropriate power of the ample class induces an isomorphism between graded pieces in complementary degrees. Moreover, the Hodge–Riemann relations hold in the primitive parts: the bilinear form defined by cup product followed by the degree map is definite (positive or negative depending on the degree) on the kernel of the hard Lefschetz operator. This is a complete analogue of the classical Kähler package in algebraic geometry.
+
+A key idea is that while the ring may not arise from an actual complex projective manifold, it carries enough combinatorial structure—intersection numbers computed via mixed volumes or tropical analogs—to support intersection-theoretic arguments. The proofs likely develop a combinatorial version of the “Lefsche
       </div>
     </div>
     
@@ -77,25 +66,10 @@
       <div class="meta"><strong>Authors:</strong> Mattias Ehatamm, Peter Nelson, Fernanda Rivera Omana</div>
       <div class="abstract"><strong>Abstract:</strong> We generalize the well-studied notion of a modular pair of a finite matroid to arbitrary families of sets in infinite matroids, and use it to develop the theory of infinite matroids in several as-yet-unexplored areas. Our results include a complete theory of single-element extensions, a description of the relationship between quotients and projections, a proof that matroids for which every flat is modular must be finitary, and two new perspectives on the infinite matroid connectivity parameter λ. In most cases, existing theory for finite matroids either fails completely or does not extend in obvious ways, and as a result we develop multiple new techniques for reasoning about infinite matroids, including establishing well-behaved infinite analogues of nullity, local connectivity and skewness. We also point to an online repository containing formalized proofs of all our results using the lean4 proof assistant</div>
       <div class="proposition">
-        <strong>Main Theorem (AI summarized):</strong> AI returned an empty theorem statement. Please try again later.
+        <strong>Main Results (summarized by DeepSeek-V4-pro):</strong> AI summary not available.
       </div>
     </div>
     
   
-
-  <script>
-    function openActions() {
-      const id = document.getElementById('arxiv-id-input').value.trim();
-      if (!id) { alert('Please enter an arXiv ID'); return; }
-      const repoUrl = "https://github.com/" + window.location.pathname.split('/').slice(0,3).join('/');
-      window.open(repoUrl + "/actions/workflows/analyze-paper.yml", '_blank');
-      try {
-        navigator.clipboard.writeText(id);
-        alert('arXiv ID copied to clipboard. Paste it in the "Run workflow" dialog and click "Run workflow".');
-      } catch(e) {
-        alert('Please copy this ID and paste in the opened workflow: ' + id);
-      }
-    }
-  </script>
 </body>
 </html>
