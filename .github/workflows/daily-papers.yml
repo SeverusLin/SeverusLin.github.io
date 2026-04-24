@@ -2,7 +2,7 @@ name: Daily arXiv Papers
 
 on:
   schedule:
-    - cron: '0 3 * * *'   # UTC 3:00 = 北京时间 11:00
+    - cron: '0 3 * * *'   # 北京时间 11:00
   workflow_dispatch:
     inputs:
       send_email:
@@ -31,13 +31,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install pyyaml requests arxiv openai resend jinja2
 
-      # 👇 新增步骤：获取星期几
       - name: Get day of week
         id: dow
         run: echo "DOW=$(date +%u)" >> $GITHUB_ENV
 
-      # 👇 所有业务步骤都加上运行条件
-      - name: Fetch papers and AI summarize
+      - name: Fetch papers & AI extract theorem
         if: github.event_name == 'workflow_dispatch' || (github.event_name == 'schedule' && env.DOW < 6)
         run: python papers/scripts/fetch_papers.py
         env:

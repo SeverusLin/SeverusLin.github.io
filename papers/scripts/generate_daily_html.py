@@ -26,8 +26,7 @@ def main():
     today = datetime.date.today().isoformat()
     html = template.render(
         papers=papers,
-        date=today,
-        mathjax_cdn="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+        date=today
     )
 
     output_file = Path(__file__).resolve().parents[2] / "output" / config["output"]["daily_html"]

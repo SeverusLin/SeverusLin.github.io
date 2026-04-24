@@ -24,4 +24,3 @@ email:
 
 output:
   daily_html: "index.html"
-  analysis_html: "analysis.html"

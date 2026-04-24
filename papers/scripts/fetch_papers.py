@@ -7,7 +7,7 @@ import json
 import datetime
 import arxiv
 from scripts.utils import load_config, setup_logging
-from scripts.ai_summarize import generate_report
+from scripts.ai_summarize import extract_theorem
 
 def filter_by_keywords(paper, keywords):
     text = (paper.title + " " + paper.summary).lower()
@@ -51,7 +51,7 @@ def main():
             seen_ids.add(p.entry_id)
             unique.append(p)
 
-    # 关键词命中数排序（降序）
+    # 按关键词命中次数降序排序
     keywords = config.get("keywords", [])
     if unique and keywords:
         scored = [(p, count_keyword_hits(p, keywords)) for p in unique]
@@ -63,8 +63,8 @@ def main():
         authors = ", ".join(a.name for a in p.authors)
         abstract = p.summary.replace("\n", " ").strip()
 
-        # 生成 AI Markdown 报告
-        report = generate_report(p.title, abstract)
+        # AI 提取主定理
+        theorem = extract_theorem(p.title, abstract)
 
         all_cats = [str(c) for c in p.categories]
         primary = p.primary_category
@@ -79,7 +79,7 @@ def main():
             "published": p.published.isoformat(),
             "category": primary,
             "cross_categories": cross,
-            "report": report
+            "theorem": theorem
         })
 
     output_dir = Path(__file__).resolve().parents[2] / "output"
