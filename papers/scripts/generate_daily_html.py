@@ -1,15 +1,17 @@
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
 import json
 import logging
 import datetime
-from pathlib import Path
 from jinja2 import Environment, FileSystemLoader
-from .utils import load_config, setup_logging
+from scripts.utils import load_config, setup_logging
 
 def main():
     setup_logging()
     config = load_config()
 
-    # Load papers
     json_path = Path(__file__).resolve().parents[2] / "output" / "papers.json"
     if not json_path.exists():
         logging.error("papers.json not found. Run fetch_papers.py first.")
@@ -17,12 +19,10 @@ def main():
     with open(json_path, "r", encoding="utf-8") as f:
         papers = json.load(f)
 
-    # Jinja2 environment
     templates_dir = Path(__file__).resolve().parents[1] / "templates"
     env = Environment(loader=FileSystemLoader(str(templates_dir)))
     template = env.get_template("daily.html")
 
-    # Render
     today = datetime.date.today().isoformat()
     html = template.render(
         papers=papers,

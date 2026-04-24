@@ -1,11 +1,13 @@
 import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
 import logging
 import datetime
 import arxiv
-from pathlib import Path
 from jinja2 import Environment, FileSystemLoader
-from .utils import load_config, setup_logging
-from .ai_summarize import analyze_paper_deep
+from scripts.utils import load_config, setup_logging
+from scripts.ai_summarize import analyze_paper_deep
 
 def main():
     setup_logging()
@@ -16,7 +18,6 @@ def main():
     arxiv_id = sys.argv[1].strip()
     config = load_config()
 
-    # Search the specific paper
     search = arxiv.Search(id_list=[arxiv_id])
     try:
         paper = next(search.results())
@@ -32,7 +33,6 @@ def main():
     logging.info(f"Analyzing {title}...")
     analysis = analyze_paper_deep(title, abstract)
 
-    # Render analysis.html
     templates_dir = Path(__file__).resolve().parents[1] / "templates"
     env = Environment(loader=FileSystemLoader(str(templates_dir)))
     template = env.get_template("analysis.html")

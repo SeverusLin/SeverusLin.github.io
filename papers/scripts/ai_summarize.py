@@ -1,20 +1,18 @@
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
 import logging
 from openai import OpenAI
-from .utils import get_api_key_from_env
+from scripts.utils import load_config, get_api_key_from_env
 
 def get_client():
-    """Create an OpenAI client using config base_url and model (model is used later)."""
-    from .utils import load_config
     config = load_config()
     api_key = get_api_key_from_env()
     base_url = config["ai"]["base_url"]
     return OpenAI(api_key=api_key, base_url=base_url), config["ai"]["model"]
 
 def summarize_paper(title, abstract):
-    """
-    Generate a short main proposition summary.
-    Returns a string.
-    """
     client, model = get_client()
     prompt = (
         "You are a mathematician and computer scientist. "
@@ -43,10 +41,6 @@ def summarize_paper(title, abstract):
         return "AI summary unavailable."
 
 def analyze_paper_deep(title, abstract):
-    """
-    Provide a deeper analysis: motivation, methods, main results, innovations.
-    Returns a string (possibly with markdown formatting).
-    """
     client, model = get_client()
     prompt = (
         "You are an expert researcher. Analyze the following paper in detail. "

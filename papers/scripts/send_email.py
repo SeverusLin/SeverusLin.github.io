@@ -1,15 +1,17 @@
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
 import logging
 import json
-import resend
 import os
-from pathlib import Path
-from .utils import load_config, setup_logging
+import datetime
+import resend
+from scripts.utils import load_config, setup_logging
 
 def build_email_html(papers, config):
-    """Build a simple HTML email containing paper list."""
     include_abstract = config["email"].get("include_full_abstract", True)
-    parts = []
-    parts.append("<h1>arXiv Daily Papers</h1>")
+    parts = ["<h1>arXiv Daily Papers</h1>"]
     for p in papers:
         parts.append(f"<h3><a href='{p['url']}'>{p['title']}</a></h3>")
         parts.append(f"<p><strong>Authors:</strong> {p['authors']}</p>")
@@ -25,10 +27,9 @@ def main():
     resend_api_key = os.environ.get("RESEND_API_KEY")
     email_to = os.environ.get("EMAIL_TO")
     if not resend_api_key or not email_to:
-        logging.error("RESEND_API_KEY or EMAIL_TO not set. Cannot send email.")
+        logging.error("RESEND_API_KEY or EMAIL_TO not set.")
         return
 
-    # Load papers
     json_path = Path(__file__).resolve().parents[2] / "output" / "papers.json"
     if not json_path.exists():
         logging.warning("No papers.json found, email will be skipped.")
@@ -58,5 +59,4 @@ def main():
         logging.error(f"Failed to send email: {e}")
 
 if __name__ == "__main__":
-    import datetime
     main()
