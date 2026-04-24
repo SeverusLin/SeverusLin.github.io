@@ -31,12 +31,18 @@ def summarize_paper(title, abstract):
                 {"role": "user", "content": prompt}
             ],
             temperature=0.3,
-            max_tokens=600   # 增加上限，确保定理完整
+            max_tokens=600,
+            timeout=60
         )
-        return response.choices[0].message.content.strip()
+        content = response.choices[0].message.content
+        if content and content.strip():
+            return content.strip()
+        else:
+            logging.warning(f"AI returned empty content for: {title[:60]}")
+            return "AI returned an empty theorem statement. Please try again later."
     except Exception as e:
         logging.error(f"AI summarization failed for {title}: {e}")
-        return "AI summary unavailable."
+        return f"Theorem unavailable (Reason: {str(e)[:120]})"
 
 def analyze_paper_deep(title, abstract):
     client, model = get_client()

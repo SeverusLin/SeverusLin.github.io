@@ -10,6 +10,7 @@ from scripts.utils import load_config, setup_logging
 from scripts.ai_summarize import summarize_paper
 
 def filter_by_keywords(paper, keywords):
+    """Return True if any keyword appears in title or abstract (case-insensitive)."""
     text = (paper.title + " " + paper.summary).lower()
     return any(kw.lower() in text for kw in keywords)
 
@@ -40,6 +41,7 @@ def main():
     config = load_config()
     papers = fetch_papers(config)
 
+    # 去重
     seen_ids = set()
     unique = []
     for p in papers:
@@ -51,8 +53,18 @@ def main():
     for p in unique:
         authors = ", ".join(a.name for a in p.authors)
         abstract = p.summary.replace("\n", " ").strip()
-        ai_summary = summarize_paper(p.title, abstract)
 
+        # AI 总结（可能返回空字符串）
+        ai_summary = summarize_paper(p.title, abstract)
+        # 如果为空，用默认文本
+        if not ai_summary or not ai_summary.strip():
+            logging.warning(f"Empty AI summary for {p.entry_id}")
+            ai_summary = "AI summary not available. Please try again later."
+
+        # 在日志中打印 AI 摘要前 150 个字符，方便调试
+        logging.info(f"AI summary preview [{p.entry_id}]: {ai_summary[:150]}...")
+
+        # 分类信息
         all_cats = [str(c) for c in p.categories]
         primary = p.primary_category
         cross = [c for c in all_cats if c != primary]
@@ -69,6 +81,7 @@ def main():
             "ai_summary": ai_summary
         })
 
+    # 写入 JSON
     output_dir = Path(__file__).resolve().parents[2] / "output"
     output_dir.mkdir(exist_ok=True)
     json_path = output_dir / "papers.json"
