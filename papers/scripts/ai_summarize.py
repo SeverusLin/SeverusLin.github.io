@@ -15,28 +15,32 @@ def get_client():
 def summarize_paper(title, abstract):
     client, model = get_client()
     prompt = (
-        "You are a mathematician. Summarize the main theorem of this paper in one sentence. "
-        "Use LaTeX for math. Output ONLY the theorem.\n\n"
+        "You are a research assistant. Read the following paper title and abstract. "
+        "Write a summary of the paper's main contributions and results in about 500 words. "
+        "Focus on what the paper does, its key ideas, and any theorems or algorithms presented. "
+        "Use plain English. Do not add extra commentary.\n\n"
         f"Title: {title}\n\nAbstract: {abstract}"
     )
     try:
         response = client.chat.completions.create(
             model=model,
-            messages=[{"role": "user", "content": prompt}],
+            messages=[
+                {"role": "system", "content": "You are a helpful research summarizer."},
+                {"role": "user", "content": prompt}
+            ],
             temperature=0.3,
-            max_tokens=200,   # 先限制小一些
-            timeout=60
+            max_tokens=800,      # 500 词 ≈ 700-800 tokens
+            timeout=90
         )
-        logging.info(f"Response finish reason: {response.choices[0].finish_reason}")
         content = response.choices[0].message.content
-        if content:
+        if content and content.strip():
             return content.strip()
         else:
-            logging.error("Empty content returned")
-            return "AI returned empty content."
+            logging.warning(f"Empty AI summary for {title[:60]}")
+            return "AI summary not available."
     except Exception as e:
-        logging.error(f"Error: {e}")
-        return f"Error: {str(e)[:100]}"
+        logging.error(f"AI summarization failed for {title}: {e}")
+        return "AI summary not available."
 
 def analyze_paper_deep(title, abstract):
     client, model = get_client()
