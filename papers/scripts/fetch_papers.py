@@ -1,6 +1,5 @@
 import sys
 from pathlib import Path
-# 把 papers/scripts 的父目录（即 papers/）加入 sys.path，以便使用绝对导入
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 import logging
@@ -55,12 +54,13 @@ def main():
         ai_summary = summarize_paper(p.title, summary_text)
 
         papers_data.append({
-            "id": p.entry_id.split("/")[-1],
+            "id": p.entry_id.split("/")[-1],      # arXiv ID (e.g., 2401.12345)
             "title": p.title,
             "authors": authors,
             "abstract": summary_text,
             "url": p.entry_id,
             "published": p.published.isoformat(),
+            "category": p.primary_category,       # 主分类，如 math.AG
             "ai_summary": ai_summary
         })
 

@@ -9,7 +9,8 @@
     body { font-family: system-ui, -apple-system, sans-serif; max-width: 960px; margin: 2em auto; padding: 0 1em; }
     .paper { margin-bottom: 2em; padding-bottom: 1em; border-bottom: 1px solid #ddd; }
     .title { font-size: 1.3em; font-weight: 600; margin: 0.2em 0; }
-    .authors { color: #555; margin: 0.2em 0; }
+    .meta { color: #555; font-size: 0.95em; margin: 0.3em 0; }
+    .category { font-weight: bold; margin: 0.2em 0; }
     .abstract { color: #333; margin: 0.5em 0; }
     .proposition { background: #f4f4f4; padding: 0.8em; border-left: 4px solid #005a9c; margin: 0.5em 0; }
     .single-analyzer { margin: 3em 0; padding: 1em; background: #f9f9f9; border-radius: 8px; }
@@ -24,10 +25,21 @@
   {% if papers %}
     {% for paper in papers %}
     <div class="paper">
-      <div class="title">
-        <a href="{{ paper.url }}" target="_blank">{{ paper.title }}</a>
+      <!-- 标题不链接 -->
+      <div class="title">{{ paper.title }}</div>
+      
+      <!-- arXiv ID 作为链接 -->
+      <div class="meta">
+        <strong>arXiv:</strong>
+        <a href="{{ paper.url }}" target="_blank">{{ paper.id }}</a>
       </div>
-      <div class="authors">{{ paper.authors }}</div>
+
+      <!-- 主分类加粗 -->
+      <div class="category">
+        {{ paper.category }}
+      </div>
+
+      <div class="meta"><strong>Authors:</strong> {{ paper.authors }}</div>
       <div class="abstract"><strong>Abstract:</strong> {{ paper.abstract }}</div>
       <div class="proposition">
         <strong>Main Proposition (AI summarized):</strong> {{ paper.ai_summary }}
@@ -38,7 +50,7 @@
     <p>No papers matched today's criteria.</p>
   {% endif %}
 
-  <!-- Single paper deep analyzer -->
+  <!-- 单篇分析入口（不变） -->
   <div class="single-analyzer">
     <h2>Deep‑dive a specific arXiv paper</h2>
     <p>Enter an arXiv ID (e.g., <code>2401.12345</code>) to generate a detailed analysis.</p>
@@ -54,10 +66,8 @@
     function openActions() {
       const id = document.getElementById('arxiv-id-input').value.trim();
       if (!id) { alert('Please enter an arXiv ID'); return; }
-      // Open the Actions workflow page (user will paste the ID)
       const repoUrl = "https://github.com/" + window.location.pathname.split('/').slice(0,3).join('/');
       window.open(repoUrl + "/actions/workflows/analyze-paper.yml", '_blank');
-      // Also copy the ID to clipboard for convenience
       try {
         navigator.clipboard.writeText(id);
         alert('arXiv ID copied to clipboard. Paste it in the "Run workflow" dialog and click "Run workflow".');

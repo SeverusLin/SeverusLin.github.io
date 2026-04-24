@@ -2,22 +2,16 @@ name: Daily arXiv Papers
 
 on:
   schedule:
-    # UTC 3:00 = 北京时间 11:00（可在 config.yaml 中覆盖，但 cron 仍以此为准）
     - cron: '0 3 * * *'
   workflow_dispatch:
     inputs:
       send_email:
-        description: 'Send email notification?'
         type: boolean
         default: true
 
 permissions:
-  contents: write      # 允许推送 gh-pages 分支
-  pages: write          # 允许部署 Pages（可选，但建议加上）
-  id-token: write       # 如果以后用 OIDC 部署也需要
-
-env:
-  PYTHON_VERSION: '3.11'
+  contents: write
+  pages: write
 
 jobs:
   daily-papers:
@@ -29,7 +23,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: ${{ env.PYTHON_VERSION }}
+          python-version: '3.11'
 
       - name: Install dependencies
         run: |
@@ -40,16 +34,9 @@ jobs:
         run: python papers/scripts/fetch_papers.py
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
-          # 也可以自定义分类/关键词通过环境变量，但优先用 config.yaml
 
       - name: Generate daily HTML
         run: python papers/scripts/generate_daily_html.py
-
-      - name: Upload artifact (optional)
-        uses: actions/upload-artifact@v4
-        with:
-          name: daily-site
-          path: output/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
@@ -57,9 +44,9 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./output
           destination_dir: papers
-          keep_files: false   # 每次完全覆盖，确保旧论文消失
+          keep_files: false
 
-      - name: Send email (only on schedule or when manual with email enabled)
+      - name: Send email (optional)
         if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.send_email)
         run: python papers/scripts/send_email.py
         env:
