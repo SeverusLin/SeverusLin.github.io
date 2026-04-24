@@ -142,7 +142,7 @@ if os.environ.get("SEND_EMAIL", "true").lower() == "true":
             text = "今天没有找到相关论文。"
 
         resend.Emails.send({
-            "from": "ArXiv Bot <onboarding@resend.dev>",
+            "from": "Kobayashi Bot <onboarding@resend.dev>",
             "to": [os.environ["EMAIL_TO"]],
             "subject": f"Daily ArXiv Papers - {date_str}",
             "html": f"<pre>{text}</pre>"
