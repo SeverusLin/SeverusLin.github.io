@@ -10,7 +10,7 @@
     "cross_categories": [
       "math.CO"
     ],
-    "ai_summary": "AI returned an empty theorem statement. Please try again later."
+    "ai_summary": "AI summary not available."
   },
   {
     "id": "2604.20778v1",
@@ -21,6 +21,6 @@
     "published": "2026-04-22T17:06:22+00:00",
     "category": "math.CO",
     "cross_categories": [],
-    "ai_summary": "AI returned an empty theorem statement. Please try again later."
+    "ai_summary": "This paper advances the theory of infinite matroids by extending the concept of modular pairs—well established for finite matroids—to arbitrary families of sets in the infinite setting. The central key idea is to define and exploit a generalized notion of modularity that works for families of sets, not just pairs of flats, enabling the authors to tackle several fundamental open areas where finite techniques either fail or do not carry over in obvious ways.\n\nThe first major contribution is a complete theory of single-element extensions for infinite matroids. For a given infinite matroid, the paper characterizes all possible one-point extensions (i.e., adding a single new element while preserving the matroid axioms) in terms of modular families of sets. This general"
   }
 ]
