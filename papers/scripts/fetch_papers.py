@@ -67,7 +67,6 @@ def main():
     config = load_config()
     papers = fetch_papers(config)
 
-    # 去重
     seen_ids = set()
     unique = []
     for p in papers:
@@ -75,14 +74,12 @@ def main():
             seen_ids.add(p.entry_id)
             unique.append(p)
 
-    # 按关键词命中次数降序排序
     keywords = config.get("keywords", [])
     if unique and keywords:
         scored = [(p, count_keyword_hits(p, keywords)) for p in unique]
         scored.sort(key=lambda x: x[1], reverse=True)
         unique = [p for p, s in scored]
 
-    # 获取参考论文详细信息
     ref_list = config.get("reference_papers", [])
     references = []
     if ref_list:
@@ -94,7 +91,6 @@ def main():
         authors = ", ".join(a.name for a in p.authors)
         abstract = p.summary.replace("\n", " ").strip()
 
-        # AI 关联度打分
         relatedness = {}
         if references:
             relatedness = evaluate_relatedness(p.title, abstract, references)
@@ -112,8 +108,8 @@ def main():
             "published": p.published.isoformat(),
             "category": primary,
             "cross_categories": cross,
-            "relatedness": relatedness,   # dict {ref_id: score}
-            "references": references      # 参考论文列表（含标题）
+            "relatedness": relatedness,
+            "references": references
         })
 
     output_dir = Path(__file__).resolve().parents[2] / "output"

@@ -9,9 +9,19 @@ import datetime
 import resend
 from scripts.utils import load_config, setup_logging
 
+def load_scoring_guide():
+    try:
+        guide_path = Path(__file__).resolve().parents[1] / "scoring_guide.md"
+        with open(guide_path, "r", encoding="utf-8") as f:
+            return f.read()
+    except Exception as e:
+        logging.warning(f"Could not load scoring guide: {e}")
+        return "0-2: unrelated, 3-4: weakly, 5-6: moderately, 7-8: strongly, 9-10: highly related"
+
 def build_email_html(papers, config):
     include_abstract = config["email"].get("include_full_abstract", True)
     parts = ["<h1>arXiv Daily Papers</h1>"]
+
     for p in papers:
         parts.append(f"<h3>{p['title']}</h3>")
         parts.append(f"<p><strong>arXiv:</strong> <a href='{p['url']}'>{p['id']}</a></p>")
@@ -22,7 +32,26 @@ def build_email_html(papers, config):
         parts.append(f"<p><strong>Authors:</strong> {p['authors']}</p>")
         if include_abstract:
             parts.append(f"<p><strong>Abstract:</strong> {p['abstract']}</p>")
+
+        if p.get("references") and p.get("relatedness"):
+            parts.append("<p><strong>📊 AI Relevance (0-10):</strong></p><ul>")
+            for ref in p["references"]:
+                rid = ref["id"]
+                label = ref.get("label", rid)
+                score = p["relatedness"].get(rid)
+                if score is not None:
+                    parts.append(f"<li>{label} ({rid}): <strong>{score}</strong></li>")
+                else:
+                    parts.append(f"<li>{label} ({rid}): N/A</li>")
+            parts.append("</ul>")
+
         parts.append("<hr>")
+
+    # 读取独立的评分标准文件，替换原来的硬编码
+    guide = load_scoring_guide()
+    parts.append("<p><strong>Scoring Guide:</strong></p>")
+    parts.append(f"<pre>{guide}</pre>")
+
     return "\n".join(parts)
 
 def main():

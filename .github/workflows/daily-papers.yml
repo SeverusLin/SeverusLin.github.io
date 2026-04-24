@@ -45,6 +45,10 @@ jobs:
         if: github.event_name == 'workflow_dispatch' || (github.event_name == 'schedule' && env.DOW < 6)
         run: python papers/scripts/generate_daily_html.py
 
+      - name: Copy scoring guide to output
+        if: github.event_name == 'workflow_dispatch' || (github.event_name == 'schedule' && env.DOW < 6)
+        run: cp papers/scoring_guide.md output/
+
       - name: Deploy to GitHub Pages
         if: github.event_name == 'workflow_dispatch' || (github.event_name == 'schedule' && env.DOW < 6)
         uses: peaceiris/actions-gh-pages@v3

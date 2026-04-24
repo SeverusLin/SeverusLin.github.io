@@ -8,6 +8,26 @@ import time
 from openai import OpenAI
 from scripts.utils import load_config, get_api_key_from_env
 
+# 读取独立评分标准文件
+def load_scoring_guide():
+    """
+    从 papers/scoring_guide.md 加载评分标准文本。
+    如果文件不存在，返回默认的简要标准。
+    """
+    try:
+        guide_path = Path(__file__).resolve().parents[1] / "scoring_guide.md"
+        with open(guide_path, "r", encoding="utf-8") as f:
+            return f.read()
+    except Exception as e:
+        logging.warning(f"Could not load scoring guide: {e}. Using default scale.")
+        return (
+            "0-2: completely unrelated\n"
+            "3-4: weakly related\n"
+            "5-6: moderately related\n"
+            "7-8: strongly related\n"
+            "9-10: highly related"
+        )
+
 def get_client():
     config = load_config()
     api_key = get_api_key_from_env()
@@ -15,31 +35,25 @@ def get_client():
     return OpenAI(api_key=api_key, base_url=base_url), config["ai"]["model"]
 
 def evaluate_relatedness(target_title, target_abstract, references):
-    """
-    根据参考论文列表，对目标论文进行 0-10 关联度打分。
-    返回 dict: {ref_id: score}，失败返回空字典。
-    """
     if not references:
         return {}
 
-    # 构造参考论文简短描述
+    # 构造参考论文描述
     ref_descriptions = []
     for r in references:
         label = r.get("label", r["id"])
         desc = f"ID: {r['id']} ({label})\nTitle: {r.get('title', 'N/A')}\nAbstract: {r.get('abstract', 'N/A')}"
         ref_descriptions.append(desc)
-
     ref_text = "\n\n".join(ref_descriptions)
+
+    # 从独立文件加载评分指南
+    scoring_guide = load_scoring_guide()
 
     prompt = (
         "You are a research evaluator. Below is a target paper and a list of reference papers. "
         "For each reference paper, give a relevance score (0-10) based on how closely the target paper's topic, methodology, and results align with that reference. "
-        "Use the following scale:\n"
-        "- 0-2: completely unrelated (different field)\n"
-        "- 3-4: weakly related (same broad area but different subfield)\n"
-        "- 5-6: moderately related (shares some common concepts or techniques)\n"
-        "- 7-8: strongly related (same subfield, similar methods)\n"
-        "- 9-10: highly related (very close topic, potential overlapping results)\n\n"
+        "Use the following scoring guide:\n\n"
+        f"{scoring_guide}\n\n"
         "Target paper:\n"
         f"Title: {target_title}\nAbstract: {target_abstract}\n\n"
         "Reference papers:\n"
@@ -60,11 +74,9 @@ def evaluate_relatedness(target_title, target_abstract, references):
             )
             content = response.choices[0].message.content.strip()
             if content:
-                # 清除可能的代码块标记
                 if content.startswith("```"):
                     content = content.strip("`").replace("json\n", "", 1).strip()
                 scores = json.loads(content)
-                # 只保留 references 中存在的 ID，并限制 0-10
                 valid = {}
                 for r in references:
                     rid = r["id"]
