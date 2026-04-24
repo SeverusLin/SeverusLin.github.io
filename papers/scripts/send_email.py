@@ -10,12 +10,18 @@ import resend
 from scripts.utils import load_config, setup_logging
 
 def build_email_html(papers, config):
+    """Build HTML email with same format as webpage: no title link, arXiv ID link, category bold."""
     include_abstract = config["email"].get("include_full_abstract", True)
     parts = ["<h1>arXiv Daily Papers</h1>"]
     for p in papers:
-        parts.append(f"<h3><a href='{p['url']}'>{p['title']}</a></h3>")
+        # title as plain text (no link)
+        parts.append(f"<h3>{p['title']}</h3>")
+        # arXiv ID as link
+        parts.append(f"<p><strong>arXiv:</strong> <a href='{p['url']}'>{p['id']}</a></p>")
+        # category bold
+        parts.append(f"<p><strong>{p['category']}</strong></p>")
         parts.append(f"<p><strong>Authors:</strong> {p['authors']}</p>")
-        parts.append(f"<p><strong>AI Proposition:</strong> {p['ai_summary']}</p>")
+        parts.append(f"<p><strong>Main Proposition (AI):</strong> {p['ai_summary']}</p>")
         if include_abstract:
             parts.append(f"<p><strong>Abstract:</strong> {p['abstract']}</p>")
         parts.append("<hr>")
