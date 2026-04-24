@@ -15,7 +15,7 @@ ai:
   model: "deepseek-chat"
 
 email:
-  sender: "arXiv Daily <papers@yourdomain.com>"   # 替换为你的已验证域名
+  sender: "arXiv Daily <onboarding@resend.dev>"   # 替换为你的已验证域名
   subject: "arXiv Daily Papers"
   include_full_abstract: true
 
