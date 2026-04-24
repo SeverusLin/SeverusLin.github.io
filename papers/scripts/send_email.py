@@ -24,11 +24,11 @@ def build_email_html(papers, config):
             parts.append(f"<p><strong>Cross-listed:</strong> {', '.join(p['cross_categories'])}</p>")
         # 作者
         parts.append(f"<p><strong>Authors:</strong> {p['authors']}</p>")
-        # AI 命题总结
-        parts.append(f"<p><strong>Main Proposition (AI):</strong> {p['ai_summary']}</p>")
         if include_abstract:
             parts.append(f"<p><strong>Abstract:</strong> {p['abstract']}</p>")
         parts.append("<hr>")
+        # AI 命题总结
+        parts.append(f"<p><strong>Main Proposition (AI):</strong> {p['ai_summary']}</p>")
     return "\n".join(parts)
 
 def main():
