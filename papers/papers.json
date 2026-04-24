@@ -10,7 +10,7 @@
     "cross_categories": [
       "math.CO"
     ],
-    "ai_summary": "The main theorem establishes the Hard Lefschetz theorem and Hodge-Riemann bilinear relations for the combinatorial Chow rings of projective bundles associated to matroids, proving new cases of the Hodge-type conjectures and yielding Bloch-Gieseker-type inequalities for tautological classes."
+    "ai_summary": ""
   },
   {
     "id": "2604.20778v1",
@@ -21,6 +21,6 @@
     "published": "2026-04-22T17:06:22+00:00",
     "category": "math.CO",
     "cross_categories": [],
-    "ai_summary": "The paper establishes a generalization of modular pairs to infinite matroids, yielding a complete theory of single-element extensions, a characterization of quotients and projections, and a proof that matroids with all flats modular are finitary."
+    "ai_summary": ""
   }
 ]
