@@ -10,21 +10,23 @@ import resend
 from scripts.utils import load_config, setup_logging
 
 def build_email_html(papers, config):
-    """Build HTML email with same format as webpage: no title link, arXiv ID link, category bold."""
     include_abstract = config["email"].get("include_full_abstract", True)
     parts = ["<h1>arXiv Daily Papers</h1>"]
     for p in papers:
-        # title as plain text (no link)
+        # 标题（纯文字，不做链接）
         parts.append(f"<h3>{p['title']}</h3>")
-        # arXiv ID as link
+        # arXiv ID 作为链接
         parts.append(f"<p><strong>arXiv:</strong> <a href='{p['url']}'>{p['id']}</a></p>")
-        # category bold
-        parts.append(f"<p><strong>{p['category']}</strong></p>")
+        # 主分类加粗
         parts.append(f"<p><strong>{p['primary_category']}</strong></p>")
-        if p.get('cross_categories'):
+        # 交叉分类
+        if p.get("cross_categories"):
             parts.append(f"<p><strong>Cross-listed:</strong> {', '.join(p['cross_categories'])}</p>")
+        # 作者
         parts.append(f"<p><strong>Authors:</strong> {p['authors']}</p>")
+        # AI 命题总结
         parts.append(f"<p><strong>Main Proposition (AI):</strong> {p['ai_summary']}</p>")
+        # 摘要（可选）
         if include_abstract:
             parts.append(f"<p><strong>Abstract:</strong> {p['abstract']}</p>")
         parts.append("<hr>")
@@ -41,17 +43,15 @@ def main():
 
     json_path = Path(__file__).resolve().parents[2] / "output" / "papers.json"
     if not json_path.exists():
-        logging.warning("No papers.json found, email will be skipped.")
+        logging.warning("No papers.json found, skipping email.")
         return
     with open(json_path, "r", encoding="utf-8") as f:
         papers = json.load(f)
-
     if not papers:
-        logging.info("No papers to send, skipping email.")
+        logging.info("No papers to send.")
         return
 
     html_content = build_email_html(papers, config)
-
     resend.api_key = resend_api_key
     sender = config["email"]["sender"]
     subject = config["email"]["subject"] + f" – {datetime.date.today().isoformat()}"
