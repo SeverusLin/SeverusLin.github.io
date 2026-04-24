@@ -8,7 +8,10 @@
     "published": "2026-04-22T17:06:22+00:00",
     "category": "math.CO",
     "cross_categories": [],
-    "relatedness": {},
+    "relatedness": {
+      "2409.05107": 1,
+      "2603.21680": 4
+    },
     "references": [
       {
         "id": "2409.05107",
