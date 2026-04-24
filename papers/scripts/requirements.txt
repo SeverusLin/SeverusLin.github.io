@@ -1,5 +1,0 @@
-arxiv
-requests
-python-dotenv
-openai
-resend

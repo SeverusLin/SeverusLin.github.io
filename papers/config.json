@@ -1,0 +1,11 @@
+{
+  "arxiv_categories": ["math.AG", "math.NT"],
+  "keywords": ["moduli", "scheme"],
+  "max_results_per_category": 10,
+  "email": {
+    "from": "arxiv-daily@yourdomain.com",
+    "to": "youremail@example.com"
+  },
+  "deepseek_model": "deepseek-chat",
+  "timezone": "Asia/Shanghai"
+}

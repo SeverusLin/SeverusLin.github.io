@@ -1,0 +1,44 @@
+name: Analyze Single Paper
+
+on:
+  workflow_dispatch:
+    inputs:
+      arxiv_id:
+        description: 'arXiv 论文 ID（如 2301.12345）'
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: papers
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run analysis
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          ARXIV_ID: ${{ inputs.arxiv_id }}
+        run: python scripts/analyze_paper.py
+
+      - name: Commit and push analysis page
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add papers/analysis/
+          git diff --staged --quiet || git commit -m "Add analysis for ${{ inputs.arxiv_id }}"
+          git push

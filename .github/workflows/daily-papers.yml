@@ -1,41 +1,49 @@
-name: Daily ArXiv Papers
+name: Daily arXiv Papers
 
 on:
   schedule:
-    - cron: '0 8 * * *'
+    - cron: '0 3 * * *'   # 北京时间 11:00
   workflow_dispatch:
     inputs:
       send_email:
-        description: '是否发送邮件'
+        description: '是否发送邮件？'
         required: true
-        default: 'true'
-        type: choice
-        options:
-          - 'true'
-          - 'false'
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
 
 jobs:
-  run:
+  fetch-and-update:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
+    defaults:
+      run:
+        working-directory: papers    # 关键：指定工作目录
+
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: '3.11'
+
       - name: Install dependencies
-        run: pip install -r papers/scripts/requirements.txt
-      - name: Fetch and filter
+        run: pip install -r requirements.txt
+
+      - name: Run daily script
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
-          EMAIL_TO: ${{ secrets.EMAIL_TO }}
-          SEND_EMAIL: ${{ github.event.inputs.send_email || 'true' }}
-        run: python papers/scripts/fetch_and_filter.py
-      - name: Commit and push changes
+          SEND_EMAIL: ${{ github.event_name == 'schedule' && 'true' || inputs.send_email }}
+        run: python scripts/fetch_and_send.py
+
+      - name: Commit and push updates
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add papers/index.html
-          git diff --staged --quiet || (git commit -m "Update daily papers $(date +%Y-%m-%d)" && git push)
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add papers/papers.html papers/analysis/
+          git diff --staged --quiet || git commit -m "Update papers [skip ci]"
+          git push
