@@ -14,6 +14,8 @@
     };
   </script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <!-- 引入 marked 来渲染 Markdown 评分指南 -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <style>
     body { font-family: system-ui, -apple-system, sans-serif; max-width: 960px; margin: 2em auto; padding: 0 1em; }
     .paper { margin-bottom: 2.5em; padding-bottom: 2em; border-bottom: 1px solid #ddd; }
@@ -24,7 +26,6 @@
     .abstract { color: #333; margin: 0.8em 0; }
     .relevance { background: #f5f8ff; padding: 1em; border-left: 4px solid #2c5f8a; margin: 1em 0; }
     .relevance h3 { margin-top: 0; font-size: 1.1em; }
-    .guide-box { background: #f9f9f9; padding: 0.8em; margin: 0.5em 0; border-radius: 4px; font-size: 0.9em; white-space: pre-wrap; }
     .ref-list { list-style: none; padding-left: 0; }
     .ref-list li { margin: 0.4em 0; }
     .score-badge { display: inline-block; min-width: 2em; text-align: center; padding: 2px 6px; border-radius: 4px; font-weight: bold; color: white; }
@@ -33,12 +34,43 @@
     .score-7-8 { background: #2980b9; }
     .score-9-10 { background: #27ae60; }
     .na { background: #bdc3c7; }
+    /* 评分指南渲染区域 */
+    .scoring-guide-container {
+      background: #f0f4f8;
+      border: 1px solid #ccc;
+      padding: 1em;
+      margin-bottom: 2em;
+      border-radius: 6px;
+    }
+    .scoring-guide-container h2 { margin-top: 0; }
     a { color: #005a9c; text-decoration: none; }
     a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
   <h1>arXiv Daily Papers — 2026-04-24</h1>
+
+  <!-- 只在顶部展示一次评分指南 -->
+  
+  <div class="scoring-guide-container">
+    <h2>📊 AI Scoring Guide</h2>
+    <div id="scoring-guide-content" data-markdown="## How AI Scores Relevance (0–10)
+
+- **0–2** ➤ Completely unrelated (different field)  
+- **3–4** ➤ Weakly related (same broad area, but different subfield)  
+- **5–6** ➤ Moderately related (shares some common concepts or techniques)  
+- **7–8** ➤ Strongly related (same subfield, similar methods)  
+- **9–10** ➤ Highly related (very close topic, potential overlap)
+
+&gt; The AI evaluates **topic**, **methodology**, and **results** to assign the score."></div>
+    <script>
+      (function() {
+        const md = document.getElementById('scoring-guide-content').getAttribute('data-markdown');
+        document.getElementById('scoring-guide-content').innerHTML = marked.parse(md);
+      })();
+    </script>
+  </div>
+  
 
   
     
@@ -55,20 +87,7 @@
 
       
       <div class="relevance">
-        <h3>📊 AI Relevance Score (0-10)</h3>
-        <div class="guide-box"># AI Relevance Scoring Guide
-
-The AI evaluates how closely a target paper relates to each reference paper using a 0–10 scale:
-
-| Score | Meaning                                      |
-|-------|----------------------------------------------|
-| 0‑2   | Completely unrelated (different field)       |
-| 3‑4   | Weakly related (same broad area, different subfield) |
-| 5‑6   | Moderately related (shares some concepts/techniques) |
-| 7‑8   | Strongly related (same subfield, similar methods)    |
-| 9‑10  | Highly related (very close topic, potential overlap) |
-
-This guide is used by the AI relevance evaluator and is also linked from the daily paper page.</div>
+        <h3>🔗 Relevance to Tracked Papers</h3>
         <ul class="ref-list">
           
             <li>
@@ -76,7 +95,7 @@ This guide is used by the AI relevance evaluator and is also linked from the dai
               
                 
                 
-                  <span class="score-badge score-0-3">1</span>
+                  <span class="score-badge score-0-3">0</span>
                 
               
             </li>
@@ -86,7 +105,7 @@ This guide is used by the AI relevance evaluator and is also linked from the dai
               
                 
                 
-                  <span class="score-badge score-4-6">4</span>
+                  <span class="score-badge score-0-3">0</span>
                 
               
             </li>
@@ -111,20 +130,7 @@ This guide is used by the AI relevance evaluator and is also linked from the dai
 
       
       <div class="relevance">
-        <h3>📊 AI Relevance Score (0-10)</h3>
-        <div class="guide-box"># AI Relevance Scoring Guide
-
-The AI evaluates how closely a target paper relates to each reference paper using a 0–10 scale:
-
-| Score | Meaning                                      |
-|-------|----------------------------------------------|
-| 0‑2   | Completely unrelated (different field)       |
-| 3‑4   | Weakly related (same broad area, different subfield) |
-| 5‑6   | Moderately related (shares some concepts/techniques) |
-| 7‑8   | Strongly related (same subfield, similar methods)    |
-| 9‑10  | Highly related (very close topic, potential overlap) |
-
-This guide is used by the AI relevance evaluator and is also linked from the daily paper page.</div>
+        <h3>🔗 Relevance to Tracked Papers</h3>
         <ul class="ref-list">
           
             <li>
