@@ -7,7 +7,7 @@ import json
 import datetime
 from arxiv import Client, Search, SortCriterion
 from scripts.utils import load_config, setup_logging
-from scripts.ai_summarize import extract_theorem
+from scripts.ai_relatedness import evaluate_relatedness
 
 def filter_by_keywords(paper, keywords):
     text = (paper.title + " " + paper.summary).lower()
@@ -39,11 +39,35 @@ def fetch_papers(config):
                 logging.info(f"  Hit: {result.title[:70]}...")
     return all_papers
 
+def fetch_reference_info(ref_list, client):
+    """根据 arXiv ID 获取参考论文的标题和摘要"""
+    refs = []
+    ids = [item["id"] for item in ref_list]
+    try:
+        search = Search(id_list=ids)
+        results = list(client.results(search))
+        for item in ref_list:
+            rid = item["id"]
+            match = next((r for r in results if r.entry_id.split("/")[-1] == rid), None)
+            info = {
+                "id": rid,
+                "title": match.title if match else "Unknown",
+                "abstract": match.summary.replace("\n", " ") if match else "",
+                "label": item.get("label", rid)
+            }
+            refs.append(info)
+    except Exception as e:
+        logging.warning(f"Failed to fetch reference paper info: {e}")
+        for item in ref_list:
+            refs.append({"id": item["id"], "title": "N/A", "abstract": "", "label": item.get("label", item["id"])})
+    return refs
+
 def main():
     setup_logging()
     config = load_config()
     papers = fetch_papers(config)
 
+    # 去重
     seen_ids = set()
     unique = []
     for p in papers:
@@ -58,16 +82,22 @@ def main():
         scored.sort(key=lambda x: x[1], reverse=True)
         unique = [p for p, s in scored]
 
+    # 获取参考论文详细信息
+    ref_list = config.get("reference_papers", [])
+    references = []
+    if ref_list:
+        client = Client()
+        references = fetch_reference_info(ref_list, client)
+
     papers_data = []
     for p in unique:
         authors = ", ".join(a.name for a in p.authors)
         abstract = p.summary.replace("\n", " ").strip()
 
-        logging.info(f"Extracting theorem for: {p.title[:60]}...")
-        theorem = extract_theorem(p.title, abstract)
-        # 确保字段永远不缺失
-        if not theorem:
-            theorem = "No explicit theorem stated."
+        # AI 关联度打分
+        relatedness = {}
+        if references:
+            relatedness = evaluate_relatedness(p.title, abstract, references)
 
         all_cats = [str(c) for c in p.categories]
         primary = p.primary_category
@@ -82,7 +112,8 @@ def main():
             "published": p.published.isoformat(),
             "category": primary,
             "cross_categories": cross,
-            "theorem": theorem
+            "relatedness": relatedness,   # dict {ref_id: score}
+            "references": references      # 参考论文列表（含标题）
         })
 
     output_dir = Path(__file__).resolve().parents[2] / "output"

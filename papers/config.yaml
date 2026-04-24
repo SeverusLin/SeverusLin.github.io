@@ -24,3 +24,10 @@ email:
 
 output:
   daily_html: "index.html"
+
+# 关注论文列表，用于 AI 关联度评估
+reference_papers:
+  - id: "2409.05107"
+    label: "Explicit formulas for the Hattori-Stong theorem and applications"    # 可选标签，展示时用
+  - id: "2603.21680"
+    label: "Inequalities for Chow Polynomials and Chern Numbers of Matroids"

@@ -15,12 +15,11 @@ def build_email_html(papers, config):
     for p in papers:
         parts.append(f"<h3>{p['title']}</h3>")
         parts.append(f"<p><strong>arXiv:</strong> <a href='{p['url']}'>{p['id']}</a></p>")
-        parts.append(f"<p><strong>{p['category']}</strong></p>")
+        parts.append(f"<p><strong>Category:</strong> {p['category']}")
         if p.get("cross_categories"):
-            parts.append(f"<p><strong>Cross-listed:</strong> {', '.join(p['cross_categories'])}</p>")
+            parts[-1] += f" (also in: {', '.join(p['cross_categories'])})"
+        parts[-1] += "</p>"
         parts.append(f"<p><strong>Authors:</strong> {p['authors']}</p>")
-        # ===== AI 总结已注释 =====
-        # parts.append(f"<p><strong>Main Proposition (AI):</strong> {p['ai_summary']}</p>")
         if include_abstract:
             parts.append(f"<p><strong>Abstract:</strong> {p['abstract']}</p>")
         parts.append("<hr>")

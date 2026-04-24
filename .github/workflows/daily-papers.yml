@@ -2,7 +2,7 @@ name: Daily arXiv Papers
 
 on:
   schedule:
-    - cron: '0 3 * * *'   # 北京时间 11:00
+    - cron: '0 3 * * *'   # UTC 3:00 = 北京时间 11:00
   workflow_dispatch:
     inputs:
       send_email:
@@ -35,7 +35,7 @@ jobs:
         id: dow
         run: echo "DOW=$(date +%u)" >> $GITHUB_ENV
 
-      - name: Fetch papers & AI extract theorem
+      - name: Fetch papers & AI relevance scoring
         if: github.event_name == 'workflow_dispatch' || (github.event_name == 'schedule' && env.DOW < 6)
         run: python papers/scripts/fetch_papers.py
         env:
