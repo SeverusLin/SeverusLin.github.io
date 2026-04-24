@@ -1,0 +1,62 @@
+name: Daily arXiv Papers
+
+on:
+  schedule:
+    # UTC 3:00 = 北京时间 11:00（可在 config.yaml 中覆盖，但 cron 仍以此为准）
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+    inputs:
+      send_email:
+        description: 'Send email notification?'
+        type: boolean
+        default: true
+
+env:
+  PYTHON_VERSION: '3.11'
+
+jobs:
+  daily-papers:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyyaml requests arxiv openai resend jinja2
+
+      - name: Fetch papers and AI summarize
+        run: python papers/scripts/fetch_papers.py
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          # 也可以自定义分类/关键词通过环境变量，但优先用 config.yaml
+
+      - name: Generate daily HTML
+        run: python papers/scripts/generate_daily_html.py
+
+      - name: Upload artifact (optional)
+        uses: actions/upload-artifact@v4
+        with:
+          name: daily-site
+          path: output/
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./output
+          destination_dir: .
+          keep_files: false   # 每次完全覆盖，确保旧论文消失
+
+      - name: Send email (only on schedule or when manual with email enabled)
+        if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.send_email)
+        run: python papers/scripts/send_email.py
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}

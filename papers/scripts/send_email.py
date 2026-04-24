@@ -1,0 +1,62 @@
+import logging
+import json
+import resend
+import os
+from pathlib import Path
+from .utils import load_config, setup_logging
+
+def build_email_html(papers, config):
+    """Build a simple HTML email containing paper list."""
+    include_abstract = config["email"].get("include_full_abstract", True)
+    parts = []
+    parts.append("<h1>arXiv Daily Papers</h1>")
+    for p in papers:
+        parts.append(f"<h3><a href='{p['url']}'>{p['title']}</a></h3>")
+        parts.append(f"<p><strong>Authors:</strong> {p['authors']}</p>")
+        parts.append(f"<p><strong>AI Proposition:</strong> {p['ai_summary']}</p>")
+        if include_abstract:
+            parts.append(f"<p><strong>Abstract:</strong> {p['abstract']}</p>")
+        parts.append("<hr>")
+    return "\n".join(parts)
+
+def main():
+    setup_logging()
+    config = load_config()
+    resend_api_key = os.environ.get("RESEND_API_KEY")
+    email_to = os.environ.get("EMAIL_TO")
+    if not resend_api_key or not email_to:
+        logging.error("RESEND_API_KEY or EMAIL_TO not set. Cannot send email.")
+        return
+
+    # Load papers
+    json_path = Path(__file__).resolve().parents[2] / "output" / "papers.json"
+    if not json_path.exists():
+        logging.warning("No papers.json found, email will be skipped.")
+        return
+    with open(json_path, "r", encoding="utf-8") as f:
+        papers = json.load(f)
+
+    if not papers:
+        logging.info("No papers to send, skipping email.")
+        return
+
+    html_content = build_email_html(papers, config)
+
+    resend.api_key = resend_api_key
+    sender = config["email"]["sender"]
+    subject = config["email"]["subject"] + f" – {datetime.date.today().isoformat()}"
+
+    try:
+        r = resend.Emails.send({
+            "from": sender,
+            "to": email_to,
+            "subject": subject,
+            "html": html_content
+        })
+        logging.info(f"Email sent, ID: {r['id']}")
+    except Exception as e:
+        logging.error(f"Failed to send email: {e}")
+
+if __name__ == "__main__":
+    import datetime
+    main()

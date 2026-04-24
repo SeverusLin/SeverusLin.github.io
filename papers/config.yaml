@@ -1,0 +1,36 @@
+# arXiv categories to monitor (use exact arXiv identifiers)
+categories:
+  - math.AG
+  - cs.LG
+  - stat.ML
+
+# Keywords to filter papers (match in title or abstract, case-insensitive)
+keywords:
+  - algebraic geometry
+  - deep learning
+  - diffusion model
+
+# Number of past days to look back for new papers
+lookback_days: 1
+
+# Daily email schedule (cron in UTC) – informational, actual schedule is in the workflow file
+schedule_time: "0 3 * * *"   # UTC 3:00 = Beijing 11:00
+
+# DeepSeek (or any OpenAI‑compatible) settings
+ai:
+  base_url: "https://api.deepseek.com/v1"
+  model: "deepseek-chat"
+  # Note: actual API key is loaded from secret DEEPSEEK_API_KEY
+
+# Email settings
+email:
+  # Resend sender address (must be verified domain)
+  sender: "arXiv Daily <papers@yourdomain.com>"
+  subject: "arXiv Daily Papers"
+  # Set to true to include full abstract in email HTML
+  include_full_abstract: true
+
+# Output file names (relative to output/ directory)
+output:
+  daily_html: "index.html"
+  analysis_html: "analysis.html"
