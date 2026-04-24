@@ -1,5 +1,16 @@
 [
   {
+    "id": "2604.20778v1",
+    "title": "Modularity, Extensions and Connectivity in Infinite Matroids",
+    "authors": "Mattias Ehatamm, Peter Nelson, Fernanda Rivera Omana",
+    "abstract": "We generalize the well-studied notion of a modular pair of a finite matroid to arbitrary families of sets in infinite matroids, and use it to develop the theory of infinite matroids in several as-yet-unexplored areas. Our results include a complete theory of single-element extensions, a description of the relationship between quotients and projections, a proof that matroids for which every flat is modular must be finitary, and two new perspectives on the infinite matroid connectivity parameter λ. In most cases, existing theory for finite matroids either fails completely or does not extend in obvious ways, and as a result we develop multiple new techniques for reasoning about infinite matroids, including establishing well-behaved infinite analogues of nullity, local connectivity and skewness. We also point to an online repository containing formalized proofs of all our results using the lean4 proof assistant",
+    "url": "http://arxiv.org/abs/2604.20778v1",
+    "published": "2026-04-22T17:06:22+00:00",
+    "category": "math.CO",
+    "cross_categories": [],
+    "report": "# Modularity, Extensions and Connectivity in Infinite Matroids\n\n## 1. Main Motivation\n\nThe theory of finite matroids is a cornerstone of combinatorial mathematics, providing a unified framework for independence, rank, and duality that encompasses graphs, vector spaces, and transversals. A central pillar in this theory is the concept of **modular pairs** of flats, which underpins results on connectivity, extensions, and quotients. However, extending these ideas to **infinite matroids** has proven profoundly challenging: direct generalizations often break down, rank functions may take infinite values, and the interplay between circuits and independent sets becomes subtle in the absence of finiteness. This paper is motivated by the need to fill foundational gaps in infinite matroid theory, specifically by developing a robust notion of modularity for arbitrary families of sets that works seamlessly in the infinite setting.\n\nThe research addresses several specific problems:\n\n- **Single-element extensions** – In finite matroids, every single-element extension can be described by a modular cut of flats, but the infinite analogue is far from obvious because the lattice of flats may be wildly incomplete.\n- **Quotients vs. projections** – For finite matroids, quotients (strong maps) correspond cleanly to modular pairs of flats; the infinite version requires a new treatment to maintain duality relationships.\n- **Modular flats and finitariness** – Finite matroids with the property that every flat is modular are very restricted (e.g., uniform matroids); it is unknown whether analogous infinite matroids can contain infinite circuits.\n- **Connectivity parameter $\\lambda$** – Tutte’s connectivity function $\\lambda(X) = r(X) + r(E\\setminus X) - r(E)$ is well-defined for finite matroids, but infinite matroids require careful interpretations of rank subtraction and complementation, leading to multiple candidate definitions.\n\nBy systematically generalizing the notion of a modular pair and developing a suite of infinite analogues of local connectivity, nullity, and skewness, the authors aim to unify these disparate threads and provide a solid foundation for future work on infinite matroids.\n\n## 2. Core Methodology\n\nThe paper’s methodology revolves around a new, highly flexible definition of a **modular family** of sets in an infinite matroid. Instead of merely extending the finite pair condition $r(A) + r(B) = r(A \\cap B) + r(A \\cup B)$, the authors define modularity for arbitrary families $\\mathcal{F}$ of subsets of the ground set $E$, using a condition on the rank function that is stable under taking intersections and unions of infinite subfamilies. This definition is crafted to be equivalent to the classical one for finite families and to interact well with the infinite matroid axioms (e.g., independence axioms with finite character, or closure axioms with the exchange property).\n\nKey technical tools developed include:\n\n- **Infinite nullity and local connectivity** – The nullity of a set $X$ is usually $|X| - r(X)$ in the finite case; for infinite $X$, an appropriate notion is constructed using cardinal arithmetic and the concept of independent transversals. Local connectivity between sets (the rank of their union compared to the sum of ranks) is recast in a way that remains well-behaved when ranks are infinite.\n- **Skewness and modularity** – A family is *skew* if its elements are “as independent as possible” in a sense that mirrors the finite condition $r(\\bigcup \\mathcal{F}) = \\sum_{F \\in \\mathcal{F}} r(F)$ for disjoint flats. The authors show that skew families arise naturally from modular families, providing a bridge to connectivity.\n-"
+  },
+  {
     "id": "2604.21925v1",
     "title": "Hodge theory for combinatorial projective bundles",
     "authors": "Matt Larson, Ethan Partida",
@@ -10,17 +21,6 @@
     "cross_categories": [
       "math.CO"
     ],
-    "ai_summary": ""
-  },
-  {
-    "id": "2604.20778v1",
-    "title": "Modularity, Extensions and Connectivity in Infinite Matroids",
-    "authors": "Mattias Ehatamm, Peter Nelson, Fernanda Rivera Omana",
-    "abstract": "We generalize the well-studied notion of a modular pair of a finite matroid to arbitrary families of sets in infinite matroids, and use it to develop the theory of infinite matroids in several as-yet-unexplored areas. Our results include a complete theory of single-element extensions, a description of the relationship between quotients and projections, a proof that matroids for which every flat is modular must be finitary, and two new perspectives on the infinite matroid connectivity parameter λ. In most cases, existing theory for finite matroids either fails completely or does not extend in obvious ways, and as a result we develop multiple new techniques for reasoning about infinite matroids, including establishing well-behaved infinite analogues of nullity, local connectivity and skewness. We also point to an online repository containing formalized proofs of all our results using the lean4 proof assistant",
-    "url": "http://arxiv.org/abs/2604.20778v1",
-    "published": "2026-04-22T17:06:22+00:00",
-    "category": "math.CO",
-    "cross_categories": [],
-    "ai_summary": ""
+    "report": "*No report generated.*"
   }
 ]
