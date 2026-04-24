@@ -1,11 +1,14 @@
 categories:
   - math.AG
   - math.CO
+  - math.DG
 
 keywords:
   - matroids
   - tropical geometry
   - Chern class
+  - characteristic classes
+  - realrooted
 
 lookback_days: 1
 
