@@ -48,7 +48,7 @@
       {% set no_theorem = ["No explicit theorem stated.", "Theorem extraction failed.", ""] %}
       {% if paper.theorem and paper.theorem not in no_theorem %}
       <div class="theorem">
-        <strong>📌 Main Theorem (AI extracted):</strong>
+        <strong>📌 Main Theorem (extracted by DeepSeek-v4-pro):</strong>
         <div>{{ paper.theorem | safe }}</div>
       </div>
       {% endif %}
