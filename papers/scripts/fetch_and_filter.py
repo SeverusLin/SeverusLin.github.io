@@ -1,5 +1,7 @@
-import os, json, logging
-from datetime import datetime, timedelta, timezone
+import os
+import json
+import logging
+from datetime import datetime, timedelta, timezone, date
 import arxiv
 from openai import OpenAI
 
@@ -12,15 +14,15 @@ with open(os.path.join(script_dir, "config.json"), encoding="utf-8") as f:
 
 KEYWORDS = config["keywords"]
 CATEGORIES = config.get("categories", [])
-DAYS_BACK = config.get("days_back", 1)
+# 暂时不使用 config 里的 days_back，改成硬编码 7 天，方便测试
+SEARCH_DAYS = 7
 
 # ---------- 初始化 DeepSeek 客户端 ----------
 client = OpenAI(
     base_url="https://api.deepseek.com",
     api_key=os.environ["DEEPSEEK_API_KEY"]
 )
-# 用 V4 Flash 版本，速度快且免费
-LLM_MODEL = "deepseek-v4-flash"
+LLM_MODEL = "deepseek-v4-flash"   # 免费且速度快
 
 def is_relevant(title: str, abstract: str) -> bool:
     prompt = f"""你是数学领域专家。判断以下论文是否与任一关键词高度相关：{', '.join(KEYWORDS)}
@@ -41,31 +43,33 @@ def is_relevant(title: str, abstract: str) -> bool:
         logging.error(f"DeepSeek error: {e}")
         return False
 
-# ---------- 获取 ArXiv 论文 ----------
+# ---------- 获取 ArXiv 论文（近7天）----------
 now = datetime.now(timezone.utc)
-start_date = now - timedelta(days=DAYS_BACK)
+today_date = now.date()                   # 仅日期，用于比较
+start_date = today_date - timedelta(days=SEARCH_DAYS)   # 7天前
 
 cat_filter = ""
 if CATEGORIES:
     cat_parts = [f"cat:{c}" for c in CATEGORIES]
     cat_filter = "(" + " OR ".join(cat_parts) + ") AND "
-search_query = f"{cat_filter}cat:math.*"
+search_query = f"{cat_filter}cat:math.*"   # 数学大类，可自行调整
 
 arxiv_client = arxiv.Client()
 search = arxiv.Search(
     query=search_query,
-    max_results=200,
+    max_results=500,                       # 扩大到500，确保覆盖7天
     sort_by=arxiv.SortCriterion.SubmittedDate
 )
 
 papers = []
 for r in arxiv_client.results(search):
-    pub = r.published.replace(tzinfo=timezone.utc)
-    if pub < start_date:
+    pub_date = r.published.date()          # 仅取日期部分（忽略时分秒）
+    if pub_date < start_date:              # 早于7天前就停止
         break
-    papers.append(r)
+    if pub_date <= today_date:             # 防止未来论文（一般不会有）
+        papers.append(r)
 
-logging.info(f"Fetched {len(papers)} papers from ArXiv")
+logging.info(f"Fetched {len(papers)} papers from ArXiv (last {SEARCH_DAYS} days)")
 
 # ---------- DeepSeek 筛选 ----------
 filtered = []
@@ -82,8 +86,8 @@ for i, p in enumerate(papers):
 
 logging.info(f"Found {len(filtered)} relevant papers")
 
-# ---------- 生成 HTML ----------
-date_str = now.strftime("%Y-%m-%d")
+# ---------- 生成 HTML（使用当天日期）----------
+date_str = today_date.isoformat()          # YYYY-MM-DD
 html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -101,7 +105,7 @@ html = f"""<!DOCTYPE html>
 </head>
 <body>
 <h1>📄 Daily ArXiv Papers – {date_str}</h1>
-<p>Keywords: {', '.join(KEYWORDS)}</p>
+<p>Keywords: {', '.join(KEYWORDS)} | Searching last {SEARCH_DAYS} days</p>
 <hr>"""
 
 if not filtered:
@@ -128,13 +132,14 @@ with open(output_path, "w", encoding="utf-8") as f:
     f.write(html)
 logging.info(f"HTML saved to {output_path}")
 
-# ---------- 发送邮件（Resend） ----------
+# ---------- 发送邮件（使用当天日期）----------
 if os.environ.get("SEND_EMAIL", "true").lower() == "true":
     try:
         import resend
         resend.api_key = os.environ["RESEND_API_KEY"]
 
         if filtered:
+            # 组装邮件正文
             text = "\n\n".join(
                 [f"{p['title']}\n{p['url']}\n{p['abstract'][:200]}..." for p in filtered]
             )
