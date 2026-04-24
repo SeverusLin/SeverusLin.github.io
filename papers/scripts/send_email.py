@@ -17,9 +17,9 @@ def build_email_html(papers, config):
         parts.append(f"<h3>{p['title']}</h3>")
         # arXiv ID 作为链接
         parts.append(f"<p><strong>arXiv:</strong> <a href='{p['url']}'>{p['id']}</a></p>")
-        # 主分类加粗
+        # ✅ 修正字段名：primary_category 而非 category
         parts.append(f"<p><strong>{p['primary_category']}</strong></p>")
-        # 交叉分类
+        # 交叉分类（如果存在）
         if p.get("cross_categories"):
             parts.append(f"<p><strong>Cross-listed:</strong> {', '.join(p['cross_categories'])}</p>")
         # 作者
