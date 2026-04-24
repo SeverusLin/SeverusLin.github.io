@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>arXiv Daily Papers — {{ date }}</title>
+  <script id="MathJax-script" async src="{{ mathjax_cdn }}"></script>
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; max-width: 960px; margin: 2em auto; padding: 0 1em; }
+    .paper { margin-bottom: 2em; padding-bottom: 1em; border-bottom: 1px solid #ddd; }
+    .title { font-size: 1.3em; font-weight: 600; margin: 0.2em 0; }
+    .meta { color: #555; font-size: 0.95em; margin: 0.3em 0; }
+    .primary-category { font-weight: bold; margin: 0.2em 0; }
+    .cross-category { color: #555; font-size: 0.9em; margin-left: 0.5em; }
+    .abstract { color: #333; margin: 0.5em 0; }
+    .proposition { background: #f4f4f4; padding: 0.8em; border-left: 4px solid #005a9c; margin: 0.5em 0; }
+    .single-analyzer { margin: 3em 0; padding: 1em; background: #f9f9f9; border-radius: 8px; }
+    input[type="text"] { padding: 0.5em; width: 200px; }
+    button { padding: 0.5em 1em; margin-left: 0.5em; }
+    a { color: #005a9c; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <h1>arXiv Daily Papers — {{ date }}</h1>
+  {% if papers %}
+    {% for paper in papers %}
+    <div class="paper">
+      <div class="title">{{ paper.title }}</div>
+      <div class="meta">
+        <strong>arXiv:</strong> <a href="{{ paper.url }}" target="_blank">{{ paper.id }}</a>
+      </div>
+      <div class="primary-category">{{ paper.category }}
+        {% if paper.cross_categories %}
+          <span class="cross-category">(also in: {{ paper.cross_categories | join(", ") }})</span>
+        {% endif %}
+      </div>
+      <div class="meta"><strong>Authors:</strong> {{ paper.authors }}</div>
+      <div class="abstract"><strong>Abstract:</strong> {{ paper.abstract }}</div>
+      <div class="proposition">
+        <strong>Main Proposition (AI summarized):</strong> {{ paper.ai_summary }}
+      </div>
+    </div>
+    {% endfor %}
+  {% else %}
+    <p>No papers matched today's criteria.</p>
+  {% endif %}
+
+  <div class="single-analyzer">
+    <h2>Deep‑dive a specific arXiv paper</h2>
+    <p>Enter an arXiv ID (e.g. <code>2401.12345</code>) to generate a detailed analysis.</p>
+    <p><strong>Note:</strong> This will open the GitHub Actions page where you can manually trigger the analysis. After the workflow finishes, the result will be available at <a href="analysis.html">analysis.html</a> (previous analysis will be replaced).</p>
+    <div style="margin-top: 1em;">
+      <input type="text" id="arxiv-id-input" placeholder="e.g., 2401.12345">
+      <button onclick="openActions()">Run Analysis</button>
+    </div>
+    <p style="font-size: 0.9em; color: #666;">After clicking, paste the ID into the opened workflow and trigger "Run workflow".</p>
+  </div>
+
+  <script>
+    function openActions() {
+      const id = document.getElementById('arxiv-id-input').value.trim();
+      if (!id) { alert('Please enter an arXiv ID'); return; }
+      const repoUrl = "https://github.com/" + window.location.pathname.split('/').slice(0,3).join('/');
+      window.open(repoUrl + "/actions/workflows/analyze-paper.yml", '_blank');
+      try {
+        navigator.clipboard.writeText(id);
+        alert('arXiv ID copied to clipboard. Paste it in the "Run workflow" dialog and click "Run workflow".');
+      } catch(e) {
+        alert('Please copy this ID and paste in the opened workflow: ' + id);
+      }
+    }
+  </script>
+</body>
+</html>

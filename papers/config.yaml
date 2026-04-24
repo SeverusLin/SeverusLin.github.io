@@ -1,0 +1,24 @@
+categories:
+  - math.AG
+  - cs.LG
+  - stat.ML
+
+keywords:
+  - algebraic geometry
+  - deep learning
+  - diffusion model
+
+lookback_days: 1
+
+ai:
+  base_url: "https://api.deepseek.com/v1"
+  model: "deepseek-chat"
+
+email:
+  sender: "arXiv Daily <papers@yourdomain.com>"   # 替换为你的已验证域名
+  subject: "arXiv Daily Papers"
+  include_full_abstract: true
+
+output:
+  daily_html: "index.html"
+  analysis_html: "analysis.html"

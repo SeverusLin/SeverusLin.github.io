@@ -2,10 +2,11 @@ name: Daily arXiv Papers
 
 on:
   schedule:
-    - cron: '0 3 * * *'
+    - cron: '0 3 * * *'   # 北京时间 11:00
   workflow_dispatch:
     inputs:
       send_email:
+        description: 'Send email notification?'
         type: boolean
         default: true
 
@@ -41,11 +42,11 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-            github_token: ${{ secrets.GITHUB_TOKEN }}
-            publish_dir: ./output
-            publish_branch: main          # 这里改成 main 分支
-            destination_dir: papers
-            keep_files: false
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./output
+          destination_dir: papers
+          keep_files: true          # 让 index.html 和 analysis.html 共存
+
       - name: Send email (optional)
         if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.send_email)
         run: python papers/scripts/send_email.py
