@@ -8,6 +8,12 @@ on:
         required: true
         type: string
 
+
+permissions:
+  contents: write
+  pages: write
+
+
 jobs:
   analyze:
     runs-on: ubuntu-latest
