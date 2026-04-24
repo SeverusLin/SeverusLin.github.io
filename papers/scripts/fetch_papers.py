@@ -5,7 +5,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 import logging
 import json
 import datetime
-import arxiv
+from arxiv import Client, Search, SortCriterion
 from scripts.utils import load_config, setup_logging
 from scripts.ai_summarize import extract_theorem
 
@@ -22,14 +22,15 @@ def fetch_papers(config):
     keywords = config["keywords"]
     lookback = config["lookback_days"]
     all_papers = []
+    client = Client()
     for cat in categories:
         logging.info(f"Searching arXiv category: {cat}")
-        search = arxiv.Search(
+        search = Search(
             query=f"cat:{cat}",
             max_results=100,
-            sort_by=arxiv.SortCriterion.SubmittedDate
+            sort_by=SortCriterion.SubmittedDate
         )
-        for result in search.results():
+        for result in client.results(search):
             days_ago = (datetime.datetime.now(datetime.timezone.utc) - result.published).days
             if days_ago > lookback:
                 continue
@@ -43,7 +44,6 @@ def main():
     config = load_config()
     papers = fetch_papers(config)
 
-    # 去重
     seen_ids = set()
     unique = []
     for p in papers:
@@ -63,8 +63,11 @@ def main():
         authors = ", ".join(a.name for a in p.authors)
         abstract = p.summary.replace("\n", " ").strip()
 
-        # AI 提取主定理
+        logging.info(f"Extracting theorem for: {p.title[:60]}...")
         theorem = extract_theorem(p.title, abstract)
+        # 确保字段永远不缺失
+        if not theorem:
+            theorem = "No explicit theorem stated."
 
         all_cats = [str(c) for c in p.categories]
         primary = p.primary_category

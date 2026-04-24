@@ -14,20 +14,15 @@ def get_client():
     return OpenAI(api_key=api_key, base_url=base_url), config["ai"]["model"]
 
 def extract_theorem(title, abstract):
-    """
-    Use AI to extract the main theorem (or main result) from a paper's title and abstract.
-    Returns a string containing the theorem in precise mathematical language with LaTeX,
-    or a fallback message if extraction fails.
-    """
     client, model = get_client()
     prompt = (
         "You are a mathematician. Read the following paper title and abstract. "
-        "If the paper presents some main theorems, propositions, or core results, "
-        "write them in precise mathematical language using LaTeX (inline $...$ or display $$...$$). "
-        "Output ONLY the theorem statement. Do NOT add any extra commentary or preamble. "
-        "If the paper does not contain a specific theorem, output 'No explicit theorem stated.'.\n\n"
+        "If the paper states a main theorem or proposition, write it in precise mathematical language using LaTeX. "
+        "If no theorem is explicitly stated, try to infer the main result from the abstract and present it as a theorem. "
+        "If absolutely no result can be inferred, output exactly the phrase: 'No explicit theorem stated.'\n\n"
         f"Title: {title}\n\nAbstract: {abstract}"
     )
+
     for attempt in range(2):
         try:
             response = client.chat.completions.create(
@@ -37,13 +32,15 @@ def extract_theorem(title, abstract):
                 max_tokens=400,
                 timeout=60
             )
-            content = response.choices[0].message.content.strip()
-            if content:
+            content = response.choices[0].message.content
+            if content and content.strip():
                 logging.info(f"Theorem extracted for: {title[:60]}...")
-                return content
+                return content.strip()
             else:
-                logging.warning(f"Empty theorem response on attempt {attempt+1}")
+                logging.warning(f"Empty theorem response on attempt {attempt+1} for {title[:60]}")
         except Exception as e:
             logging.error(f"Theorem extraction error on attempt {attempt+1}: {e}")
         time.sleep(2)
-    return "Theorem extraction failed."
+
+    logging.warning(f"All attempts failed to extract theorem for: {title[:60]}")
+    return "No explicit theorem stated."
