@@ -20,6 +20,9 @@ def build_email_html(papers, config):
         parts.append(f"<p><strong>arXiv:</strong> <a href='{p['url']}'>{p['id']}</a></p>")
         # category bold
         parts.append(f"<p><strong>{p['category']}</strong></p>")
+        parts.append(f"<p><strong>{p['primary_category']}</strong></p>")
+        if p.get('cross_categories'):
+            parts.append(f"<p><strong>Cross-listed:</strong> {', '.join(p['cross_categories'])}</p>")
         parts.append(f"<p><strong>Authors:</strong> {p['authors']}</p>")
         parts.append(f"<p><strong>Main Proposition (AI):</strong> {p['ai_summary']}</p>")
         if include_abstract:

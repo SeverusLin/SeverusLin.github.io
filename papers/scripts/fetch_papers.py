@@ -54,13 +54,15 @@ def main():
         ai_summary = summarize_paper(p.title, summary_text)
 
         papers_data.append({
-            "id": p.entry_id.split("/")[-1],      # arXiv ID (e.g., 2401.12345)
+            "id": p.entry_id.split("/")[-1],
             "title": p.title,
             "authors": authors,
             "abstract": summary_text,
             "url": p.entry_id,
             "published": p.published.isoformat(),
-            "category": p.primary_category,       # 主分类，如 math.AG
+            "primary_category": p.primary_category,         # 主分类
+            "all_categories": [str(c) for c in p.categories], # 全部分类（如 ["math.AG", "cs.LG"]）
+            "cross_categories": [str(c) for c in p.categories if str(c) != p.primary_category], # 仅交叉分类
             "ai_summary": ai_summary
         })
 

@@ -21,6 +21,21 @@
   </style>
 </head>
 <body>
+  <script>
+    function openActions() {
+      const id = document.getElementById('arxiv-id-input').value.trim();
+      if (!id) { alert('Please enter an arXiv ID'); return; }
+      const repoUrl = "https://github.com/" + window.location.pathname.split('/').slice(0,3).join('/');
+      window.open(repoUrl + "/actions/workflows/analyze-paper.yml", '_blank');
+      try {
+        navigator.clipboard.writeText(id);
+        alert('arXiv ID copied to clipboard. Paste it in the "Run workflow" dialog and click "Run workflow".');
+      } catch(e) {
+        alert('Please copy this ID and paste in the opened workflow: ' + id);
+      }
+    }
+  </script>
+
   <h1>arXiv Daily Papers — {{ date }}</h1>
   {% if papers %}
     {% for paper in papers %}
@@ -38,6 +53,11 @@
       <div class="category">
         {{ paper.category }}
       </div>
+      {% if paper.cross_categories %}
+        <div class="cross-category">
+            <strong>Cross-listed:</strong> {{ paper.cross_categories | join(", ") }}
+        </div>
+      {% endif %}
 
       <div class="meta"><strong>Authors:</strong> {{ paper.authors }}</div>
       <div class="abstract"><strong>Abstract:</strong> {{ paper.abstract }}</div>
@@ -61,20 +81,5 @@
     </div>
     <p style="font-size: 0.9em; color: #666;">After clicking, paste the ID into the opened workflow and trigger "Run workflow".</p>
   </div>
-
-  <script>
-    function openActions() {
-      const id = document.getElementById('arxiv-id-input').value.trim();
-      if (!id) { alert('Please enter an arXiv ID'); return; }
-      const repoUrl = "https://github.com/" + window.location.pathname.split('/').slice(0,3).join('/');
-      window.open(repoUrl + "/actions/workflows/analyze-paper.yml", '_blank');
-      try {
-        navigator.clipboard.writeText(id);
-        alert('arXiv ID copied to clipboard. Paste it in the "Run workflow" dialog and click "Run workflow".');
-      } catch(e) {
-        alert('Please copy this ID and paste in the opened workflow: ' + id);
-      }
-    }
-  </script>
 </body>
 </html>
