@@ -25,7 +25,7 @@ ai:
 # Email settings
 email:
   # Resend sender address (must be verified domain)
-  sender: "arXiv Daily <papers@yourdomain.com>"
+  sender: "arXiv Daily <onboarding@resend.dev>"
   subject: "arXiv Daily Papers"
   # Set to true to include full abstract in email HTML
   include_full_abstract: true
