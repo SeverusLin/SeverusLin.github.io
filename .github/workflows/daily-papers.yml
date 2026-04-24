@@ -8,6 +8,8 @@ on:
 jobs:
   run:
     runs-on: ubuntu-latest
+    permissions:            # ← 添加
+      contents: write       # ← 添加
     steps:
       - uses: actions/checkout@v4
 
