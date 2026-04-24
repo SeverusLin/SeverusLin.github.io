@@ -14,14 +14,21 @@
     };
   </script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <!-- Markdown 渲染 -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <style>
     body { font-family: system-ui, -apple-system, sans-serif; max-width: 960px; margin: 2em auto; padding: 0 1em; }
-    .paper { margin-bottom: 2em; padding-bottom: 1em; border-bottom: 1px solid #ddd; }
-    .title { font-size: 1.3em; font-weight: 600; margin: 0.2em 0; }
+    .paper { margin-bottom: 3em; padding-bottom: 2em; border-bottom: 1px solid #ddd; }
+    .title { font-size: 1.4em; font-weight: 700; margin: 0.2em 0; }
     .meta { color: #555; font-size: 0.95em; margin: 0.3em 0; }
-    .primary-category { font-weight: bold; margin: 0.2em 0; }
-    .cross-category { color: #555; font-size: 0.9em; margin-left: 0.5em; }
-    .abstract { color: #333; margin: 0.5em 0; }
+    .category { font-weight: bold; margin: 0.3em 0; }
+    .cross { color: #666; font-size: 0.9em; margin-left: 0.5em; }
+    .abstract { color: #333; margin: 0.8em 0; }
+    .report { background: #fafafa; padding: 1em 1.5em; border-left: 4px solid #2c3e50; margin: 1em 0; border-radius: 4px; }
+    .report h2 { font-size: 1.2em; margin-top: 1.2em; }
+    .report h3 { font-size: 1.05em; }
+    .report ul, .report ol { margin-left: 1.5em; }
+    .report pre { background: #eef; padding: 0.5em; overflow-x: auto; }
     a { color: #005a9c; text-decoration: none; }
     a:hover { text-decoration: underline; }
   </style>
@@ -36,19 +43,30 @@
       <div class="meta">
         <strong>arXiv:</strong> <a href="{{ paper.url }}" target="_blank">{{ paper.id }}</a>
       </div>
-      <div class="primary-category">{{ paper.category }}
+      <div class="category">{{ paper.category }}
         {% if paper.cross_categories is iterable and paper.cross_categories is not string and paper.cross_categories %}
-          <span class="cross-category">(also in: {{ paper.cross_categories | join(", ") }})</span>
+          <span class="cross">(also in: {{ paper.cross_categories | join(", ") }})</span>
         {% endif %}
       </div>
       <div class="meta"><strong>Authors:</strong> {{ paper.authors }}</div>
       <div class="abstract"><strong>Abstract:</strong> {{ paper.abstract }}</div>
-      <!-- AI 总结已注释 -->
-      <!-- <div class="proposition"><strong>Main Results (AI summarized):</strong> {{ paper.ai_summary }}</div> -->
+
+      <!-- AI 生成的 Markdown 报告，通过 marked.js 渲染 -->
+      <div class="report">
+        <strong>📄 AI Reading Report:</strong>
+        <div class="markdown-content" id="report-{{ loop.index }}"></div>
+        <script>
+          (function() {
+            const md = `{{ paper.report | replace('`', '\\`') | replace('$', '\\$') | safe }}`;
+            const el = document.getElementById('report-{{ loop.index }}');
+            el.innerHTML = marked.parse(md);
+          })();
+        </script>
+      </div>
     </div>
     {% endfor %}
   {% else %}
-    <p>No papers data available in correct format.</p>
+    <p>No papers matched today's criteria.</p>
   {% endif %}
 </body>
 </html>

@@ -7,18 +7,20 @@ import json
 import datetime
 import arxiv
 from scripts.utils import load_config, setup_logging
-# ===== AI 部分已注释 =====
-# from scripts.ai_summarize import summarize_paper
+from scripts.ai_summarize import generate_report
 
 def filter_by_keywords(paper, keywords):
     text = (paper.title + " " + paper.summary).lower()
     return any(kw.lower() in text for kw in keywords)
 
+def count_keyword_hits(paper, keywords):
+    text = (paper.title + " " + paper.summary).lower()
+    return sum(text.count(kw.lower()) for kw in keywords)
+
 def fetch_papers(config):
     categories = config["categories"]
     keywords = config["keywords"]
     lookback = config["lookback_days"]
-
     all_papers = []
     for cat in categories:
         logging.info(f"Searching arXiv category: {cat}")
@@ -41,6 +43,7 @@ def main():
     config = load_config()
     papers = fetch_papers(config)
 
+    # 去重
     seen_ids = set()
     unique = []
     for p in papers:
@@ -48,17 +51,20 @@ def main():
             seen_ids.add(p.entry_id)
             unique.append(p)
 
+    # 关键词命中数排序（降序）
+    keywords = config.get("keywords", [])
+    if unique and keywords:
+        scored = [(p, count_keyword_hits(p, keywords)) for p in unique]
+        scored.sort(key=lambda x: x[1], reverse=True)
+        unique = [p for p, s in scored]
+
     papers_data = []
     for p in unique:
         authors = ", ".join(a.name for a in p.authors)
         abstract = p.summary.replace("\n", " ").strip()
 
-        # ===== AI 总结已注释 =====
-        # ai_summary = summarize_paper(p.title, abstract)
-        # if not ai_summary or not ai_summary.strip():
-        #     logging.warning(f"Empty AI summary for {p.entry_id}")
-        #     ai_summary = "AI summary not available."
-        ai_summary = ""   # 暂时留空
+        # 生成 AI Markdown 报告
+        report = generate_report(p.title, abstract)
 
         all_cats = [str(c) for c in p.categories]
         primary = p.primary_category
@@ -73,7 +79,7 @@ def main():
             "published": p.published.isoformat(),
             "category": primary,
             "cross_categories": cross,
-            "ai_summary": ai_summary
+            "report": report
         })
 
     output_dir = Path(__file__).resolve().parents[2] / "output"
