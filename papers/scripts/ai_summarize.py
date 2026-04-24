@@ -15,21 +15,23 @@ def get_client():
 def summarize_paper(title, abstract):
     client, model = get_client()
     prompt = (
-        "You are a mathematician and computer scientist. "
-        "Read the following paper title and abstract. "
-        "Output ONLY the main proposition or theorem of the paper in one or two sentences. "
-        "Do not add any commentary.\n\n"
+        "You are an expert mathematician. Read the following paper title and abstract. "
+        "Output the MAIN THEOREM(s) or PROPOSITION(s) in detail. "
+        "Use LaTeX notation for mathematical symbols (e.g., $$...$$ or $...$). "
+        "First, write the theorem in precise mathematical language, then give a brief plain‑English explanation. "
+        "If the paper has multiple core theorems, list them with bullet points. "
+        "Do not add any extra commentary, evaluation, or introductory phrases. Output in English.\n\n"
         f"Title: {title}\n\nAbstract: {abstract}"
     )
     try:
         response = client.chat.completions.create(
             model=model,
             messages=[
-                {"role": "system", "content": "You are a research summarizer."},
+                {"role": "system", "content": "You are a research mathematician."},
                 {"role": "user", "content": prompt}
             ],
             temperature=0.3,
-            max_tokens=300
+            max_tokens=600   # 增加上限，确保定理完整
         )
         return response.choices[0].message.content.strip()
     except Exception as e:
