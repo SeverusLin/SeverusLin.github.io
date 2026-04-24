@@ -13,7 +13,7 @@
       }
     };
   </script>
-  <script id="MathJax-script" async src="{{ mathjax_cdn }}"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <style>
     body { font-family: system-ui, -apple-system, sans-serif; max-width: 960px; margin: 2em auto; padding: 0 1em; }
     .paper { margin-bottom: 2em; padding-bottom: 1em; border-bottom: 1px solid #ddd; }
@@ -23,10 +23,6 @@
     .cross-category { color: #555; font-size: 0.9em; margin-left: 0.5em; }
     .abstract { color: #333; margin: 0.5em 0; }
     .proposition { background: #f4f4f4; padding: 0.8em; border-left: 4px solid #005a9c; margin: 0.5em 0; }
-    .single-analyzer { margin: 1em 0 2em 0; padding: 1em; background: #f0f7ff; border-radius: 8px; border: 1px solid #b3d4ff; }
-    input[type="text"] { padding: 0.5em; width: 220px; border: 1px solid #aaa; border-radius: 4px; }
-    button { padding: 0.5em 1em; margin-left: 0.5em; background: #005a9c; color: white; border: none; border-radius: 4px; cursor: pointer; }
-    button:hover { background: #004080; }
     a { color: #005a9c; text-decoration: none; }
     a:hover { text-decoration: underline; }
   </style>
@@ -34,19 +30,6 @@
 <body>
   <h1>arXiv Daily Papers — {{ date }}</h1>
 
-  <!-- 🔼 分析框移到顶部 -->
-  <div class="single-analyzer">
-    <h2 style="margin-top: 0; font-size: 1.2em;">🔍 Deep‑dive a specific arXiv paper</h2>
-    <p>Enter an arXiv ID (e.g. <code>2401.12345</code>) to generate a detailed AI analysis.</p>
-    <p><strong>Note:</strong> This will open the GitHub Actions page. After the workflow finishes, the result will be at <a href="analysis.html" target="_blank">analysis.html</a> (previous analysis will be replaced).</p>
-    <div style="margin-top: 1em;">
-      <input type="text" id="arxiv-id-input" placeholder="e.g., 2401.12345">
-      <button onclick="openActions()">Run Analysis</button>
-    </div>
-    <p style="font-size: 0.9em; color: #666; margin-bottom: 0;">After clicking, paste the ID into the opened workflow and trigger "Run workflow".</p>
-  </div>
-
-  <!-- 论文列表 -->
   {% if papers %}
     {% for paper in papers %}
     <div class="paper">
@@ -62,27 +45,12 @@
       <div class="meta"><strong>Authors:</strong> {{ paper.authors }}</div>
       <div class="abstract"><strong>Abstract:</strong> {{ paper.abstract }}</div>
       <div class="proposition">
-        <strong>Main Theorem (AI summarized):</strong> {{ paper.ai_summary }}
+        <strong>Main Proposition (AI summarized):</strong> {{ paper.ai_summary }}
       </div>
     </div>
     {% endfor %}
   {% else %}
     <p>No papers matched today's criteria.</p>
   {% endif %}
-
-  <script>
-    function openActions() {
-      const id = document.getElementById('arxiv-id-input').value.trim();
-      if (!id) { alert('Please enter an arXiv ID'); return; }
-      const repoUrl = "https://github.com/" + window.location.pathname.split('/').slice(0,3).join('/');
-      window.open(repoUrl + "/actions/workflows/analyze-paper.yml", '_blank');
-      try {
-        navigator.clipboard.writeText(id);
-        alert('arXiv ID copied to clipboard. Paste it in the "Run workflow" dialog and click "Run workflow".');
-      } catch(e) {
-        alert('Please copy this ID and paste in the opened workflow: ' + id);
-      }
-    }
-  </script>
 </body>
 </html>
