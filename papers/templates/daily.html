@@ -53,7 +53,7 @@
   <!-- 只在顶部展示一次评分指南 -->
   {% if scoring_guide_content %}
   <div class="scoring-guide-container">
-    <h2>📊 AI Scoring Guide</h2>
+    <h2>📊 AI Scoring by <a href="https://api-docs.deepseek.com/" target="_blank">DeepSeek-v4-flash</a></h2>
     <div id="scoring-guide-content" data-markdown="{{ scoring_guide_content | forceescape | safe }}"></div>
     <script>
       (function() {
