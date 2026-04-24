@@ -10,7 +10,7 @@
     "cross_categories": [
       "math.CO"
     ],
-    "ai_summary": ""
+    "ai_summary": "AI returned an empty theorem statement. Please try again later."
   },
   {
     "id": "2604.20778v1",
@@ -21,6 +21,6 @@
     "published": "2026-04-22T17:06:22+00:00",
     "category": "math.CO",
     "cross_categories": [],
-    "ai_summary": ""
+    "ai_summary": "AI returned an empty theorem statement. Please try again later."
   }
 ]
