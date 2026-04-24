@@ -8,7 +8,21 @@
     "published": "2026-04-22T17:06:22+00:00",
     "category": "math.CO",
     "cross_categories": [],
-    "theorem": "No explicit theorem stated."
+    "relatedness": {},
+    "references": [
+      {
+        "id": "2409.05107",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Explicit formulas for the Hattori-Stong theorem and applications"
+      },
+      {
+        "id": "2603.21680",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Inequalities for Chow Polynomials and Chern Numbers of Matroids"
+      }
+    ]
   },
   {
     "id": "2604.21925v1",
@@ -21,6 +35,20 @@
     "cross_categories": [
       "math.CO"
     ],
-    "theorem": "No explicit theorem stated."
+    "relatedness": {},
+    "references": [
+      {
+        "id": "2409.05107",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Explicit formulas for the Hattori-Stong theorem and applications"
+      },
+      {
+        "id": "2603.21680",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Inequalities for Chow Polynomials and Chern Numbers of Matroids"
+      }
+    ]
   }
 ]
