@@ -15,34 +15,28 @@ def get_client():
 def summarize_paper(title, abstract):
     client, model = get_client()
     prompt = (
-        "You are an expert mathematician. Read the following paper title and abstract. "
-        "Output the MAIN THEOREM(s) or PROPOSITION(s) in detail. "
-        "Use LaTeX notation for mathematical symbols (e.g., $$...$$ or $...$). "
-        "First, write the theorem in precise mathematical language, then give a brief plain‑English explanation. "
-        "If the paper has multiple core theorems, list them with bullet points. "
-        "Do not add any extra commentary, evaluation, or introductory phrases. Output in English.\n\n"
+        "You are a mathematician. Summarize the main theorem of this paper in one sentence. "
+        "Use LaTeX for math. Output ONLY the theorem.\n\n"
         f"Title: {title}\n\nAbstract: {abstract}"
     )
     try:
         response = client.chat.completions.create(
             model=model,
-            messages=[
-                {"role": "system", "content": "You are a research mathematician."},
-                {"role": "user", "content": prompt}
-            ],
+            messages=[{"role": "user", "content": prompt}],
             temperature=0.3,
-            max_tokens=600,
+            max_tokens=200,   # 先限制小一些
             timeout=60
         )
+        logging.info(f"Response finish reason: {response.choices[0].finish_reason}")
         content = response.choices[0].message.content
-        if content and content.strip():
+        if content:
             return content.strip()
         else:
-            logging.warning(f"AI returned empty content for: {title[:60]}")
-            return "AI returned an empty theorem statement. Please try again later."
+            logging.error("Empty content returned")
+            return "AI returned empty content."
     except Exception as e:
-        logging.error(f"AI summarization failed for {title}: {e}")
-        return f"Theorem unavailable (Reason: {str(e)[:120]})"
+        logging.error(f"Error: {e}")
+        return f"Error: {str(e)[:100]}"
 
 def analyze_paper_deep(title, abstract):
     client, model = get_client()
