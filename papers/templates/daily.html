@@ -22,7 +22,6 @@
     .primary-category { font-weight: bold; margin: 0.2em 0; }
     .cross-category { color: #555; font-size: 0.9em; margin-left: 0.5em; }
     .abstract { color: #333; margin: 0.5em 0; }
-    .proposition { background: #f4f4f4; padding: 0.8em; border-left: 4px solid #005a9c; margin: 0.5em 0; }
     a { color: #005a9c; text-decoration: none; }
     a:hover { text-decoration: underline; }
   </style>
@@ -30,7 +29,7 @@
 <body>
   <h1>arXiv Daily Papers — {{ date }}</h1>
 
-  {% if papers %}
+  {% if papers is iterable and papers is not string %}
     {% for paper in papers %}
     <div class="paper">
       <div class="title">{{ paper.title }}</div>
@@ -38,19 +37,18 @@
         <strong>arXiv:</strong> <a href="{{ paper.url }}" target="_blank">{{ paper.id }}</a>
       </div>
       <div class="primary-category">{{ paper.category }}
-        {% if paper.cross_categories %}
+        {% if paper.cross_categories is iterable and paper.cross_categories is not string and paper.cross_categories %}
           <span class="cross-category">(also in: {{ paper.cross_categories | join(", ") }})</span>
         {% endif %}
       </div>
       <div class="meta"><strong>Authors:</strong> {{ paper.authors }}</div>
       <div class="abstract"><strong>Abstract:</strong> {{ paper.abstract }}</div>
-      <div class="proposition">
-        <strong>Main Results (summarized by DeepSeek-V4-pro):</strong> {{ paper.ai_summary }}
-      </div>
+      <!-- AI 总结已注释 -->
+      <!-- <div class="proposition"><strong>Main Results (AI summarized):</strong> {{ paper.ai_summary }}</div> -->
     </div>
     {% endfor %}
   {% else %}
-    <p>No papers matched today's criteria.</p>
+    <p>No papers data available in correct format.</p>
   {% endif %}
 </body>
 </html>

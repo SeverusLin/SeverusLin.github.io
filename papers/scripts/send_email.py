@@ -13,22 +13,17 @@ def build_email_html(papers, config):
     include_abstract = config["email"].get("include_full_abstract", True)
     parts = ["<h1>arXiv Daily Papers</h1>"]
     for p in papers:
-        # 标题
         parts.append(f"<h3>{p['title']}</h3>")
-        # arXiv ID 作为链接
         parts.append(f"<p><strong>arXiv:</strong> <a href='{p['url']}'>{p['id']}</a></p>")
-        # 主分类加粗
         parts.append(f"<p><strong>{p['category']}</strong></p>")
-        # 交叉分类
         if p.get("cross_categories"):
             parts.append(f"<p><strong>Cross-listed:</strong> {', '.join(p['cross_categories'])}</p>")
-        # 作者
         parts.append(f"<p><strong>Authors:</strong> {p['authors']}</p>")
+        # ===== AI 总结已注释 =====
+        # parts.append(f"<p><strong>Main Proposition (AI):</strong> {p['ai_summary']}</p>")
         if include_abstract:
             parts.append(f"<p><strong>Abstract:</strong> {p['abstract']}</p>")
         parts.append("<hr>")
-        # AI 命题总结
-        parts.append(f"<p><strong>Main Proposition (AI):</strong> {p['ai_summary']}</p>")
     return "\n".join(parts)
 
 def main():
