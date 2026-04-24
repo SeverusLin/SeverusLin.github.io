@@ -37,5 +37,6 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./output
+          publish_branch: main
           destination_dir: papers
           keep_files: true          # 不删除 index.html
