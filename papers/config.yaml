@@ -13,9 +13,9 @@ ai:
   # base_url 保持不变
   base_url: "https://api.deepseek.com"
   # model 参数任选其一即可
-  model: "deepseek-v4-pro"  # 或者使用 "deepseek-v4-flash"
+  model: "deepseek-v4-flash" 
   # 可选：如果你在本地或服务器上有特定需求，可以增加超时设置，避免网络波动导致的失败
-  token_limit: 300   # AI 打分响应的最大 token 数
+  token_limit: 1000   # AI 打分响应的最大 token 数
 
 email:
   sender: "arXiv Daily <onboarding@resend.dev>"   # 替换为你的已验证域名
