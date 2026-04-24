@@ -1,12 +1,11 @@
 categories:
   - math.AG
-  - cs.LG
-  - stat.ML
+  - math.CO
 
 keywords:
-  - algebraic geometry
-  - deep learning
-  - diffusion model
+  - matroids
+  - tropical geometry
+  - Chern class
 
 lookback_days: 1
 
