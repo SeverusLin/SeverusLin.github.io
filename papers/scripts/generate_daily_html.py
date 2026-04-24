@@ -9,14 +9,13 @@ from jinja2 import Environment, FileSystemLoader
 from scripts.utils import load_config, setup_logging
 
 def load_scoring_guide():
-    """读取评分标准文件内容，如果不存在则返回默认简版"""
     try:
         guide_path = Path(__file__).resolve().parents[1] / "scoring_guide.md"
         with open(guide_path, "r", encoding="utf-8") as f:
             return f.read()
     except Exception as e:
         logging.warning(f"Could not load scoring guide: {e}")
-        return "0-2: unrelated, 3-4: weakly, 5-6: moderately, 7-8: strongly, 9-10: highly related"
+        return ""
 
 def main():
     setup_logging()
@@ -34,12 +33,12 @@ def main():
     template = env.get_template("daily.html")
 
     today = datetime.date.today().isoformat()
-    scoring_guide_content = load_scoring_guide()
+    scoring_guide = load_scoring_guide()
 
     html = template.render(
         papers=papers,
         date=today,
-        scoring_guide_content=scoring_guide_content
+        scoring_guide_content=scoring_guide
     )
 
     output_file = Path(__file__).resolve().parents[2] / "output" / config["output"]["daily_html"]

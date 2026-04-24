@@ -8,18 +8,13 @@ import time
 from openai import OpenAI
 from scripts.utils import load_config, get_api_key_from_env
 
-# 读取独立评分标准文件
 def load_scoring_guide():
-    """
-    从 papers/scoring_guide.md 加载评分标准文本。
-    如果文件不存在，返回默认的简要标准。
-    """
     try:
         guide_path = Path(__file__).resolve().parents[1] / "scoring_guide.md"
         with open(guide_path, "r", encoding="utf-8") as f:
             return f.read()
     except Exception as e:
-        logging.warning(f"Could not load scoring guide: {e}. Using default scale.")
+        logging.warning(f"Could not load scoring guide: {e}")
         return (
             "0-2: completely unrelated\n"
             "3-4: weakly related\n"
@@ -32,13 +27,12 @@ def get_client():
     config = load_config()
     api_key = get_api_key_from_env()
     base_url = config["ai"]["base_url"]
-    return OpenAI(api_key=api_key, base_url=base_url), config["ai"]["model"]
+    return OpenAI(api_key=api_key, base_url=base_url), config["ai"]["model"], config["ai"].get("token_limit", 300)
 
 def evaluate_relatedness(target_title, target_abstract, references):
     if not references:
         return {}
 
-    # 构造参考论文描述
     ref_descriptions = []
     for r in references:
         label = r.get("label", r["id"])
@@ -46,8 +40,8 @@ def evaluate_relatedness(target_title, target_abstract, references):
         ref_descriptions.append(desc)
     ref_text = "\n\n".join(ref_descriptions)
 
-    # 从独立文件加载评分指南
     scoring_guide = load_scoring_guide()
+    client, model, token_limit = get_client()
 
     prompt = (
         "You are a research evaluator. Below is a target paper and a list of reference papers. "
@@ -62,18 +56,17 @@ def evaluate_relatedness(target_title, target_abstract, references):
         "Example: {\"2301.00001\": 8, \"2312.12345\": 3}. Do not add any other text."
     )
 
-    client, model = get_client()
-    for attempt in range(3):
+    for attempt in range(4):  # 增加一次重试
         try:
             response = client.chat.completions.create(
                 model=model,
                 messages=[{"role": "user", "content": prompt}],
                 temperature=0.2,
-                max_tokens=300,
+                max_tokens=token_limit,
                 timeout=60
             )
-            content = response.choices[0].message.content.strip()
-            if content:
+            content = response.choices[0].message.content
+            if content and content.strip():
                 if content.startswith("```"):
                     content = content.strip("`").replace("json\n", "", 1).strip()
                 scores = json.loads(content)
@@ -87,7 +80,9 @@ def evaluate_relatedness(target_title, target_abstract, references):
                         except (ValueError, TypeError):
                             pass
                 return valid
+            else:
+                logging.warning(f"Empty response on attempt {attempt+1} for {target_title[:60]}")
         except Exception as e:
-            logging.warning(f"Relatedness evaluation attempt {attempt+1} failed: {e}")
-            time.sleep(2)
+            logging.warning(f"Attempt {attempt+1} failed: {e}")
+        time.sleep(2 ** attempt)   # 指数退避
     return {}

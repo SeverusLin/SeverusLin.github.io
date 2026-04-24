@@ -14,6 +14,8 @@
     };
   </script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <!-- 引入 marked 来渲染 Markdown 评分指南 -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <style>
     body { font-family: system-ui, -apple-system, sans-serif; max-width: 960px; margin: 2em auto; padding: 0 1em; }
     .paper { margin-bottom: 2.5em; padding-bottom: 2em; border-bottom: 1px solid #ddd; }
@@ -24,7 +26,6 @@
     .abstract { color: #333; margin: 0.8em 0; }
     .relevance { background: #f5f8ff; padding: 1em; border-left: 4px solid #2c5f8a; margin: 1em 0; }
     .relevance h3 { margin-top: 0; font-size: 1.1em; }
-    .guide-box { background: #f9f9f9; padding: 0.8em; margin: 0.5em 0; border-radius: 4px; font-size: 0.9em; white-space: pre-wrap; }
     .ref-list { list-style: none; padding-left: 0; }
     .ref-list li { margin: 0.4em 0; }
     .score-badge { display: inline-block; min-width: 2em; text-align: center; padding: 2px 6px; border-radius: 4px; font-weight: bold; color: white; }
@@ -33,12 +34,35 @@
     .score-7-8 { background: #2980b9; }
     .score-9-10 { background: #27ae60; }
     .na { background: #bdc3c7; }
+    /* 评分指南渲染区域 */
+    .scoring-guide-container {
+      background: #f0f4f8;
+      border: 1px solid #ccc;
+      padding: 1em;
+      margin-bottom: 2em;
+      border-radius: 6px;
+    }
+    .scoring-guide-container h2 { margin-top: 0; }
     a { color: #005a9c; text-decoration: none; }
     a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
   <h1>arXiv Daily Papers — {{ date }}</h1>
+
+  <!-- 只在顶部展示一次评分指南 -->
+  {% if scoring_guide_content %}
+  <div class="scoring-guide-container">
+    <h2>📊 AI Scoring Guide</h2>
+    <div id="scoring-guide-content" data-markdown="{{ scoring_guide_content | forceescape | safe }}"></div>
+    <script>
+      (function() {
+        const md = document.getElementById('scoring-guide-content').getAttribute('data-markdown');
+        document.getElementById('scoring-guide-content').innerHTML = marked.parse(md);
+      })();
+    </script>
+  </div>
+  {% endif %}
 
   {% if papers is iterable and papers is not string %}
     {% for paper in papers %}
@@ -57,8 +81,7 @@
 
       {% if paper.references and paper.references|length > 0 %}
       <div class="relevance">
-        <h3>📊 AI Relevance Score (0-10)</h3>
-        <div class="guide-box">{{ scoring_guide_content }}</div>
+        <h3>🔗 Relevance to Tracked Papers</h3>
         <ul class="ref-list">
           {% for ref in paper.references %}
             <li>

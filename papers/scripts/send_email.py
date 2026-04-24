@@ -47,10 +47,11 @@ def build_email_html(papers, config):
 
         parts.append("<hr>")
 
-    # 读取独立的评分标准文件，替换原来的硬编码
     guide = load_scoring_guide()
+    # 简单将 Markdown 转换为 HTML 段落（避免引入 marked）
+    guide_html = guide.replace("\n", "<br>")
     parts.append("<p><strong>Scoring Guide:</strong></p>")
-    parts.append(f"<pre>{guide}</pre>")
+    parts.append(f"<p>{guide_html}</p>")
 
     return "\n".join(parts)
 
