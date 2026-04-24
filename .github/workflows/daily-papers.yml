@@ -2,32 +2,37 @@ name: Daily ArXiv Papers
 
 on:
   schedule:
-    - cron: '0 8 * * *'          # 每天 UTC 8:00（北京时间 16:00）
-  workflow_dispatch:              # 允许手动触发测试
+    - cron: '0 8 * * *'
+  workflow_dispatch:
+    inputs:
+      send_email:
+        description: '是否发送邮件'
+        required: true
+        default: 'true'
+        type: choice
+        options:
+          - 'true'
+          - 'false'
 
 jobs:
   run:
     runs-on: ubuntu-latest
-    permissions:            # ← 添加
-      contents: write       # ← 添加
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-
       - name: Install dependencies
         run: pip install -r papers/scripts/requirements.txt
-
       - name: Fetch and filter
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
           EMAIL_TO: ${{ secrets.EMAIL_TO }}
-          SEND_EMAIL: 'true'
+          SEND_EMAIL: ${{ github.event.inputs.send_email || 'true' }}
         run: python papers/scripts/fetch_and_filter.py
-
       - name: Commit and push changes
         run: |
           git config user.name "github-actions[bot]"
