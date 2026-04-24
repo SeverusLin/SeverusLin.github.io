@@ -2,7 +2,7 @@ name: Daily arXiv Papers
 
 on:
   schedule:
-    - cron: '0 3 * * *'   # 北京时间 11:00
+    - cron: '0 3 * * *'   # UTC 3:00 = 北京时间 11:00
   workflow_dispatch:
     inputs:
       send_email:
@@ -31,25 +31,33 @@ jobs:
           python -m pip install --upgrade pip
           pip install pyyaml requests arxiv openai resend jinja2
 
+      # 👇 新增步骤：获取星期几
+      - name: Get day of week
+        id: dow
+        run: echo "DOW=$(date +%u)" >> $GITHUB_ENV
+
+      # 👇 所有业务步骤都加上运行条件
       - name: Fetch papers and AI summarize
+        if: github.event_name == 'workflow_dispatch' || (github.event_name == 'schedule' && env.DOW < 6)
         run: python papers/scripts/fetch_papers.py
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
 
       - name: Generate daily HTML
+        if: github.event_name == 'workflow_dispatch' || (github.event_name == 'schedule' && env.DOW < 6)
         run: python papers/scripts/generate_daily_html.py
 
       - name: Deploy to GitHub Pages
+        if: github.event_name == 'workflow_dispatch' || (github.event_name == 'schedule' && env.DOW < 6)
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./output
-          publish_branch: main
           destination_dir: papers
-          keep_files: true          # 让 index.html 和 analysis.html 共存
+          keep_files: true
 
       - name: Send email (optional)
-        if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.send_email)
+        if: (github.event_name == 'workflow_dispatch' && inputs.send_email) || (github.event_name == 'schedule' && env.DOW < 6)
         run: python papers/scripts/send_email.py
         env:
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
