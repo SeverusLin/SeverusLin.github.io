@@ -11,8 +11,8 @@
       "math.CO"
     ],
     "relatedness": {
-      "2409.05107": 2,
-      "2603.21680": 8
+      "2409.05107": 6,
+      "2603.21680": 7
     },
     "references": [
       {
@@ -41,8 +41,8 @@
       "math.HO"
     ],
     "relatedness": {
-      "2409.05107": 1,
-      "2603.21680": 8
+      "2409.05107": 2,
+      "2603.21680": 5
     },
     "references": [
       {
@@ -60,19 +60,17 @@
     ]
   },
   {
-    "id": "2604.23848v1",
-    "title": "Contact flexibility and rigidity for toric Gorenstein prequantizations and Ehrhart theory of toric diagrams",
-    "authors": "Miguel Abreu, Leonardo Macarini, António Rocha-Neves",
-    "abstract": "Gorenstein toric contact manifolds are good toric contact manifolds with zero first Chern class that are completely determined by certain integral convex polytopes called toric diagrams. The Ehrhart polynomial of these toric diagrams determines and is determined by the contact Betti numbers of the corresponding contact manifolds, i.e. the dimension of their cylindrical contact homology in eachdegree. In this paper we look into the following natural question: to what extent do these contact invariants determine the Gorenstein toric contact manifold? Flexibility is the norm and we illustrate it with the family of Gorenstein toric contact manifolds that arise as the prequantization of monotone iterated ${\\mathbb P}^1$-bundles, i.e. monotone Bott manifolds. In each dimension, the Ehrhart polynomial of their toric diagrams is equal to the Ehrhart polynomial of the cross-polytope, corresponding to the monotone prequantization of ${\\mathbb P}^1 \\times \\cdots \\times {\\mathbb P}^1$, and we describe the unimodular classification of these toric diagrams. On the rigidity side, we will show that the primitive prequantization of ${\\mathbb P}^1 \\times \\cdots \\times {\\mathbb P}^1$ is rigid, i.e. completely determined as a Gorenstein toric contact manifold by its contact Betti numbers. More precisely, in each dimension, we show that its toric diagram, which we name small cross-polytope, is the unique toric diagram with its particular Ehrhart polynomial. We will also prove a rigidity result for a family of Gorenstein toric contact manifolds that arise as the primitive prequantization of monotone ${\\mathbb P}^1$-bundles over ${\\mathbb P}^{n-1}$.",
-    "url": "http://arxiv.org/abs/2604.23848v1",
-    "published": "2026-04-26T19:37:00+00:00",
-    "category": "math.SG",
-    "cross_categories": [
-      "math.CO"
-    ],
+    "id": "2604.25238v1",
+    "title": "On the meagerness of the set of irregular bundles on Hopf surfaces",
+    "authors": "Edoardo Ballico, Elizabeth Gasparim",
+    "abstract": "Let $\\mathcal M_{r,c}$ denote the moduli space of stable bundles with rank $r$ and second Chern class $c>0$ on a Hopf surface. We prove that the subset of $\\mathcal M_{r,c}$ formed by irregular bundles is meager.",
+    "url": "http://arxiv.org/abs/2604.25238v1",
+    "published": "2026-04-28T05:32:47+00:00",
+    "category": "math.AG",
+    "cross_categories": [],
     "relatedness": {
-      "2409.05107": 4,
-      "2603.21680": 3
+      "2409.05107": 0,
+      "2603.21680": 0
     },
     "references": [
       {
