@@ -1,46 +1,21 @@
 [
   {
-    "id": "2604.20778v1",
-    "title": "Modularity, Extensions and Connectivity in Infinite Matroids",
-    "authors": "Mattias Ehatamm, Peter Nelson, Fernanda Rivera Omana",
-    "abstract": "We generalize the well-studied notion of a modular pair of a finite matroid to arbitrary families of sets in infinite matroids, and use it to develop the theory of infinite matroids in several as-yet-unexplored areas. Our results include a complete theory of single-element extensions, a description of the relationship between quotients and projections, a proof that matroids for which every flat is modular must be finitary, and two new perspectives on the infinite matroid connectivity parameter λ. In most cases, existing theory for finite matroids either fails completely or does not extend in obvious ways, and as a result we develop multiple new techniques for reasoning about infinite matroids, including establishing well-behaved infinite analogues of nullity, local connectivity and skewness. We also point to an online repository containing formalized proofs of all our results using the lean4 proof assistant",
-    "url": "http://arxiv.org/abs/2604.20778v1",
-    "published": "2026-04-22T17:06:22+00:00",
+    "id": "2604.27755v1",
+    "title": "Gårding Polynomials",
+    "authors": "Hao Fang, Biao Ma",
+    "abstract": "We introduce Gårding polynomials, a class of real multivariate polynomials defined via positivity regions invariant under translation by positive directions and closed under strictly positive affine transformations. We establish a structural theorem providing two complementary characterizations of this class: one via reduction to the multi-affine case through polarization, and another via a recursive condition involving partial derivatives. The class of Gårding polynomials strictly extends that of real stable polynomials while retaining many of their structural properties. In particular, multi-affine Gårding polynomials with nonnegative coefficients satisfy the Rayleigh property, and their positive univariate specializations yield ultra log-concave coefficient sequences. Moreover, the Gårding property for several matroid generating functions is preserved under natural matroid operations. As applications, we obtain new negative dependence results for generating functions associated with various classes of matroids and graphs--many of which lie beyond the reach of real stability or Lorentzian methods--as well as for characteristic polynomials of certain matrix classes.",
+    "url": "http://arxiv.org/abs/2604.27755v1",
+    "published": "2026-04-30T11:43:39+00:00",
     "category": "math.CO",
-    "cross_categories": [],
-    "relatedness": {
-      "2409.05107": 2,
-      "2603.21680": 5
-    },
-    "references": [
-      {
-        "id": "2409.05107",
-        "title": "Unknown",
-        "abstract": "",
-        "label": "Explicit formulas for the Hattori-Stong theorem and applications"
-      },
-      {
-        "id": "2603.21680",
-        "title": "Unknown",
-        "abstract": "",
-        "label": "Inequalities for Chow Polynomials and Chern Numbers of Matroids"
-      }
-    ]
-  },
-  {
-    "id": "2604.21925v1",
-    "title": "Hodge theory for combinatorial projective bundles",
-    "authors": "Matt Larson, Ethan Partida",
-    "abstract": "We prove the Hard Lefschetz theorem and Hodge-Riemann relations for certain rings which resemble the cohomology rings of projectivizations of globally generated vector bundles over toric varieties. This proves new cases of the standard conjecture of Hodge type and gives Bloch-Gieseker-type results for tautological classes of matroids.",
-    "url": "http://arxiv.org/abs/2604.21925v1",
-    "published": "2026-04-23T17:59:15+00:00",
-    "category": "math.AG",
     "cross_categories": [
-      "math.CO"
+      "math.AP",
+      "math.CA",
+      "math.OC",
+      "math.PR"
     ],
     "relatedness": {
-      "2409.05107": 5,
-      "2603.21680": 8
+      "2409.05107": 2,
+      "2603.21680": 7
     },
     "references": [
       {
