@@ -2,7 +2,7 @@ name: Daily arXiv Papers
 
 on:
   schedule:
-    - cron: '0 1 * * *'   # UTC 1:00 = 北京时间 9:00
+    - cron: '0 3 * * *'   # UTC 
   workflow_dispatch:
     inputs:
       send_email:
