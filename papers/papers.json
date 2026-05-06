@@ -1,5 +1,37 @@
 [
   {
+    "id": "2605.03172v1",
+    "title": "Stability of Synthetic Timelike Ricci Bounds under $C^0$-Limits and Applications to Impulsive Gravitational Waves",
+    "authors": "Andrea Mondino, Vanessa Ryborz, Clemens Sämann",
+    "abstract": "We investigate the stability of timelike Ricci curvature lower bounds under low-regularity limits of Lorentzian metrics. Specifically, we prove that the synthetic curvature-dimension condition $TCD^e_p(K,N)$, which provides an optimal transport formulation of the Hawking-Penrose strong energy condition, is stable under locally uniform convergence of smooth Lorentzian metrics, provided a uniform global hyperbolicity assumption holds. As a consequence, smooth locally uniform limits of vacuum spacetimes satisfy the strong energy condition, even though curvature is not controlled a priori. As a main application, we study impulsive gravitational waves - spacetimes with Lipschitz continuous metrics - and show that large classes of such waves satisfy synthetic timelike Ricci curvature lower bounds. In the case of Minkowski background, we further establish synthetic upper Ricci curvature bounds. Our approach relies on constructing suitable smooth approximations with lower bounds on the timelike Ricci, and analyzing the limiting behavior via Lorentzian optimal transport. These results yield new geometric insights into low-regularity solutions of the Einstein equations and, in particular, provide a counterexample to the extension of the Eschenburg-Galloway-Newman Lorentzian splitting theorem to infinitesimally Minkowskian $TCD^e_p(0,N)$ Lorentzian length spaces. Moreover, our construction shows that a direct Lorentzian analogue of the Cheeger-Colding almost splitting theorem - under assumptions of almost non-negative timelike Ricci curvature and the existence of an almost maximizing line - cannot hold. This highlights a fundamental difference between the geometry of Riemannian and Lorentzian lower Ricci curvature bounds. We also apply the aforementioned stability theorem to weak solutions of the Einstein equations arising from the nonlinear interaction of impulsive gravitational waves.",
+    "url": "http://arxiv.org/abs/2605.03172v1",
+    "published": "2026-05-04T21:32:28+00:00",
+    "category": "gr-qc",
+    "cross_categories": [
+      "math-ph",
+      "math.DG",
+      "math.MG"
+    ],
+    "relatedness": {
+      "2409.05107": 0,
+      "2603.21680": 0
+    },
+    "references": [
+      {
+        "id": "2409.05107",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Explicit formulas for the Hattori-Stong theorem and applications"
+      },
+      {
+        "id": "2603.21680",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Inequalities for Chow Polynomials and Chern Numbers of Matroids"
+      }
+    ]
+  },
+  {
     "id": "2605.02532v1",
     "title": "Toric rings of signed posets and conic divisorial ideals via matroid theory",
     "authors": "Koji Matsushita",
@@ -11,8 +43,123 @@
       "math.CO"
     ],
     "relatedness": {
+      "2409.05107": 1,
+      "2603.21680": 7
+    },
+    "references": [
+      {
+        "id": "2409.05107",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Explicit formulas for the Hattori-Stong theorem and applications"
+      },
+      {
+        "id": "2603.21680",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Inequalities for Chow Polynomials and Chern Numbers of Matroids"
+      }
+    ]
+  },
+  {
+    "id": "2605.03913v1",
+    "title": "Lattice characterization of cyclic interval hypergraphic posets",
+    "authors": "Félix Gélinas, Yirong Yang",
+    "abstract": "Hypergraphic polytopes $Δ_{\\mathbb{H}}$ arise as Minkowski sums of simplices indexed by the hyperedges of a hypergraph $\\mathbb{H}$. Orienting the $1$-skeleton of such a polytope by a certain generic linear functional gives rise to the hypergraphic poset $P_{\\mathbb{H}}$. Hypergraphic posets include the weak order for the permutahedron and the Tamari lattice for the associahedron. This motivates the problem of determining when $P_{\\mathbb{H}}$ is a lattice. In this paper, we give a complete lattice characterization for cyclic interval hypergraphs, extending the result of Bergeron and Pilaud for interval hypergraphs, and the result of Adenbaum et al. for the complete cyclic interval hypergraph.",
+    "url": "http://arxiv.org/abs/2605.03913v1",
+    "published": "2026-05-05T16:09:57+00:00",
+    "category": "math.CO",
+    "cross_categories": [],
+    "relatedness": {
+      "2409.05107": 0,
+      "2603.21680": 3
+    },
+    "references": [
+      {
+        "id": "2409.05107",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Explicit formulas for the Hattori-Stong theorem and applications"
+      },
+      {
+        "id": "2603.21680",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Inequalities for Chow Polynomials and Chern Numbers of Matroids"
+      }
+    ]
+  },
+  {
+    "id": "2605.04043v1",
+    "title": "Kazhdan-Lusztig polynomials of Dowling geometries",
+    "authors": "Luis Ferroni, Matt Larson",
+    "abstract": "We give a concrete combinatorial interpretation of the coefficients of the Kazhdan-Lusztig polynomials of Dowling geometries, a family of matroids which generalizes braid matroids of types A and B. Furthermore, we interpret the coefficients of the equivariant Kazhdan-Lusztig polynomials and the equivariant Z-polynomials of Dowling geometries associated to non-trivial groups with respect to their full automorphism groups.",
+    "url": "http://arxiv.org/abs/2605.04043v1",
+    "published": "2026-05-05T17:58:21+00:00",
+    "category": "math.CO",
+    "cross_categories": [],
+    "relatedness": {
       "2409.05107": 2,
-      "2603.21680": 9
+      "2603.21680": 7
+    },
+    "references": [
+      {
+        "id": "2409.05107",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Explicit formulas for the Hattori-Stong theorem and applications"
+      },
+      {
+        "id": "2603.21680",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Inequalities for Chow Polynomials and Chern Numbers of Matroids"
+      }
+    ]
+  },
+  {
+    "id": "2605.03464v1",
+    "title": "Asymptotic properties of random monomial ideals",
+    "authors": "Fatemeh Mohammadi, Sonja Petrović, Eduardo Sáenz-de-Cabezón",
+    "abstract": "This paper focuses on asymptotic properties of random monomial ideals through a statistical viewpoint. It extends the study of redundancy in monomial ideals by analyzing the poset density of the LCM-lattice. We explore how this density behaves across random algebraic models and structured networks. Experimental data reveal that the LCM-lattice exhibits sharp threshold behavior rather than changing smoothly. We observe a strong negative correlation between the number of generators and LCM-lattice density, abruptly separating three distinct regimes: a low-density Taylor-like regime, a high-density redundant regime, and a narrow transition window. We show that increasing the generator degree causes this density drop to occur at lower probability thresholds. We conclude by conjecturing that for equigenerated squarefree ideals, the LCM-lattice density undergoes a sharp phase transition, analogous to the emergence of giant components in hypergraphs. This suggests that the classical, ideal-by-ideal role of the LCM-lattice as a combinatorial invariant also admits a statistical/asymptotic counterpart: in natural random families, redundancy and resolution-complexity indicators concentrate into distinct typical regimes separated by a narrow transition window.",
+    "url": "http://arxiv.org/abs/2605.03464v1",
+    "published": "2026-05-05T07:50:50+00:00",
+    "category": "cs.SC",
+    "cross_categories": [
+      "math.AC",
+      "math.CO"
+    ],
+    "relatedness": {
+      "2409.05107": 1,
+      "2603.21680": 3
+    },
+    "references": [
+      {
+        "id": "2409.05107",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Explicit formulas for the Hattori-Stong theorem and applications"
+      },
+      {
+        "id": "2603.21680",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Inequalities for Chow Polynomials and Chern Numbers of Matroids"
+      }
+    ]
+  },
+  {
+    "id": "2605.03791v1",
+    "title": "An Affine Invariant Minkowski Problem",
+    "authors": "Antoine Ablondi",
+    "abstract": "In Euclidean space, the generalised Minkowski problem asks, for a given finite Radon measure $μ$ on the unit sphere $\\mathbb{S}^d$, to find a compact convex set $K$ with area measure $μ$. For convex sets in the Minkowski space invariant under an affine deformation of a uniform lattice of $\\mathrm{SO}_0(d,1)$, the analogous Minkowski problem was considered and solved by Barbot--Béguin--Zeghib (partially) and Bonsante--Fillastre. By a theorem of Mess--Barbot--Bonsante, that also solves the Minkowski problem in flat Lorentzian spacetimes with compact hyperbolic Cauchy surface.   We consider convex domains of the oriented real affine space $\\mathbb{R}^{d+1}$ which are invariant under a subgroup of affine transformations obtained by adding translation parts to a discrete subgroup of $\\mathrm{SL} (\\mathbb{R}^{d+1})$ dividing a convex cone. We prove that those convex domains satisfy a local Steiner Formula, allowing to introduce natural area measures and define an affine invariant Minkowski problem. We then solve that Minkowski problem through a variational method using the convexity of a covolume functional. We also give an interpretation of those results in some \"affine spacetimes\", which were introduced by the author in a preceding work.",
+    "url": "http://arxiv.org/abs/2605.03791v1",
+    "published": "2026-05-05T14:20:23+00:00",
+    "category": "math.DG",
+    "cross_categories": [],
+    "relatedness": {
+      "2409.05107": 0,
+      "2603.21680": 0
     },
     "references": [
       {
