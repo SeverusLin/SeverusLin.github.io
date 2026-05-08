@@ -1,16 +1,44 @@
 [
   {
-    "id": "2605.04043v1",
-    "title": "Kazhdan-Lusztig polynomials of Dowling geometries",
-    "authors": "Luis Ferroni, Matt Larson",
-    "abstract": "We give a concrete combinatorial interpretation of the coefficients of the Kazhdan-Lusztig polynomials of Dowling geometries, a family of matroids which generalizes braid matroids of types A and B. Furthermore, we interpret the coefficients of the equivariant Kazhdan-Lusztig polynomials and the equivariant Z-polynomials of Dowling geometries associated to non-trivial groups with respect to their full automorphism groups.",
-    "url": "http://arxiv.org/abs/2605.04043v1",
-    "published": "2026-05-05T17:58:21+00:00",
+    "id": "2605.05319v1",
+    "title": "Induced Lorentzian and volume polynomials",
+    "authors": "Christopher Eur, Nutan Nepal, Daniel Qin",
+    "abstract": "Suppose one has a party of $m$ people, whose expertise collectively covers $n$ topics. Given a subset $T$ of the topics, one wishes to form a panel of $|T|$ people from the party such that $T$ can be covered by assigning a distinct topic to each panel member with the expertise. We show that the numbers of such panels, as $T$ varies, form a Lorentzian polynomial. We achieve this by showing that a certain linear operator on polynomials, which we call the ``inducing operator'' for its connection to induced (poly)matroids, preserves Lorentzian polynomials and realizable volume polynomials.",
+    "url": "http://arxiv.org/abs/2605.05319v1",
+    "published": "2026-05-06T18:00:12+00:00",
     "category": "math.CO",
     "cross_categories": [],
     "relatedness": {
-      "2409.05107": 2,
+      "2409.05107": 4,
       "2603.21680": 8
+    },
+    "references": [
+      {
+        "id": "2409.05107",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Explicit formulas for the Hattori-Stong theorem and applications"
+      },
+      {
+        "id": "2603.21680",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Inequalities for Chow Polynomials and Chern Numbers of Matroids"
+      }
+    ]
+  },
+  {
+    "id": "2605.05601v1",
+    "title": "Twist polynomial interpolation for binary delta-matroids",
+    "authors": "Zhao Zhao, Qi Yan",
+    "abstract": "Gross, Mansour and Tucker introduced the partial-dual polynomial of a ribbon graph and asked under what conditions such a polynomial is even-interpolating, odd-interpolating, or both. In this paper, we provide an answer to this open problem.Using the framework of delta-matroids, we prove that the twist polynomial of any binary delta-matroid is either an even polynomial, an odd polynomial, or both even-interpolating and odd-interpolating. Applying this to ribbon graphs, we deduce that the partial-dual polynomial of any ribbon graph satisfies the same conclusion.",
+    "url": "http://arxiv.org/abs/2605.05601v1",
+    "published": "2026-05-07T02:37:15+00:00",
+    "category": "math.CO",
+    "cross_categories": [],
+    "relatedness": {
+      "2409.05107": 3,
+      "2603.21680": 6
     },
     "references": [
       {
@@ -39,8 +67,8 @@
       "math.AG"
     ],
     "relatedness": {
-      "2409.05107": 0,
-      "2603.21680": 0
+      "2409.05107": 1,
+      "2603.21680": 1
     },
     "references": [
       {
