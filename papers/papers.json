@@ -1,15 +1,41 @@
 [
   {
-    "id": "2605.09762v1",
-    "title": "Grothendieck Weights on Permutohedral Varieties and Matroids",
-    "authors": "Yiyu Wang",
-    "abstract": "Grothendieck weights, introduced by Shah, are $K$-theoretic analogues of Minkowski weights on smooth toric varieties. We study Grothendieck weights on the permutohedral fan and prove two main results: a $K$-balancing condition that characterizes Grothendieck weights by a finite system of linear equations, and an explicit product rule for the ring structure. We apply this framework to matroids, giving a combinatorial characterization of Grothendieck weights on matroidal fans. As the main application, we compute the motivic Chern class of the hyperplane arrangement complement in its wonderful compactification and show that the result depends only on the matroid, not on the realization. This allows us to extend the definition of the motivic Chern class to all loopless matroids.",
-    "url": "http://arxiv.org/abs/2605.09762v1",
-    "published": "2026-05-10T21:16:00+00:00",
-    "category": "math.AG",
-    "cross_categories": [
-      "math.CO"
-    ],
+    "id": "2605.11054v1",
+    "title": "Paving matroids that are not sparse paving",
+    "authors": "Mohsen Aliabadi",
+    "abstract": "The Mayhew--Newman--Welsh--Whittle conjecture predicts that asymptotically almost all matroids are sparse paving. We study the gap between paving and sparse paving matroids at the logarithmic scale. Let \\(p_n\\) be the number of paving matroids on \\([n]\\), let \\(sp_n\\) be the number of sparse paving matroids on \\([n]\\), and let \\(sp_{n,r}\\) be the number of rank-\\(r\\) sparse paving matroids on \\([n]\\). We prove that \\[   p_n-sp_n\\ge sp_{n,\\lfloor n/2\\rfloor}^{1-o(1)}. \\] Thus the paving matroids that are not sparse paving are themselves logarithmically large. The construction prescribes one hyperplane larger than the rank and then counts stable sets in an induced subgraph of a Johnson graph. We also give amplified versions obtained by varying the large hyperplane and by prescribing distance-six families of large hyperplanes.",
+    "url": "http://arxiv.org/abs/2605.11054v1",
+    "published": "2026-05-11T15:00:00+00:00",
+    "category": "math.CO",
+    "cross_categories": [],
+    "relatedness": {
+      "2409.05107": 1,
+      "2603.21680": 4
+    },
+    "references": [
+      {
+        "id": "2409.05107",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Explicit formulas for the Hattori-Stong theorem and applications"
+      },
+      {
+        "id": "2603.21680",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Inequalities for Chow Polynomials and Chern Numbers of Matroids"
+      }
+    ]
+  },
+  {
+    "id": "2605.12336v1",
+    "title": "The polytope of all matroids in ranks 2 and 3",
+    "authors": "Narayan Collins, Victoria Schleis",
+    "abstract": "We give explicit recursive constructions for the polytope of all matroids $Ω_{r,n}$ in ranks 2 and 3 for all ground set sizes. This polytope was introduced in recent work by Ferroni and Fink as a tool for checking positivity conjectures for valuative invariants. We supplement our theoretical construction by an implementation, which allows for the computation of $Ω_{2,n}$ for $n\\leq 33$ and $Ω_{3,n}$ for $n\\leq 10$. Further, we compute Schubert expansions for all isomorphism classes of matroids of rank $2$ up to $n = 80$, and for rank $3$ up to $n = 11$.",
+    "url": "http://arxiv.org/abs/2605.12336v1",
+    "published": "2026-05-12T16:18:25+00:00",
+    "category": "math.CO",
+    "cross_categories": [],
     "relatedness": {
       "2409.05107": 6,
       "2603.21680": 9
@@ -39,8 +65,8 @@
     "category": "math.DG",
     "cross_categories": [],
     "relatedness": {
-      "2409.05107": 1,
-      "2603.21680": 1
+      "2409.05107": 0,
+      "2603.21680": 0
     },
     "references": [
       {
