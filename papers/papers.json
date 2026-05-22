@@ -1,19 +1,16 @@
 [
   {
-    "id": "2605.18089v1",
-    "title": "Chern classes of Laughlin bundles on the quasihole moduli space",
-    "authors": "Florent Dupont, Semyon Klevtsov",
-    "abstract": "We study fractional quantum Hall states with quasihole excitations, on Riemann surfaces of arbitrary genus. For configurations with $m$ quasiholes we construct a vector bundle above the $m$-th symmetric power of the curve so that the fiber at a point $\\lbrace w_1,\\dots,w_m \\rbrace$ corresponds to the state with quasiholes localized at these positions. We determine the Chern character of this bundle via the Grothendieck-Riemann-Roch theorem and show that in the completely filled state, i.e. when the number of particles is maximal, the vector bundle is compatible with the condition of projective flatness. Furthermore, we obtain a generalization of this result to the case of multiple layers and multiple quasihole types. In genus zero and one, we construct explicit wave-functions and verify that the curvature of the associated Chern connection reproduces the predicted Chern classes. The Chern classes obtained match, term by term, the predicted decomposition of the Berry phase under quasihole exchange, into an extensive Aharonov--Bohm contribution and a fractional statistical contribution.",
-    "url": "http://arxiv.org/abs/2605.18089v1",
-    "published": "2026-05-18T09:04:35+00:00",
-    "category": "math.AG",
-    "cross_categories": [
-      "cond-mat.str-el",
-      "math-ph"
-    ],
+    "id": "2605.22673v1",
+    "title": "Ehrhart positivity for lattice path matroids",
+    "authors": "Luis Ferroni, Alejandro H. Morales, Greta Panova",
+    "abstract": "We prove that all lattice path matroids are Ehrhart positive. This unifies and generalizes numerous results on the Ehrhart positivity of matroids developed over the last two decades. We rely on our previous work on the positivity of order polynomials of fences. Our main result supports the conjecture by Ferroni, Jochemko, and Schröter (2022) on the Ehrhart positivity of positroids. Furthermore, our main result implies that all Schubert matroids are Ehrhart positive, which thus settles a conjecture by Fan and Li (2024), and supports a conjecture by Monical, Tokcan, and Yong (2019) on the Ehrhart positivity of Schubitopes.",
+    "url": "http://arxiv.org/abs/2605.22673v1",
+    "published": "2026-05-21T16:15:50+00:00",
+    "category": "math.CO",
+    "cross_categories": [],
     "relatedness": {
-      "2409.05107": 4,
-      "2603.21680": 3
+      "2409.05107": 2,
+      "2603.21680": 5
     },
     "references": [
       {
@@ -31,16 +28,52 @@
     ]
   },
   {
-    "id": "2605.18065v1",
-    "title": "Degenerations and Stability of Kähler Structures on Calabi--Yau Manifolds",
-    "authors": "Kefeng Liu, Yang Shen",
-    "abstract": "In this paper, we study the degeneration and stability of Kähler structures on Calabi--Yau manifolds, namely compact Kähler manifolds with trivial canonical bundles, from the viewpoint of deformation theory and Hodge theory. Using the global deformation theory of Calabi--Yau manifolds together with estimates relating the Weil--Petersson distance and Beltrami differentials, we prove that certain limits of Calabi--Yau manifolds remain Kähler.   As applications, we give a new proof of Siu's theorem on the Kählerness of K3 surfaces. We further prove that deformation limits of hyperkähler manifolds with bounded periods remain Kähler, which gives a complete and stronger solution to the conjecture of Soldatenkov--Verbitsky. Finally, we prove that the moduli spaces of stable sheaves on K3 surfaces are hyperkähler manifolds, which gives a complete solution to the conjecture of Perego.",
-    "url": "http://arxiv.org/abs/2605.18065v1",
-    "published": "2026-05-18T08:49:12+00:00",
+    "id": "2605.22706v1",
+    "title": "On the cohomological classification of vector bundles on smooth real affine surfaces and threefolds",
+    "authors": "Samuel Lerbet",
+    "abstract": "We study the cohomological classification of vector bundles on smooth real affine surfaces and threefolds. We show that, as was observed in joint work in A. Asok and J. Fasel and in a coming joint paper with S. Banerjee and J. Fasel, under suitable cohomological assumptions on the real locus of such varieties, this classification mirrors the one obtained on algebraically closed base fields by Mohan Kumar and Murthy and by Asok and Fasel. Using an argument due to Fasel, we also give an efficient proof of a theorem of Kucharz characterising the triples of algebraic cycles that can be realised as the Chern classes of a rank $3$ bundle on a smooth real affine threefold. We further answer the questions left open by Kucharz; to our knowledge, we give the first instance of a projective module over a smooth affine $\\mathbb{R}$-algebra of dimension $3$ with trivial Chern classes which is not stably free.",
+    "url": "http://arxiv.org/abs/2605.22706v1",
+    "published": "2026-05-21T16:46:33+00:00",
     "category": "math.AG",
-    "cross_categories": [],
+    "cross_categories": [
+      "math.AC",
+      "math.AT",
+      "math.KT"
+    ],
     "relatedness": {
-      "2409.05107": 1,
+      "2409.05107": 6,
+      "2603.21680": 2
+    },
+    "references": [
+      {
+        "id": "2409.05107",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Explicit formulas for the Hattori-Stong theorem and applications"
+      },
+      {
+        "id": "2603.21680",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Inequalities for Chow Polynomials and Chern Numbers of Matroids"
+      }
+    ]
+  },
+  {
+    "id": "2605.22265v1",
+    "title": "Empirical Hodge Laplacians, Cohomology Ring, and Manifold Learning",
+    "authors": "Hông Vân Lê",
+    "abstract": "Let $M^n$ be a compact orientable Riemannian smooth submanifold of dimension $n \\ge 2$ in $\\mathbf R^d$. We construct a family of deformed Hodge Laplacians $Δ^*_t, t \\in \\mathbf R_{+},$ acting on differential forms using the extrinsic geometry of $M^n$ and prove their uniform convergence to the Hodge Laplacian $Δ^*$ as $t \\to 0^+$. Given a point cloud $S_m \\subset M^n$, we define symmetrized empirical operators $Δ^*_{sym, t, S_m}$ and establish their spectral convergence in probability to $Δ^*$, as $t \\to 0^+$, under suitable scaling regimes. This extends the scalar framework of Belkin--Niyogi Laplacian Eigenmaps 2003 to differential forms. As a result, we recover the de Rham cohomology ring $H^* (M^n,\\mathbf R)$ from sampled data. Additionally, we also recover the second fundamental form of $M^n$, hence the Riemannian curvature tensor, and consequently, the Pontryagin characteristic classes and numbers of $M^n$ from sampled data.",
+    "url": "http://arxiv.org/abs/2605.22265v1",
+    "published": "2026-05-21T10:09:14+00:00",
+    "category": "math.DG",
+    "cross_categories": [
+      "math.AT",
+      "math.PR",
+      "math.ST"
+    ],
+    "relatedness": {
+      "2409.05107": 2,
       "2603.21680": 1
     },
     "references": [
