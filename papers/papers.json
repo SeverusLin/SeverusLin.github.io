@@ -1,1 +1,61 @@
-[]
+[
+  {
+    "id": "2605.25271v1",
+    "title": "Positivity in classical enumerative geometry: a case study in synchronized AI-assisted mathematics",
+    "authors": "Gergely Bérczi, László M. Fehér",
+    "abstract": "We study the symmetric polynomial $\\prod_{α\\in A_{n,d}}\\bigl(1+α_1 x_1+\\cdots+α_n x_n\\bigr)$ where $A_{n,d}:=\\{α\\in\\mathbb{Z}_{\\ge 0}^n:|α|=d\\}$, which is the total Chern class of $\\mathrm{Sym}^d(\\mathbb{C}^n)$, viewed as a torus representation whose Chern roots are the weights $α_1 x_1+\\cdots+α_n x_n$ for $α\\in A_{n,d}$. Its homogeneous degree-$k$ part $c_k(n,d)$ is the $k$-th Chern class of $\\mathrm{Sym}^d(\\mathbb{C}^n)$. These Chern classes, together with their coefficients in various symmetric function bases, play a central role in enumerative geometry. Despite their simple definition, general closed formulas for their coefficients are subtle, and many structural properties of these classes have remained poorly understood.   In this paper we prove several conjectures concerning their structure, establish explicit formulas, and study log-concavity properties for both the Chern classes and their $K$-theoretic analogue. In rank two, passing to the Schur basis and expanding the Schur coefficients in the binomial basis of $d$, we uncover a new binomial log-concavity phenomenon and prove refined positivity results.   The paper demonstrates a novel methodology: we combine several AI systems with human mathematical insight in a coordinated workflow, deploying each tool according to its strengths in experimental discovery, conjecture formation, symbolic proof construction, and verification. To our knowledge, this is one of the first detailed case studies of orchestrating multiple AI tools to make substantial progress on a coherent mathematical research project.",
+    "url": "http://arxiv.org/abs/2605.25271v1",
+    "published": "2026-05-24T21:56:27+00:00",
+    "category": "math.AG",
+    "cross_categories": [
+      "cs.AI",
+      "cs.NE"
+    ],
+    "relatedness": {
+      "2409.05107": 5,
+      "2603.21680": 8
+    },
+    "references": [
+      {
+        "id": "2409.05107",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Explicit formulas for the Hattori-Stong theorem and applications"
+      },
+      {
+        "id": "2603.21680",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Inequalities for Chow Polynomials and Chern Numbers of Matroids"
+      }
+    ]
+  },
+  {
+    "id": "2605.24963v1",
+    "title": "Degree Bounds for Amoeba Contours",
+    "authors": "Mounir Nisse",
+    "abstract": "We investigate the real algebraic complexity of contours of amoebas associated with algebraic hypersurfaces and complete intersections in complex algebraic tori. Motivated by the foundational estimates of Lang--Shapiro--Shustin \\cite{LSS}, we develop a toric and logarithmic approach relating contour geometry to logarithmic Gauss maps, mixed volumes, and Newton polytope geometry. We prove that the logarithmic criticality equations admit substantially sharper asymptotic behavior than the classical Pfaffian bounds, reducing the expected growth from order $d^{2n}$ to order $d^n$. We further formulate a conjectural asymptotic theory for complete intersections based on logarithmic Grassmannian geometry and Schubert degeneracy loci. The work establishes new connections between amoeba theory, real algebraic geometry, tropical geometry, and logarithmic toric geometry.",
+    "url": "http://arxiv.org/abs/2605.24963v1",
+    "published": "2026-05-24T09:30:04+00:00",
+    "category": "math.AG",
+    "cross_categories": [],
+    "relatedness": {
+      "2409.05107": 1,
+      "2603.21680": 1
+    },
+    "references": [
+      {
+        "id": "2409.05107",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Explicit formulas for the Hattori-Stong theorem and applications"
+      },
+      {
+        "id": "2603.21680",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Inequalities for Chow Polynomials and Chern Numbers of Matroids"
+      }
+    ]
+  }
+]
