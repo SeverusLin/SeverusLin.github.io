@@ -1,1 +1,30 @@
-[]
+[
+  {
+    "id": "2606.10830v1",
+    "title": "PCMI lecture notes: Motivic explorations in enumerative geometry",
+    "authors": "Sabrina Pauli",
+    "abstract": "These are lecture notes for the PCMI 2024 Graduate Summer School for the mini-workshop on motivic explorations in enumerative geometry. Motivic homotopy theory allows to do enumerative geometry over an arbitrary field, which leads to additional arithmetic and geometric information. The goal of the mini-workshop is to explain why and how this works. We will also provide a toolbox for solving enumerative geometry problems in this setting, including the use of tropical geometry. We start with two classical examples in enumerative geometry, namely Bezout's theorem and the count of lines on a smooth cubic surface. We then explain how to solve these problems, first over the complex and real numbers, and then over an arbitrary field, using the A1-degree from motivic homotopy theory. Then we introduce tropical geometry, more precisely we focus on tropical plane curves and show how they can be used to prove Bezout's theorem for curves over an arbitrary field. Finally, we discuss tropical correspondence theorems.",
+    "url": "http://arxiv.org/abs/2606.10830v1",
+    "published": "2026-06-09T13:17:28+00:00",
+    "category": "math.AG",
+    "cross_categories": [],
+    "relatedness": {
+      "2409.05107": 3,
+      "2603.21680": 3
+    },
+    "references": [
+      {
+        "id": "2409.05107",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Explicit formulas for the Hattori-Stong theorem and applications"
+      },
+      {
+        "id": "2603.21680",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Inequalities for Chow Polynomials and Chern Numbers of Matroids"
+      }
+    ]
+  }
+]
