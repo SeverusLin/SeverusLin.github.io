@@ -10,7 +10,93 @@
     "cross_categories": [],
     "relatedness": {
       "2409.05107": 3,
-      "2603.21680": 3
+      "2603.21680": 5
+    },
+    "references": [
+      {
+        "id": "2409.05107",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Explicit formulas for the Hattori-Stong theorem and applications"
+      },
+      {
+        "id": "2603.21680",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Inequalities for Chow Polynomials and Chern Numbers of Matroids"
+      }
+    ]
+  },
+  {
+    "id": "2606.12220v1",
+    "title": "Modular variants of p-adic fundamental sequence",
+    "authors": "Heng Du, Qingyuan Jiang, Yucheng Liu",
+    "abstract": "In this article, we relate any Farey triangle in the extended upper half-plane to a variant of Colmez--Fontaine's fundamental lemma in $p$-adic Hodge theory. In particular, their original fundamental lemma corresponds to the fundamental Farey triangle $(\\frac{1}{0},\\frac{1}{1},\\frac{0}{1})$.",
+    "url": "http://arxiv.org/abs/2606.12220v1",
+    "published": "2026-06-10T15:32:16+00:00",
+    "category": "math.NT",
+    "cross_categories": [
+      "math.AG"
+    ],
+    "relatedness": {
+      "2409.05107": 1,
+      "2603.21680": 1
+    },
+    "references": [
+      {
+        "id": "2409.05107",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Explicit formulas for the Hattori-Stong theorem and applications"
+      },
+      {
+        "id": "2603.21680",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Inequalities for Chow Polynomials and Chern Numbers of Matroids"
+      }
+    ]
+  },
+  {
+    "id": "2606.11727v1",
+    "title": "Stratification of moduli spaces of instantons on the Segre product of three lines via 't Hooft bundles",
+    "authors": "Vincenzo Antonelli, Francesco Malaspina",
+    "abstract": "Let $X$ be the Segre product of three projective lines. For a fixed effective divisor $D$ on $X$, we introduce the notions of $D$-'t Hooft, $(D_i,D_j)$-special and $D$-sectional special bundle. The varieties parameterizing these bundles yield a natural stratification of the moduli space of stable instanton bundles with fixed Chern classes. After characterizing the curves associated with these bundles via Serre correspondence, we describe the corresponding Hilbert schemes. Using this description, we analyze the moduli spaces of $h_i$-'t Hooft bundles and the smaller strata of $(h_i,h_j)$-special and $(h_i)$-sectional special bundles. Finally, we provide a detailed study of the low-charge cases.",
+    "url": "http://arxiv.org/abs/2606.11727v1",
+    "published": "2026-06-10T07:01:17+00:00",
+    "category": "math.AG",
+    "cross_categories": [],
+    "relatedness": {
+      "2409.05107": 2,
+      "2603.21680": 2
+    },
+    "references": [
+      {
+        "id": "2409.05107",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Explicit formulas for the Hattori-Stong theorem and applications"
+      },
+      {
+        "id": "2603.21680",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Inequalities for Chow Polynomials and Chern Numbers of Matroids"
+      }
+    ]
+  },
+  {
+    "id": "2606.12335v1",
+    "title": "On a conjecture of Las Vergnas",
+    "authors": "Steven D. Noble, Gordon F. Royle",
+    "abstract": "In 1988, Las Vergnas conjectured that if $M$ is a binary matroid with bicycle dimension $d$, then for $0 \\leq k \\leq d$, the $k$th derivative of the diagonal Tutte polynomial $T(M;z,z)$ evaluated at $z=-1$ is an integer multiple of $2^{d-k}$. While this was rapidly disproved for binary matroids and for graphs in general, extensive computations strongly suggested that it might be true for planar graphs. In this paper we prove that this is indeed the case. To do this, we consider a stronger divisibility property that we call the LV property, and a larger class of graphs, namely the class of delta-wye-reducible graphs. By a detailed analysis of how a delta-wye exchange affects the coefficients of the diagonal Tutte polynomial, we show that delta-wye-reducible graphs have the LV property. That Las Vergnas' conjecture holds for planar graphs immediately follows because planar graphs are delta-wye reducible and the LV property is stronger than Las Vergnas' divisibility conditions.",
+    "url": "http://arxiv.org/abs/2606.12335v1",
+    "published": "2026-06-10T17:06:08+00:00",
+    "category": "math.CO",
+    "cross_categories": [],
+    "relatedness": {
+      "2409.05107": 1,
+      "2603.21680": 5
     },
     "references": [
       {
