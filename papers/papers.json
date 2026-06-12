@@ -1,16 +1,18 @@
 [
   {
-    "id": "2606.10830v1",
-    "title": "PCMI lecture notes: Motivic explorations in enumerative geometry",
-    "authors": "Sabrina Pauli",
-    "abstract": "These are lecture notes for the PCMI 2024 Graduate Summer School for the mini-workshop on motivic explorations in enumerative geometry. Motivic homotopy theory allows to do enumerative geometry over an arbitrary field, which leads to additional arithmetic and geometric information. The goal of the mini-workshop is to explain why and how this works. We will also provide a toolbox for solving enumerative geometry problems in this setting, including the use of tropical geometry. We start with two classical examples in enumerative geometry, namely Bezout's theorem and the count of lines on a smooth cubic surface. We then explain how to solve these problems, first over the complex and real numbers, and then over an arbitrary field, using the A1-degree from motivic homotopy theory. Then we introduce tropical geometry, more precisely we focus on tropical plane curves and show how they can be used to prove Bezout's theorem for curves over an arbitrary field. Finally, we discuss tropical correspondence theorems.",
-    "url": "http://arxiv.org/abs/2606.10830v1",
-    "published": "2026-06-09T13:17:28+00:00",
+    "id": "2606.12645v1",
+    "title": "Algebraic cobordism rings of wonderful varieties and matroids",
+    "authors": "Raj Gandhi, Ethan Partida",
+    "abstract": "We give two combinatorial presentations for the algebraic cobordism ring $Ω^*(M)$ of the toric variety of the Bergman fan of any loopless matroid $M$. As a consequence of our presentations, we obtain an $Ω^*(\\mathrm{pt})$-algebra isomorphism $Ω^*(M) \\simeq CH^*(M) \\otimes_{\\mathbb{Z}} Ω^*(\\mathrm{pt})$, where $CH^*(M)$ is the Chow ring of $M$ and $Ω^*(\\mathrm{pt})$ is the algebraic cobordism ring of the point. This isomorphism generalizes, in part, the exceptional integral isomorphism between the Chow ring and $K$-ring of a matroid, studied in the recent works of Berget--Eur--Spink--Tseng and Larson--Li--Payne--Proudfoot. For a complex hyperplane arrangement $\\mathcal{H}$, we prove that the algebraic cobordism ring of the wonderful variety $W_\\mathcal{H}$ of $\\mathcal{H}$ and the algebraic cobordism ring of the toric variety of the matroid underlying $\\mathcal{H}$ are isomorphic, and that both rings coincide with the complex cobordism ring of $W_\\mathcal{H}$.",
+    "url": "http://arxiv.org/abs/2606.12645v1",
+    "published": "2026-06-10T20:13:49+00:00",
     "category": "math.AG",
-    "cross_categories": [],
+    "cross_categories": [
+      "math.CO"
+    ],
     "relatedness": {
-      "2409.05107": 3,
-      "2603.21680": 5
+      "2409.05107": 5,
+      "2603.21680": 9
     },
     "references": [
       {
@@ -39,36 +41,8 @@
       "math.AG"
     ],
     "relatedness": {
-      "2409.05107": 1,
-      "2603.21680": 1
-    },
-    "references": [
-      {
-        "id": "2409.05107",
-        "title": "Unknown",
-        "abstract": "",
-        "label": "Explicit formulas for the Hattori-Stong theorem and applications"
-      },
-      {
-        "id": "2603.21680",
-        "title": "Unknown",
-        "abstract": "",
-        "label": "Inequalities for Chow Polynomials and Chern Numbers of Matroids"
-      }
-    ]
-  },
-  {
-    "id": "2606.11727v1",
-    "title": "Stratification of moduli spaces of instantons on the Segre product of three lines via 't Hooft bundles",
-    "authors": "Vincenzo Antonelli, Francesco Malaspina",
-    "abstract": "Let $X$ be the Segre product of three projective lines. For a fixed effective divisor $D$ on $X$, we introduce the notions of $D$-'t Hooft, $(D_i,D_j)$-special and $D$-sectional special bundle. The varieties parameterizing these bundles yield a natural stratification of the moduli space of stable instanton bundles with fixed Chern classes. After characterizing the curves associated with these bundles via Serre correspondence, we describe the corresponding Hilbert schemes. Using this description, we analyze the moduli spaces of $h_i$-'t Hooft bundles and the smaller strata of $(h_i,h_j)$-special and $(h_i)$-sectional special bundles. Finally, we provide a detailed study of the low-charge cases.",
-    "url": "http://arxiv.org/abs/2606.11727v1",
-    "published": "2026-06-10T07:01:17+00:00",
-    "category": "math.AG",
-    "cross_categories": [],
-    "relatedness": {
-      "2409.05107": 2,
-      "2603.21680": 2
+      "2409.05107": 0,
+      "2603.21680": 0
     },
     "references": [
       {
@@ -95,7 +69,7 @@
     "category": "math.CO",
     "cross_categories": [],
     "relatedness": {
-      "2409.05107": 1,
+      "2409.05107": 4,
       "2603.21680": 5
     },
     "references": [
