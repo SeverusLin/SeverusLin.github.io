@@ -1,1 +1,211 @@
-[]
+[
+  {
+    "id": "2606.16772v1",
+    "title": "A diffeological perspective on non-Abelian Hodge theory",
+    "authors": "Mahmud Azam, Steven Rayan",
+    "abstract": "We construct diffeological moduli stacks $\\mathscr{M}_{Dol}(X)$ and $\\mathscr{M}_{dR}(X)$ parametrizing smooth families of Higgs bundles and those of flat bundles, respectively, on a compact Kähler manifold $X$. We then establish an equivalence of stacks between diffeological substacks $\\mathscr{M}^\\mathscr{H}_{Dol} \\subset \\mathscr{M}_{Dol}(X)$ and $\\mathscr{M}^\\mathscr{H}_{dR}(X) \\subset \\mathscr{M}_{dR}(X)$, whose fibres over the point are the categories of semistable Higgs bundles, with the usual condition on Chern classes, and of flat bundles on $X$, respectively. $\\mathscr{M}^\\mathscr{H}_{Dol}(X)$ contains families of semistable Higgs bundles to points of which the classical correspondence of coarse moduli spaces does not extend continuously. This shows that the equivalence we provide is, in a sense, a common extension, in the context of diffeological moduli stacks, of both the homeomorphism of coarse moduli spaces, and of the equivalence of categories between semistable Higgs bundles and arbitrary flat bundles.",
+    "url": "http://arxiv.org/abs/2606.16772v1",
+    "published": "2026-06-15T14:20:00+00:00",
+    "category": "math.DG",
+    "cross_categories": [
+      "math.AG",
+      "math.CT",
+      "math.CV",
+      "math.RT"
+    ],
+    "relatedness": {
+      "2409.05107": 3,
+      "2603.21680": 1
+    },
+    "references": [
+      {
+        "id": "2409.05107",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Explicit formulas for the Hattori-Stong theorem and applications"
+      },
+      {
+        "id": "2603.21680",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Inequalities for Chow Polynomials and Chern Numbers of Matroids"
+      }
+    ]
+  },
+  {
+    "id": "2606.16482v1",
+    "title": "Euler Stratifications of Second Hypersimplices via Delta-matroids",
+    "authors": "Janike Oldekop",
+    "abstract": "We study Euler characteristics of scaled toric varieties arising from second hypersimplices. In algebraic statistics, these are closely connected to maximum likelihood (ML) degrees of toric models. We establish a correspondence between delta-matroids and the non-vanishing factors of the principal $A$-determinant, providing an explicit connection between delta-matroid theory and algebraic statistics. Using this framework, we show that a conjectured minimum ML degree is realizable by a suitable embedding of the variety. Furthermore, for second hypersimplices up to order six, we prove that this value is minimal among all embeddings, as conjectured by Clarke et al. (2024).",
+    "url": "http://arxiv.org/abs/2606.16482v1",
+    "published": "2026-06-15T09:49:33+00:00",
+    "category": "math.AG",
+    "cross_categories": [
+      "math.CO",
+      "math.ST"
+    ],
+    "relatedness": {
+      "2409.05107": 2,
+      "2603.21680": 8
+    },
+    "references": [
+      {
+        "id": "2409.05107",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Explicit formulas for the Hattori-Stong theorem and applications"
+      },
+      {
+        "id": "2603.21680",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Inequalities for Chow Polynomials and Chern Numbers of Matroids"
+      }
+    ]
+  },
+  {
+    "id": "2606.16832v1",
+    "title": "KKM theorems and discrete geometry beyond matroids",
+    "authors": "Pablo Soberón",
+    "abstract": "We introduce selection structures, a topological framework that extends the role played by color classes and matroids in discrete geometry and KKM theorems. Selection structures allow us to extend classic results to genuinely non-matroidal examples, including chessboard complexes and matching complexes.   We show that several matroidal versions of classic results can be generalized to selection structures. These include McGinnis' version of Komiya's KKMS theorem, Holmsen's version of Carathéodory's theorem, Kalai and Meshulam's version of Helly's theorem, and Sadovek's version of the Goodman--Pollack transversal theorem.",
+    "url": "http://arxiv.org/abs/2606.16832v1",
+    "published": "2026-06-15T15:11:19+00:00",
+    "category": "math.CO",
+    "cross_categories": [],
+    "relatedness": {
+      "2409.05107": 1,
+      "2603.21680": 5
+    },
+    "references": [
+      {
+        "id": "2409.05107",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Explicit formulas for the Hattori-Stong theorem and applications"
+      },
+      {
+        "id": "2603.21680",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Inequalities for Chow Polynomials and Chern Numbers of Matroids"
+      }
+    ]
+  },
+  {
+    "id": "2606.16997v1",
+    "title": "Bounds for Genus Zero Gromov-Witten Invariants",
+    "authors": "Mark McLean",
+    "abstract": "We give a bound for the norm of each primary genus zero Gromov-Witten invariant in any smooth projective variety. This bound depends only on the maximum degree of its defining polynomials, the norms of the differential forms representing each insertion, the number of marked points and the degree of the curves. These bounds grow factorially in the number of marked points and a multiple of the degree. This implies that the Borel transform of the genus zero primary generating function converges absolutely in a particular translation of the ample cone.   To prove these bounds, we start with Siebert's formula, expressing genus zero Gromov-Witten invariants in terms of the Segre class of the normal cone of the underlying moduli space inside the space of curves mapping to projective space and the Chern classes of the bundle whose fiber over a curve is the space of sections of the pulled back normal bundle. We then use this description to bound each primary Gromov-Witten invariant in terms of an intermediate count of curves called the D-volume. A deformation to the normal cone argument is then used to compare such an intermediate count with one in projective space.",
+    "url": "http://arxiv.org/abs/2606.16997v1",
+    "published": "2026-06-15T17:32:07+00:00",
+    "category": "math.AG",
+    "cross_categories": [
+      "math.SG"
+    ],
+    "relatedness": {
+      "2409.05107": 3,
+      "2603.21680": 1
+    },
+    "references": [
+      {
+        "id": "2409.05107",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Explicit formulas for the Hattori-Stong theorem and applications"
+      },
+      {
+        "id": "2603.21680",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Inequalities for Chow Polynomials and Chern Numbers of Matroids"
+      }
+    ]
+  },
+  {
+    "id": "2606.16027v1",
+    "title": "Blow-Up Constructions and Applications to Segre Classes and Multidegree Formulas",
+    "authors": "Kai Huang",
+    "abstract": "By comparing simultaneous multigraded blow-ups with suitable iterated blow-up construction, we establish a birational correspondence between the associated exceptional divisors. We further investigate blow-ups arising from rational maps to multiprojective spaces and derive intersection-theoretic formulas for the Chern classes of the resulting exceptional divisors and pullback of tautological line bundles.   These constructions have two main applications. First, they yield a proof of the product formula for Segre classes without any pure-dimensionality hypothesis. Second, they lead to a degree formula for arbitrary closed subschemes of multiprojective spaces, recovering and extending the classical formula of van der Waerden.",
+    "url": "http://arxiv.org/abs/2606.16027v1",
+    "published": "2026-06-14T21:25:38+00:00",
+    "category": "math.AG",
+    "cross_categories": [],
+    "relatedness": {
+      "2409.05107": 3,
+      "2603.21680": 5
+    },
+    "references": [
+      {
+        "id": "2409.05107",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Explicit formulas for the Hattori-Stong theorem and applications"
+      },
+      {
+        "id": "2603.21680",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Inequalities for Chow Polynomials and Chern Numbers of Matroids"
+      }
+    ]
+  },
+  {
+    "id": "2606.15758v1",
+    "title": "Non-Archimedean balanced metrics and their application to totally degenerate abelian varieties",
+    "authors": "Keita Goto",
+    "abstract": "For a polarized complex manifold with discrete automorphism group, it is known that if the first Chern class admits a cscK metric, then the balanced metrics, which are characterized in terms of the algebro-geometric notion of Chow stability, approximate this cscK metric. In this paper, we study a non-Archimedean analogue of this phenomenon. In particular, we prove that such an analogue holds for polarized totally degenerate abelian varieties. As an application, we also show that, for a totally degenerating family of polarized abelian varieties, the validity of this non-Archimedean analogue yields a uniform estimate for the Calabi--Yau metrics on fibers sufficiently close to the degenerate fiber.",
+    "url": "http://arxiv.org/abs/2606.15758v1",
+    "published": "2026-06-14T11:41:51+00:00",
+    "category": "math.AG",
+    "cross_categories": [
+      "math.DG",
+      "math.NT"
+    ],
+    "relatedness": {
+      "2409.05107": 2,
+      "2603.21680": 3
+    },
+    "references": [
+      {
+        "id": "2409.05107",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Explicit formulas for the Hattori-Stong theorem and applications"
+      },
+      {
+        "id": "2603.21680",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Inequalities for Chow Polynomials and Chern Numbers of Matroids"
+      }
+    ]
+  },
+  {
+    "id": "2606.16064v1",
+    "title": "Unavoidable flats in connected regular matroids",
+    "authors": "Wayne Ge",
+    "abstract": "This paper proves that every $2$-connected regular matroid of sufficiently large rank has a $2$-connected graphic flat of large rank. Furthermore, we explicitly determine a list of such unavoidable flats.",
+    "url": "http://arxiv.org/abs/2606.16064v1",
+    "published": "2026-06-14T23:40:24+00:00",
+    "category": "math.CO",
+    "cross_categories": [],
+    "relatedness": {
+      "2409.05107": 6,
+      "2603.21680": 6
+    },
+    "references": [
+      {
+        "id": "2409.05107",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Explicit formulas for the Hattori-Stong theorem and applications"
+      },
+      {
+        "id": "2603.21680",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Inequalities for Chow Polynomials and Chern Numbers of Matroids"
+      }
+    ]
+  }
+]
