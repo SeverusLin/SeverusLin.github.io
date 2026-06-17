@@ -14,7 +14,7 @@
       "math.RT"
     ],
     "relatedness": {
-      "2409.05107": 3,
+      "2409.05107": 1,
       "2603.21680": 1
     },
     "references": [
@@ -46,7 +46,7 @@
     ],
     "relatedness": {
       "2409.05107": 2,
-      "2603.21680": 8
+      "2603.21680": 6
     },
     "references": [
       {
@@ -73,7 +73,7 @@
     "category": "math.CO",
     "cross_categories": [],
     "relatedness": {
-      "2409.05107": 1,
+      "2409.05107": 2,
       "2603.21680": 5
     },
     "references": [
@@ -104,94 +104,7 @@
     ],
     "relatedness": {
       "2409.05107": 3,
-      "2603.21680": 1
-    },
-    "references": [
-      {
-        "id": "2409.05107",
-        "title": "Unknown",
-        "abstract": "",
-        "label": "Explicit formulas for the Hattori-Stong theorem and applications"
-      },
-      {
-        "id": "2603.21680",
-        "title": "Unknown",
-        "abstract": "",
-        "label": "Inequalities for Chow Polynomials and Chern Numbers of Matroids"
-      }
-    ]
-  },
-  {
-    "id": "2606.16027v1",
-    "title": "Blow-Up Constructions and Applications to Segre Classes and Multidegree Formulas",
-    "authors": "Kai Huang",
-    "abstract": "By comparing simultaneous multigraded blow-ups with suitable iterated blow-up construction, we establish a birational correspondence between the associated exceptional divisors. We further investigate blow-ups arising from rational maps to multiprojective spaces and derive intersection-theoretic formulas for the Chern classes of the resulting exceptional divisors and pullback of tautological line bundles.   These constructions have two main applications. First, they yield a proof of the product formula for Segre classes without any pure-dimensionality hypothesis. Second, they lead to a degree formula for arbitrary closed subschemes of multiprojective spaces, recovering and extending the classical formula of van der Waerden.",
-    "url": "http://arxiv.org/abs/2606.16027v1",
-    "published": "2026-06-14T21:25:38+00:00",
-    "category": "math.AG",
-    "cross_categories": [],
-    "relatedness": {
-      "2409.05107": 3,
-      "2603.21680": 5
-    },
-    "references": [
-      {
-        "id": "2409.05107",
-        "title": "Unknown",
-        "abstract": "",
-        "label": "Explicit formulas for the Hattori-Stong theorem and applications"
-      },
-      {
-        "id": "2603.21680",
-        "title": "Unknown",
-        "abstract": "",
-        "label": "Inequalities for Chow Polynomials and Chern Numbers of Matroids"
-      }
-    ]
-  },
-  {
-    "id": "2606.15758v1",
-    "title": "Non-Archimedean balanced metrics and their application to totally degenerate abelian varieties",
-    "authors": "Keita Goto",
-    "abstract": "For a polarized complex manifold with discrete automorphism group, it is known that if the first Chern class admits a cscK metric, then the balanced metrics, which are characterized in terms of the algebro-geometric notion of Chow stability, approximate this cscK metric. In this paper, we study a non-Archimedean analogue of this phenomenon. In particular, we prove that such an analogue holds for polarized totally degenerate abelian varieties. As an application, we also show that, for a totally degenerating family of polarized abelian varieties, the validity of this non-Archimedean analogue yields a uniform estimate for the Calabi--Yau metrics on fibers sufficiently close to the degenerate fiber.",
-    "url": "http://arxiv.org/abs/2606.15758v1",
-    "published": "2026-06-14T11:41:51+00:00",
-    "category": "math.AG",
-    "cross_categories": [
-      "math.DG",
-      "math.NT"
-    ],
-    "relatedness": {
-      "2409.05107": 2,
       "2603.21680": 3
-    },
-    "references": [
-      {
-        "id": "2409.05107",
-        "title": "Unknown",
-        "abstract": "",
-        "label": "Explicit formulas for the Hattori-Stong theorem and applications"
-      },
-      {
-        "id": "2603.21680",
-        "title": "Unknown",
-        "abstract": "",
-        "label": "Inequalities for Chow Polynomials and Chern Numbers of Matroids"
-      }
-    ]
-  },
-  {
-    "id": "2606.16064v1",
-    "title": "Unavoidable flats in connected regular matroids",
-    "authors": "Wayne Ge",
-    "abstract": "This paper proves that every $2$-connected regular matroid of sufficiently large rank has a $2$-connected graphic flat of large rank. Furthermore, we explicitly determine a list of such unavoidable flats.",
-    "url": "http://arxiv.org/abs/2606.16064v1",
-    "published": "2026-06-14T23:40:24+00:00",
-    "category": "math.CO",
-    "cross_categories": [],
-    "relatedness": {
-      "2409.05107": 6,
-      "2603.21680": 6
     },
     "references": [
       {
