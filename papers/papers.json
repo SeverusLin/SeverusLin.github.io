@@ -1,16 +1,46 @@
 [
   {
-    "id": "2606.18562v1",
-    "title": "Closure operators and geometric modules of valuated matroids",
-    "authors": "Jaiung Jun, Jeffrey Tolliver",
-    "abstract": "We introduce a closure operator for valuated matroids and prove that it yields a cryptomorphic definition of valuated matroids. As an application, we introduce a class of modules over the tropical semifield (geometric modules) and prove that there is one-to-one correspondence between projective equivalence classes of simple valuated matroids and isomorphism classes of finitely generated geometric modules. We further illustrate how this correspondence can be lifted to simple infinite valuated matroids and geometric modules.",
-    "url": "http://arxiv.org/abs/2606.18562v1",
-    "published": "2026-06-17T00:28:44+00:00",
+    "id": "2606.20348v1",
+    "title": "Counting q-Matroids",
+    "authors": "Benjamin Jany, Relinde Jurrius, Rudi Pendavingh",
+    "abstract": "$q$-Matroids, a $q$-analogue of classical matroids have attracted a lot of attention over the last decade, yet their enumeration remains largely unexplored. In this paper, we study the number of $q$-matroids, paving and sparse-paving $q$-matroids defined on a fixed ground space and with prescribed rank. We derive new lower bounds using constructions from constant-dimension codes and improve existing estimates. On the upper bound side, we develop two approaches: a combinatorial method based on controlling the number of dependent hyperplanes for paving $q$-matroids, and an entropy-based counting argument applicable to classes of $q$-matroids closed under contraction. These techniques yield explicit upper bounds on the logarithmic number of $q$-matroids with fixed rank and ground space. Finally, we analyze the asymptotic behavior of these bounds, and identify gaps between lower and upper estimates, leading to conjectures on the true asymptotic growth.",
+    "url": "http://arxiv.org/abs/2606.20348v1",
+    "published": "2026-06-18T15:16:20+00:00",
     "category": "math.CO",
     "cross_categories": [],
     "relatedness": {
       "2409.05107": 1,
-      "2603.21680": 7
+      "2603.21680": 5
+    },
+    "references": [
+      {
+        "id": "2409.05107",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Explicit formulas for the Hattori-Stong theorem and applications"
+      },
+      {
+        "id": "2603.21680",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Inequalities for Chow Polynomials and Chern Numbers of Matroids"
+      }
+    ]
+  },
+  {
+    "id": "2606.19573v1",
+    "title": "Embracing exchange sequences and oriented matroid polyhedron diameter",
+    "authors": "Kolja Knauer, Luis Pedro Montejano",
+    "abstract": "We reduce the embracing exchange distance of bases of oriented matroids to the metric of oriented matroid polyhedra. This allows us to disprove recent conjectures of Caoduro, Khodamoradi, Paat, and Shepherd and of Bérczi and Nádor. On the other hand, we show that any two embracing bases of an oriented matroid of rank $r$ can be transformed into each other in at most $2r^{\\log_2(r)+3}$ steps and in at most $r$ steps in a Lawrence oriented matroid, thus confirming the conjecture in this case.",
+    "url": "http://arxiv.org/abs/2606.19573v1",
+    "published": "2026-06-17T20:18:48+00:00",
+    "category": "math.CO",
+    "cross_categories": [
+      "cs.DM"
+    ],
+    "relatedness": {
+      "2409.05107": 2,
+      "2603.21680": 4
     },
     "references": [
       {
