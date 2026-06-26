@@ -1,16 +1,18 @@
 [
   {
-    "id": "2606.25406v1",
-    "title": "Linear relations for Tutte polynomials of semimatroids",
-    "authors": "Houshan Fu",
-    "abstract": "We establish a family of linear relations for the coefficients of the Tutte polynomial of a semimatroid. We also introduce ranked central sets, a mild generalization of semimatroids, and prove that the same identities hold in this broader setting. The proof relies on the specialization $x=\\frac{z}{z-1}$, $y=z$ along the hyperbola $(x-1)(y-1)=1$; under this specialization, the edge subgraph expansion over central sets reduces to the $f$-polynomial of the central set complex. As applications, we obtain explicit formulas for Tutte polynomials of affine hyperplane arrangements and for balanced Tutte polynomials of biased graphs, whose central sets are central subarrangements and balanced edge sets, respectively. Our results recover the generalized Brylawski's identities for Tutte polynomials of ranked sets, matroids and graphs.",
-    "url": "http://arxiv.org/abs/2606.25406v1",
-    "published": "2026-06-24T05:05:10+00:00",
+    "id": "2606.27273v1",
+    "title": "Linear Spaces over Perfect Idylls",
+    "authors": "Jeffery Liu",
+    "abstract": "We construct a category of vector space-like objects called linear spaces over perfect idylls $k$ (an algebraic structure generalizing fields and hyperfields), which is a specialization of modules over $k$. Previous authors have noted that naive linear algebra in the product $k^n$ fails because linear independence does not satisfy matroid independence axioms. We give a sufficient axiom so that linear independence in $k$-linear spaces does satisfy matroid independence axioms. We also examine basic categorical properties of $k$-linear spaces. In particular, the category of $k$-linear spaces has no products, explaining the failure of naive linear algebra in $k^n$. Furthermore, we explore the categorical relationship between linear spaces over a perfect idyll, ordinary matroids, and matroids over a perfect idyll, connecting the existing theories of matroids and modules.",
+    "url": "http://arxiv.org/abs/2606.27273v1",
+    "published": "2026-06-25T16:51:45+00:00",
     "category": "math.CO",
-    "cross_categories": [],
+    "cross_categories": [
+      "math.AG"
+    ],
     "relatedness": {
       "2409.05107": 1,
-      "2603.21680": 5
+      "2603.21680": 6
     },
     "references": [
       {
@@ -28,19 +30,19 @@
     ]
   },
   {
-    "id": "2606.25180v1",
-    "title": "Transfer systems give matroids only for cyclic $p$-groups",
-    "authors": "Yuri J. F. Sulyma",
-    "abstract": "Transfer systems as studied in equivariant algebra admit minimal generating sets, analogous to bases in linear algebra. It is natural to wonder if minimal generating sets form a matroid. We show that this happens only for lattices which are linear orders, or for cyclic groups of prime power order. In this case, we compute some invariants of the resulting matroid.",
-    "url": "http://arxiv.org/abs/2606.25180v1",
-    "published": "2026-06-23T21:14:05+00:00",
+    "id": "2606.26281v1",
+    "title": "Polar Degrees of Matroids",
+    "authors": "Clara Briand, Leonie Kayser, Julian Weigert",
+    "abstract": "We show that the polar degrees of the coordinate-wise inverse of a linear subspace $L \\subseteq \\mathbb{P}^n$ are given by the coefficients of a substitution of the reduced characteristic polynomial of the associated matroid $\\mathrm{M}(L)$. Our proof connects the geometry of conormal varieties of reciprocal linear spaces to the combinatorial conormal fan of $\\mathrm{M}(L)$. As a corollary, we settle two open conjectures regarding matroid discriminants.",
+    "url": "http://arxiv.org/abs/2606.26281v1",
+    "published": "2026-06-24T18:23:08+00:00",
     "category": "math.CO",
     "cross_categories": [
-      "math.AT"
+      "math.AG"
     ],
     "relatedness": {
-      "2409.05107": 2,
-      "2603.21680": 6
+      "2409.05107": 6,
+      "2603.21680": 8
     },
     "references": [
       {
