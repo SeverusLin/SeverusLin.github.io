@@ -1,1 +1,64 @@
-[]
+[
+  {
+    "id": "2606.29309v1",
+    "title": "Enumerating Toric-Colorable Seeds of Picard Number Five via Binary Matroids",
+    "authors": "Suyoung Choi, Mathieu Vallée",
+    "abstract": "We introduce a binary matroid approach to the enumeration of mod 2 toric-colorable seeds of fixed Picard number. We organize these matroids by their contraction category and enumerate weak pseudomanifold subcomplexes by a dynamic programming algorithm. The main computational step uses a Gray code traversal of the mod 2 kernel of the ridge-facet incidence matrix.   As the main new result, we find that there are 198,846 mod 2 toric-colorable seeds of dimension four and Picard number five. We also check that they all are toric-colorable. Finally, the same framework independently reproduces the Picard number 4 enumeration of Choi, Jang, and Vallée much faster than their previous method.",
+    "url": "http://arxiv.org/abs/2606.29309v1",
+    "published": "2026-06-28T10:07:56+00:00",
+    "category": "math.CO",
+    "cross_categories": [
+      "math.GT"
+    ],
+    "relatedness": {
+      "2409.05107": 5,
+      "2603.21680": 8
+    },
+    "references": [
+      {
+        "id": "2409.05107",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Explicit formulas for the Hattori-Stong theorem and applications"
+      },
+      {
+        "id": "2603.21680",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Inequalities for Chow Polynomials and Chern Numbers of Matroids"
+      }
+    ]
+  },
+  {
+    "id": "2606.30637v1",
+    "title": "Lagrangian correspondences of nonabelian Hodge type and shifted twistor structures",
+    "authors": "Jacob Kryczka, Yuuji Tanaka, Shing-Tung Yau",
+    "abstract": "Classical nonabelian Hodge theory identifies Dolbeault and de Rham moduli spaces by providing a real-analytic isomorphism. In this paper, motivated by the Kapustin--Witten theory, we study this correspondence in the more general framework of perfect complexes on proper varieties, paying special attention to the surface case. We establish a Lagrangian correspondence which relates the shifted symplectic geometries by Pantev--Toën--Vaquié--Vezzosi (PTVV) between the derived stacks of flat and Higgs perfect complexes.Furthermore, we investigate the existence of the derived twistor structure of hyperkähler type on the moduli stack of perfect complexes endowed with $λ$-connections by Deligne--Hitchin--Simpson. We establish a version of the AKSZ/PTVV transgression, Lagrangian intersection, and (hyperkähler) symplectic reduction theorems in this context. Moreover, we prove that the derived Riemann--Hilbert correspondence of Porta and Holstein--Porta, which states an equivalence of derived analytic stacks of perfect complexes on $X_{\\mathrm{Betti}}$ and $X_{\\mathrm{DR}}$, is compatible with the natural shifted--symplectic structures. We then study the relation between the shifted (pre-)twistor structures and the shifted symplectic forms on the fibers, and prove that the analytic Deligne--Hitchin--Simpson moduli stack on a smooth projective variety $X$ has a canonical $2(1-\\dim X)$ shifted pretwistor structure over $\\mathbb{P}^1_{\\mathbb{C}}$, a result which has been anticipated for some time. In particular, the moduli stack of solutions to the Kapustin--Witten equations modulo gauge equivalence on a smooth proper complex algebraic surface exibits a $(-2)$-shifted (pre)twistor structure as a family over $\\mathbb{P}^1_{\\mathbb{C}}$.",
+    "url": "http://arxiv.org/abs/2606.30637v1",
+    "published": "2026-06-29T17:58:26+00:00",
+    "category": "math.AG",
+    "cross_categories": [
+      "hep-th",
+      "math-ph",
+      "math.DG"
+    ],
+    "relatedness": {
+      "2409.05107": 1,
+      "2603.21680": 1
+    },
+    "references": [
+      {
+        "id": "2409.05107",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Explicit formulas for the Hattori-Stong theorem and applications"
+      },
+      {
+        "id": "2603.21680",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Inequalities for Chow Polynomials and Chern Numbers of Matroids"
+      }
+    ]
+  }
+]
