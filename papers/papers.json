@@ -1,18 +1,74 @@
 [
   {
-    "id": "2606.31894v1",
-    "title": "On the degree of subvarieties on abelian varieties",
-    "authors": "Philip Engel, Stefan Schreieder",
-    "abstract": "Let $(X,Θ)$ be a very general principally polarized abelian variety of dimension $g$, and consider the minimal cohomology class $θ_k=[Θ]^k/k!$ for $k<g$. We show that the minimal positive multiple of $θ_k$ which is algebraic is divisible by all primes $p\\leq (k+1)/2$. In particular, these minimal multiples grow exponentially with $k$. Our main result follows from [EGFS25] together with a new combinatorial result about $\\mathbb F_p$-solutions of certain graphic matroids in their own Albanese graphs.",
-    "url": "http://arxiv.org/abs/2606.31894v1",
-    "published": "2026-06-30T16:03:50+00:00",
-    "category": "math.AG",
+    "id": "2607.02419v1",
+    "title": "Characterisations of strong $Δ$-matroids",
+    "authors": "Kieran Calvert, Aram Dermenjian, Alex Fink, Ben Smith",
+    "abstract": "We study characterisations of strong $Δ$-matroids, compiling a list of five equivalent descriptions. We show a variant of Wenzel's exchange property and the hyperplane exchange property of Borovik-Gelfand-White are equivalent. We also introduce two novel characterisations in terms of 'peerless' and 'isolated' antipodes within the system of feasible sets, banning certain configurations of antipodes either globally or locally. As a corollary, we obtain new 'local' exchange axioms for matroids and $Δ$-matroids. We give algebraic motivation for these new characterisations by introducing the peerless antipode equations, tropical equations that govern whether a $Δ$-matroid has no peerless antipodes. We show that these arise as the tropicalisation of a specific basis of quadratics cutting out the orthogonal Grassmannian.",
+    "url": "http://arxiv.org/abs/2607.02419v1",
+    "published": "2026-07-02T16:49:03+00:00",
+    "category": "math.CO",
+    "cross_categories": [],
+    "relatedness": {
+      "2409.05107": 1,
+      "2603.21680": 5
+    },
+    "references": [
+      {
+        "id": "2409.05107",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Explicit formulas for the Hattori-Stong theorem and applications"
+      },
+      {
+        "id": "2603.21680",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Inequalities for Chow Polynomials and Chern Numbers of Matroids"
+      }
+    ]
+  },
+  {
+    "id": "2607.01402v1",
+    "title": "Point Singularities and Local Third Chern Classes for Rank-Two Torsion-free Sheaves on Threefolds",
+    "authors": "Xuemiao Chen",
+    "abstract": "In this paper, motivated by singularity formation in gauge theory, we study the local third Chern class contribution carried by isolated point singularities of rank-two torsion-free sheaves on complex threefolds. In the local rank-two setting considered here, the invariant is defined in terms of finite-length local algebraic data at the singular point. We prove that it can be computed from data on the total family; in particular, it is deformation invariant. We also prove that its parity recovers a topological invariant of the underlying smooth complex rank-two vector bundle on the boundary sphere. We then give a relative K-theoretic interpretation: a self-dual complex naturally associated with the sheaf defines a local $K$-theoretic charge, and this charge is equal to the local third Chern class. For rank-two reflexive sheaves, we relate the same invariant to several classical algebraic quantities, including the Fitting scheme and the Buchsbaum-Rim multiplicity. We also discuss applications to the boundary of moduli spaces of Hermitian-Yang-Mills connections.",
+    "url": "http://arxiv.org/abs/2607.01402v1",
+    "published": "2026-07-01T19:07:28+00:00",
+    "category": "math.DG",
     "cross_categories": [
-      "math.CO"
+      "math.AG"
     ],
     "relatedness": {
-      "2409.05107": 3,
-      "2603.21680": 6
+      "2409.05107": 4,
+      "2603.21680": 2
+    },
+    "references": [
+      {
+        "id": "2409.05107",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Explicit formulas for the Hattori-Stong theorem and applications"
+      },
+      {
+        "id": "2603.21680",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Inequalities for Chow Polynomials and Chern Numbers of Matroids"
+      }
+    ]
+  },
+  {
+    "id": "2607.02208v1",
+    "title": "Counterexamples to two conjectures about matroids",
+    "authors": "Matt Larson",
+    "abstract": "We give counterexamples to two well-known conjectures about matroids: White's conjecture on the generation of the toric ideal by symmetric exchange binomials, and a conjecture of Mason on the log-concavity of the counts of flats of a given rank.",
+    "url": "http://arxiv.org/abs/2607.02208v1",
+    "published": "2026-07-02T14:18:11+00:00",
+    "category": "math.CO",
+    "cross_categories": [],
+    "relatedness": {
+      "2409.05107": 1,
+      "2603.21680": 9
     },
     "references": [
       {
