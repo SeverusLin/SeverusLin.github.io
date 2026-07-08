@@ -1,1 +1,92 @@
-[]
+[
+  {
+    "id": "2607.06228v1",
+    "title": "Symmetric Powers of Matroids",
+    "authors": "Bill Jackson, Shin-ichi Tanigawa",
+    "abstract": "The study of matroid products has become an active area of research, owing to their connections with tropical ideals and linear representability. In this paper, we study matroidal abstractions of the multilinearity of symmetric powers of vector spaces, using a duality between symmetric powers of matroids and abstract rigidity. These observations allow us to solve Mason's conjecture concerning the equivalence of two definitions of a symmetric power of a matroid. We show that Mason's conjecture holds for second symmetric powers of matroids whereas it fails for third symmetric powers.",
+    "url": "http://arxiv.org/abs/2607.06228v1",
+    "published": "2026-07-07T12:52:19+00:00",
+    "category": "math.CO",
+    "cross_categories": [],
+    "relatedness": {
+      "2409.05107": 3,
+      "2603.21680": 7
+    },
+    "references": [
+      {
+        "id": "2409.05107",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Explicit formulas for the Hattori-Stong theorem and applications"
+      },
+      {
+        "id": "2603.21680",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Inequalities for Chow Polynomials and Chern Numbers of Matroids"
+      }
+    ]
+  },
+  {
+    "id": "2607.05835v1",
+    "title": "Tangent classes of matroids and wonderful compactifications",
+    "authors": "Ronnie Cheng, Shurui Liu, Guoxiong Gao",
+    "abstract": "For every loopless matroid $M$ and every Feichtner--Yuzvinsky building set $\\mathcal{G}$ containing the top flat, we construct an integral tangent class $T_{M,\\mathcal{G}}^{\\mathbb{Z}}\\in K_{\\mathbb{Z}}(M,\\mathcal{G})$; in the realizable case it specializes to the class of the tangent bundle of the corresponding wonderful compactification, it recovers the Hilbert series of the Chow ring through Hirzebruch--Riemann--Roch, and it satisfies the expected Chern-alpha lower bounds. This reproduces the tangent class and its key properties studied by the first author in arXiv:2606.22650. The main body of this paper was produced autonomously, without human mathematical guidance, by Danus, an AI mathematical reasoning agent. Danus solved the problem before arXiv:2606.22650 was publicly available, demonstrating the potential of AI agents in mathematical research. We reproduce its output faithfully, adding only editorial comments; the experiment is documented in Appendix B.",
+    "url": "http://arxiv.org/abs/2607.05835v1",
+    "published": "2026-07-07T04:56:22+00:00",
+    "category": "math.AG",
+    "cross_categories": [
+      "cs.AI",
+      "math.CO"
+    ],
+    "relatedness": {
+      "2409.05107": 2,
+      "2603.21680": 8
+    },
+    "references": [
+      {
+        "id": "2409.05107",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Explicit formulas for the Hattori-Stong theorem and applications"
+      },
+      {
+        "id": "2603.21680",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Inequalities for Chow Polynomials and Chern Numbers of Matroids"
+      }
+    ]
+  },
+  {
+    "id": "2607.06172v1",
+    "title": "Cone and constrained colorful Carathéodory Theorems",
+    "authors": "Pavle V. M. Blagojević, Roman N. Karasev, Bálint Zsigri",
+    "abstract": "Holmsen proved in 2016 a generalization of the classical colorful Caratheodory theorem in which a matroid imposes additional constraints on the desired colorful transversal. His approach also works in the more general setting of oriented matroids, rather than relying directly on convex hulls.   In this paper, we extend these ideas in several directions. First, we study which colorful Caratheodory-type results remain valid when convex cones replace convex hulls, as well as analogous modifications in the oriented matroid setting. Second, we consider variants in which the additional constraint on the transversal is not encoded by a matroid. This leads to new extensions of the classical Tverberg theorem.   Our approach is topological, following the methods of Holmsen, and Kalai and Meshulam, on which it builds. The key idea is to analyze homology groups of simplicial complexes that encode colorful Caratheodory-type phenomena, such as the support complex of an oriented matroid. In particular, one shows that these complexes are (near-)d-Leray. We extend this analysis by carrying out more detailed homology computations for these complexes, with the aim of enabling further and more refined applications of the method.",
+    "url": "http://arxiv.org/abs/2607.06172v1",
+    "published": "2026-07-07T11:52:33+00:00",
+    "category": "math.CO",
+    "cross_categories": [
+      "math.AT",
+      "math.MG"
+    ],
+    "relatedness": {
+      "2409.05107": 2,
+      "2603.21680": 4
+    },
+    "references": [
+      {
+        "id": "2409.05107",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Explicit formulas for the Hattori-Stong theorem and applications"
+      },
+      {
+        "id": "2603.21680",
+        "title": "Unknown",
+        "abstract": "",
+        "label": "Inequalities for Chow Polynomials and Chern Numbers of Matroids"
+      }
+    ]
+  }
+]
