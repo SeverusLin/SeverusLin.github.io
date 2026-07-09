@@ -9,8 +9,8 @@
     "category": "math.CO",
     "cross_categories": [],
     "relatedness": {
-      "2409.05107": 3,
-      "2603.21680": 7
+      "2409.05107": 2,
+      "2603.21680": 8
     },
     "references": [
       {
@@ -28,20 +28,19 @@
     ]
   },
   {
-    "id": "2607.05835v1",
-    "title": "Tangent classes of matroids and wonderful compactifications",
-    "authors": "Ronnie Cheng, Shurui Liu, Guoxiong Gao",
-    "abstract": "For every loopless matroid $M$ and every Feichtner--Yuzvinsky building set $\\mathcal{G}$ containing the top flat, we construct an integral tangent class $T_{M,\\mathcal{G}}^{\\mathbb{Z}}\\in K_{\\mathbb{Z}}(M,\\mathcal{G})$; in the realizable case it specializes to the class of the tangent bundle of the corresponding wonderful compactification, it recovers the Hilbert series of the Chow ring through Hirzebruch--Riemann--Roch, and it satisfies the expected Chern-alpha lower bounds. This reproduces the tangent class and its key properties studied by the first author in arXiv:2606.22650. The main body of this paper was produced autonomously, without human mathematical guidance, by Danus, an AI mathematical reasoning agent. Danus solved the problem before arXiv:2606.22650 was publicly available, demonstrating the potential of AI agents in mathematical research. We reproduce its output faithfully, adding only editorial comments; the experiment is documented in Appendix B.",
-    "url": "http://arxiv.org/abs/2607.05835v1",
-    "published": "2026-07-07T04:56:22+00:00",
-    "category": "math.AG",
+    "id": "2607.07458v1",
+    "title": "Analytic Spread via Linear Matroids",
+    "authors": "Stephen Landsittel, Eran Nevo",
+    "abstract": "We give a systematic analysis of the analytic spread of the determinantal ideal $J_{G,H}$ arising from a pair of graphs $(G, H)$. We give sharp bounds for this analytic spread, and combinatorial conditions and obstructions for its maximality via a linear matroid. When $H$ is a single edge, $J_{G,H}$ is isomorphic to the binomial edge ideal $J_G$ and its analytic spread is shown to equal the rank of $G$ in Kalai's $2$-hyperconnectivity matroid.",
+    "url": "http://arxiv.org/abs/2607.07458v1",
+    "published": "2026-07-08T14:26:21+00:00",
+    "category": "math.AC",
     "cross_categories": [
-      "cs.AI",
       "math.CO"
     ],
     "relatedness": {
       "2409.05107": 2,
-      "2603.21680": 8
+      "2603.21680": 6
     },
     "references": [
       {
@@ -72,7 +71,7 @@
     ],
     "relatedness": {
       "2409.05107": 2,
-      "2603.21680": 4
+      "2603.21680": 7
     },
     "references": [
       {
